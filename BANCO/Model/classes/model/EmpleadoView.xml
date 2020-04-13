@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmpleadoView"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="Empleado"
+    Entity="model.Empleado"/>
+  <ViewAttribute
+    Name="EmpleadoCodemp"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmpleadoCodemp"
+    EntityUsage="Empleado"
+    AliasName="EMPLEADO_CODEMP"/>
+  <ViewAttribute
+    Name="EmpleadoNombre"
+    PrecisionRule="true"
+    EntityAttrName="EmpleadoNombre"
+    EntityUsage="Empleado"
+    AliasName="EMPLEADO_NOMBRE"/>
+  <ViewAttribute
+    Name="EmpleadoAntiguedad"
+    PrecisionRule="true"
+    EntityAttrName="EmpleadoAntiguedad"
+    EntityUsage="Empleado"
+    AliasName="EMPLEADO_ANTIGUEDAD"/>
+  <ViewAttribute
+    Name="EmpleadoFecini"
+    PrecisionRule="true"
+    EntityAttrName="EmpleadoFecini"
+    EntityUsage="Empleado"
+    AliasName="EMPLEADO_FECINI"/>
+  <ViewAttribute
+    Name="EmpleadoPuesto"
+    PrecisionRule="true"
+    EntityAttrName="EmpleadoPuesto"
+    EntityUsage="Empleado"
+    AliasName="EMPLEADO_PUESTO"/>
+  <ViewLinkAccessor
+    Name="AsesorView"
+    ViewLink="model.AsesorEmpleadoFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

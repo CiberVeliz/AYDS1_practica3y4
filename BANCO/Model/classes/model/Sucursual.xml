@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Sucursual"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SUCURSUAL"
+  AliasName="Sucursual"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="SucursalCodsuc"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="SUCURSAL_CODSUC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SUCURSUAL"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SucursalNombre"
+    Precision="200"
+    ColumnName="SUCURSAL_NOMBRE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SUCURSUAL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SucursalCiudad"
+    Precision="100"
+    ColumnName="SUCURSAL_CIUDAD"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SUCURSUAL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="SucursualPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SUCURSUAL_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Sucursual.SucursalCodsuc"/>
+    </AttrArray>
+  </Key>
+</Entity>

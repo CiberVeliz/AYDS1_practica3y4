@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="clientePageDef"
+                Package="Procesos">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ClienteView1" RangeSize="25" DataControl="AppModuleDataControl" id="ClienteView1Iterator"/>
+    <searchRegion Binds="ClienteView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ClienteView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ClienteView1Iterator" id="ClienteView1">
+      <nodeDefinition DefName="model.ClienteView" Name="ClienteView10">
+        <AttrNames>
+          <Item Value="ClienteCodcli"/>
+          <Item Value="ClienteNombre"/>
+          <Item Value="ClienteDireccion"/>
+          <Item Value="ClienteContrasena"/>
+          <Item Value="ClienteCorreo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ClienteView1Iterator" id="ClienteCodcli">
+      <AttrNames>
+        <Item Value="ClienteCodcli"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteView1Iterator" id="ClienteNombre">
+      <AttrNames>
+        <Item Value="ClienteNombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteView1Iterator" id="ClienteDireccion">
+      <AttrNames>
+        <Item Value="ClienteDireccion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteView1Iterator" id="ClienteContrasena">
+      <AttrNames>
+        <Item Value="ClienteContrasena"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteView1Iterator" id="ClienteCorreo">
+      <AttrNames>
+        <Item Value="ClienteCorreo"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ClienteView1Iterator" id="CreateWithParams" InstanceName="AppModuleDataControl.ClienteView1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="ClienteCodcli" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ClienteView1Iterator" id="Delete" InstanceName="AppModuleDataControl.ClienteView1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

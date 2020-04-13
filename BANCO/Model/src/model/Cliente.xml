@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Cliente"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="CLIENTE"
+  AliasName="Cliente"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="ClienteCodcli"
+    IsNotNull="true"
+    Precision="35"
+    ColumnName="CLIENTE_CODCLI"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CLIENTE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ClienteNombre"
+    Precision="200"
+    ColumnName="CLIENTE_NOMBRE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CLIENTE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ClienteDireccion"
+    Precision="100"
+    ColumnName="CLIENTE_DIRECCION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CLIENTE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ClienteCorreo"
+    Precision="100"
+    ColumnName="CLIENTE_CORREO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CLIENTE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ClienteContrasena"
+    Precision="100"
+    ColumnName="CLIENTE_CONTRASENA"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CLIENTE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Cuenta"
+    Association="model.CuentaClienteFkAssoc"
+    AssociationEnd="model.CuentaClienteFkAssoc.Cuenta"
+    AssociationOtherEnd="model.CuentaClienteFkAssoc.Cliente"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Prestamo"
+    Association="model.PrestamoClienteFkAssoc"
+    AssociationEnd="model.PrestamoClienteFkAssoc.Prestamo"
+    AssociationOtherEnd="model.PrestamoClienteFkAssoc.Cliente"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="ClientePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="CLIENTE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Cliente.ClienteCodcli"/>
+    </AttrArray>
+  </Key>
+</Entity>

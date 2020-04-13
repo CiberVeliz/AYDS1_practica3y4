@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Sucursal"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SUCURSAL"
+  AliasName="Sucursal"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="SucursalCodsuc"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="SUCURSAL_CODSUC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SUCURSAL"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SucursalNombre"
+    Precision="200"
+    ColumnName="SUCURSAL_NOMBRE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SUCURSAL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SucursalCiudad"
+    Precision="100"
+    ColumnName="SUCURSAL_CIUDAD"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SUCURSAL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Prestamo"
+    Association="model.PrestamoSucursualFkAssoc"
+    AssociationEnd="model.PrestamoSucursualFkAssoc.Prestamo"
+    AssociationOtherEnd="model.PrestamoSucursualFkAssoc.Sucursal"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SucursalPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SUCURSAL_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Sucursal.SucursalCodsuc"/>
+    </AttrArray>
+  </Key>
+</Entity>

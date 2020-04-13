@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="Login">
+    <page>/Login.jsf</page>
+  </view>
+  <view id="menu">
+    <page>/Menu/menu.jsf</page>
+  </view>
+  <control-flow-rule id="__4">
+    <from-activity-id>Login</from-activity-id>
+    <control-flow-case id="__5">
+      <from-outcome>ir_menu</from-outcome>
+      <to-activity-id>menu</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__1">
+    <managed-bean-name>backing_Login</managed-bean-name>
+    <managed-bean-class>view.backing.Login</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__3">
+    <managed-bean-name>backing_Procesos_cliente</managed-bean-name>
+    <managed-bean-class>view.backing.Procesos.Cliente</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__2">
+    <managed-bean-name>backing_Menu_menu</managed-bean-name>
+    <managed-bean-class>view.backing.Menu.Menu</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1Menu/menu.jsf-->
+  </managed-bean>
+  <managed-bean id="__6">
+    <managed-bean-name>regionMenu</managed-bean-name>
+    <managed-bean-class>view.regionMenu</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

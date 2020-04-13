@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CuentaView"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="Cuenta"
+    Entity="model.Cuenta"/>
+  <ViewAttribute
+    Name="CuentaNumcue"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CuentaNumcue"
+    EntityUsage="Cuenta"
+    AliasName="CUENTA_NUMCUE"/>
+  <ViewAttribute
+    Name="CuentaSaldo"
+    PrecisionRule="true"
+    EntityAttrName="CuentaSaldo"
+    EntityUsage="Cuenta"
+    AliasName="CUENTA_SALDO"/>
+  <ViewAttribute
+    Name="CuentaTipo"
+    PrecisionRule="true"
+    EntityAttrName="CuentaTipo"
+    EntityUsage="Cuenta"
+    AliasName="CUENTA_TIPO"/>
+  <ViewAttribute
+    Name="CuentaCodcli"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CuentaCodcli"
+    EntityUsage="Cuenta"
+    AliasName="CUENTA_CODCLI"/>
+  <ViewLinkAccessor
+    Name="AsesorView"
+    ViewLink="model.AsesorCuentaFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

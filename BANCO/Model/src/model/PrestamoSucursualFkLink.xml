@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PrestamoSucursualFkLink"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  EntityAssociation="model.PrestamoSucursualFkAssoc">
+  <ViewLinkDefEnd
+    Name="SucursalView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.SucursalView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_finderName" Value="SucursalView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SucursalView.SucursalCodsuc"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="PrestamoView"
+    Cardinality="-1"
+    Owner="model.PrestamoView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="PrestamoView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PrestamoView.PrestamoCodsuc"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

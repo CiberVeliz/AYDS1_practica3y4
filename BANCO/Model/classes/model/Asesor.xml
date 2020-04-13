@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Asesor"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ASESOR"
+  AliasName="Asesor"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="AsesorNumcue"
+    IsNotNull="true"
+    Precision="25"
+    ColumnName="ASESOR_NUMCUE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ASESOR"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AsesorCodemp"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="ASESOR_CODEMP"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ASESOR"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Cuenta"
+    Association="model.AsesorCuentaFkAssoc"
+    AssociationEnd="model.AsesorCuentaFkAssoc.Cuenta"
+    AssociationOtherEnd="model.AsesorCuentaFkAssoc.Asesor"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Empleado"
+    Association="model.AsesorEmpleadoFkAssoc"
+    AssociationEnd="model.AsesorEmpleadoFkAssoc.Empleado"
+    AssociationOtherEnd="model.AsesorEmpleadoFkAssoc.Asesor"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="AsesorPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ASESOR_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Asesor.AsesorNumcue"/>
+      <Item Value="model.Asesor.AsesorCodemp"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AsesorCuentaFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CUENTA_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ASESOR_CUENTA_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Asesor.AsesorNumcue"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AsesorEmpleadoFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="EMPLEADO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ASESOR_EMPLEADO_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Asesor.AsesorCodemp"/>
+    </AttrArray>
+  </Key>
+</Entity>

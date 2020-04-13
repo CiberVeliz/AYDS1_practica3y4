@@ -41,9 +41,11 @@ CREATE TABLE asesor (
 ALTER TABLE asesor ADD CONSTRAINT asesor_pk PRIMARY KEY ( asesor_numcue,asesor_codemp );
 
 CREATE TABLE cliente (
-    cliente_codcli      VARCHAR2(4 BYTE) NOT NULL,
+    cliente_codcli      VARCHAR2(35 BYTE) NOT NULL,
     cliente_nombre      VARCHAR2(200 BYTE),
-    cliente_direccion   VARCHAR2(100 BYTE)
+    cliente_direccion   VARCHAR2(100 BYTE),
+	cliente_correo      VARCHAR2(100 BYTE),
+	cliente_contrasena	VARCHAR2(100 BYTE)
 );
 
 ALTER TABLE cliente ADD CONSTRAINT cliente_pk PRIMARY KEY ( cliente_codcli );
@@ -84,8 +86,8 @@ CREATE TABLE PRESTAMO
      prestamo_codpre           VARCHAR2 (5 BYTE)  NOT NULL , 
      prestamo_numero           NUMBER (10)  NOT NULL , 
      prestamo_importe          NUMBER , 
-     prestamo_codcli    VARCHAR2 (4 BYTE)  NOT NULL , 
-     prestamo_codsuc VARCHAR2 (5 BYTE)  NOT NULL 
+     prestamo_codcli    		VARCHAR2 (4 BYTE)  NOT NULL , 
+     prestamo_codsuc 			VARCHAR2 (5 BYTE)  NOT NULL 
     ) 
 ;
 

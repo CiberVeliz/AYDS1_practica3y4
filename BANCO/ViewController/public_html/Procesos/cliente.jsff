@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="scroll">
+        <af:panelBox text="INGRESO Y CONFIGURACION DE CLIENTES" id="pb1" showDisclosure="false">
+            <f:facet name="toolbar"/>
+            <af:toolbar id="t2">
+                <af:spacer width="25" height="10" id="s1"/>
+                <af:button id="b1" useWindow="true" icon="#{resource['images:nuevo.png']}" shortDesc="Crear"
+                           action="#{backingBeanScope.backing_Procesos_cliente.mostrarPopUpCRUD}">
+                    <af:setPropertyListener from="#{'ingresar'}" to="#{viewScope.accion}" type="action"/>
+                </af:button>
+                <af:button id="b2" icon="#{resource['images:mod.png']}" shortDesc="Editar"
+                           binding="#{backingBeanScope.backing_Procesos_cliente.btnEditar}"
+                           action="#{backingBeanScope.backing_Procesos_cliente.mostrarPopUpCRUD}">
+                    <af:setPropertyListener from="#{'editar'}" to="#{viewScope.accion}" type="action"/>
+                </af:button>
+                <af:button id="b3" icon="#{resource['images:bor.png']}" shortDesc="Eliminar"
+                           action="#{backingBeanScope.backing_Procesos_cliente.mostrarPopUpCRUD}">
+                    <af:setPropertyListener from="#{'eliminar'}" to="#{viewScope.accion}" type="action"/>
+                </af:button>
+            </af:toolbar>
+        </af:panelBox>
+        <af:panelBox text="PanelBox1" id="pb2" showHeader="never">
+            <f:facet name="toolbar"/>
+            <af:panelGridLayout id="pgl2">
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                    <af:gridCell valign="middle" id="gc1"/>
+                    <af:gridCell id="gc13" width="25%"/>
+                    <af:gridCell marginStart="5px" width="30%" halign="stretch" valign="middle" id="gc2"/>
+                    <af:gridCell marginStart="5px" width="auto" id="gc4" valign="middle" halign="end" marginEnd="10px"/>
+                </af:gridRow>
+                <af:gridRow id="gr2">
+                    <af:gridCell columnSpan="4" halign="stretch" id="gc5">
+                        <af:panelCollection id="pc2" featuresOff="statusBar viewMenu" partialTriggers="::puCRUD ::d1"
+                                            styleClass="AFStretchWidth" inlineStyle="padding-top:10px;">
+                            <af:table value="#{bindings.ClienteView1.collectionModel}" var="row"
+                                      rows="#{bindings.ClienteView1.rangeSize}"
+                                      emptyText="#{bindings.ClienteView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.ClienteView1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.ClienteView1.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.ClienteView1.rangeSize}"
+                                      filterModel="#{bindings.ClienteView1Query.queryDescriptor}" filterVisible="true"
+                                      queryListener="#{bindings.ClienteView1Query.processQuery}" varStatus="vs" id="t1"
+                                      width="768">
+                                <af:column sortProperty="#{bindings.ClienteView1.hints.ClienteCodcli.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.ClienteView1.hints.ClienteCodcli.label}" id="c1">
+                                    <af:outputText value="#{row.ClienteCodcli}"
+                                                   shortDesc="#{bindings.ClienteView1.hints.ClienteCodcli.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.ClienteView1.hints.ClienteNombre.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.ClienteView1.hints.ClienteNombre.label}" id="c2"
+                                           width="200">
+                                    <af:outputText value="#{row.ClienteNombre}"
+                                                   shortDesc="#{bindings.ClienteView1.hints.ClienteNombre.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.ClienteView1.hints.ClienteDireccion.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.ClienteView1.hints.ClienteDireccion.label}" id="c3"
+                                           width="200">
+                                    <af:outputText value="#{row.ClienteDireccion}"
+                                                   shortDesc="#{bindings.ClienteView1.hints.ClienteDireccion.tooltip}"
+                                                   id="ot3"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.ClienteView1.hints.ClienteContrasena.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.ClienteView1.hints.ClienteContrasena.label}" id="c4">
+                                    <af:outputText value="#{row.ClienteContrasena}"
+                                                   shortDesc="#{bindings.ClienteView1.hints.ClienteContrasena.tooltip}"
+                                                   id="ot4"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.ClienteView1.hints.ClienteCorreo.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.ClienteView1.hints.ClienteCorreo.label}" id="c5">
+                                    <af:outputText value="#{row.ClienteCorreo}"
+                                                   shortDesc="#{bindings.ClienteView1.hints.ClienteCorreo.tooltip}"
+                                                   id="ot5"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelCollection>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:panelBox>
+                <af:resource type="javascript">
+                  function dobleClick(evt) {
+                      var table = evt.getSource();
+                      AdfCustomEvent.queue(table, "eventoClick", 
+                      {
+                      },
+                      true);
+                      evt.cancel();
+                  }
+                </af:resource>
+                <af:resource type="javascript">
+                      function changeToUpper(event) {
+                          var inputComp = event.getCurrentTarget();
+                          inputComp.setValue(inputComp.getSubmittedValue().toUpperCase());
+                      }
+                    </af:resource>
+                <af:popup id="puCRUD" contentDelivery="lazyUncached"
+                          binding="#{backingBeanScope.backing_Procesos_cliente.puCRUD}"
+                          popupCanceledListener="#{backingBeanScope.backing_Procesos_cliente.editPopupCancelListener}">
+                    <af:dialog id="d1" dialogListener="#{backingBeanScope.backing_Procesos_cliente.onDialogAction}">
+                        <f:facet name="buttonBar">
+                            <af:outputText value="El registro se borrará permanentemente. ¿Está seguro que desea continuar?"
+                                           id="etiqEliminar" styleClass="AFErrorIconStyle"
+                                           binding="#{backingBeanScope.backing_Procesos_cliente.etiqEliminar}"/>
+                            <af:spacer width="150" height="10" id="s2"/>
+                        </f:facet>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.ClienteCodcli.inputValue}"
+                                  label="#{bindings.ClienteCodcli.hints.label}"
+                                  required="#{bindings.ClienteCodcli.hints.mandatory}"
+                                  columns="#{bindings.ClienteCodcli.hints.displayWidth}"
+                                  maximumLength="#{bindings.ClienteCodcli.hints.precision}"
+                                  shortDesc="#{bindings.ClienteCodcli.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.ClienteCodcli.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ClienteNombre.inputValue}"
+                                  label="#{bindings.ClienteNombre.hints.label}"
+                                  required="#{bindings.ClienteNombre.hints.mandatory}"
+                                  columns="#{bindings.ClienteNombre.hints.displayWidth}"
+                                  maximumLength="#{bindings.ClienteNombre.hints.precision}"
+                                  shortDesc="#{bindings.ClienteNombre.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.ClienteNombre.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ClienteDireccion.inputValue}"
+                                  label="#{bindings.ClienteDireccion.hints.label}"
+                                  required="#{bindings.ClienteDireccion.hints.mandatory}"
+                                  columns="#{bindings.ClienteDireccion.hints.displayWidth}"
+                                  maximumLength="#{bindings.ClienteDireccion.hints.precision}"
+                                  shortDesc="#{bindings.ClienteDireccion.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.ClienteDireccion.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ClienteContrasena.inputValue}"
+                                  label="#{bindings.ClienteContrasena.hints.label}"
+                                  required="#{bindings.ClienteContrasena.hints.mandatory}"
+                                  columns="#{bindings.ClienteContrasena.hints.displayWidth}"
+                                  maximumLength="#{bindings.ClienteContrasena.hints.precision}"
+                                  shortDesc="#{bindings.ClienteContrasena.hints.tooltip}" id="it4">
+                        <f:validator binding="#{bindings.ClienteContrasena.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ClienteCorreo.inputValue}"
+                                  label="#{bindings.ClienteCorreo.hints.label}"
+                                  required="#{bindings.ClienteCorreo.hints.mandatory}"
+                                  columns="#{bindings.ClienteCorreo.hints.displayWidth}"
+                                  maximumLength="#{bindings.ClienteCorreo.hints.precision}"
+                                  shortDesc="#{bindings.ClienteCorreo.hints.tooltip}" id="it5">
+                        <f:validator binding="#{bindings.ClienteCorreo.validator}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
+            </af:dialog>
+                </af:popup>
+  </af:panelGroupLayout>
+</ui:composition>
