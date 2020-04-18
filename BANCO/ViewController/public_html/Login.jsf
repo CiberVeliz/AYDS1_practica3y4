@@ -3,7 +3,7 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="Login.jsf" id="d1" binding="#{backingBeanScope.backing_Login.d1}">
         <af:form id="f1" binding="#{backingBeanScope.backing_Login.f1}">
-            <af:panelHeader text="Ingreso al sistema bancario" id="ph1"
+            <af:panelHeader text="Bienvenido al Sistema Bancario" id="ph1"
                             inlineStyle="height:95px;">
                 <f:facet name="context"/>
                 <f:facet name="toolbar"/>
@@ -12,7 +12,7 @@
                 <f:facet name="info"/>
             </af:panelHeader>
             <af:panelFormLayout id="pfl1">
-                <af:button text="Entrar" id="b1" action="ir_menu"/>
+                <af:button text="Entrar" id="b1" action="ir_menu" icon="/ingreso.png"/>
                 <f:facet name="footer"/>
             </af:panelFormLayout>
         </af:form>

@@ -3,7 +3,7 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="menu.jsf" id="d1" binding="#{backingBeanScope.backing_Menu_menu.d1}">
         <af:form id="f1" binding="#{backingBeanScope.backing_Menu_menu.f1}">
-            <af:panelHeader text="Banco internacional" id="ph1" binding="#{backingBeanScope.backing_Menu_menu.ph1}"
+            <af:panelHeader text="Banco Internacional" id="ph1" binding="#{backingBeanScope.backing_Menu_menu.ph1}"
                             inlineStyle="height:94px;">
                 <f:facet name="context"/>
                 <f:facet name="toolbar"/>
@@ -12,17 +12,20 @@
                 <f:facet name="info"/>
             </af:panelHeader>
             <af:panelSplitter id="ps1" binding="#{backingBeanScope.backing_Menu_menu.ps1}"
-                              inlineStyle="width:1255px; height:891px;" splitterPosition="200">
+                              inlineStyle="width:1255px; height:891px;" splitterPosition="250">
                 <f:facet name="first">
                     <af:panelGroupLayout id="pgl1" binding="#{backingBeanScope.backing_Menu_menu.pgl1}"
                                          layout="scroll">
-                        <af:panelBox text="Procesos" id="pb1" binding="#{backingBeanScope.backing_Menu_menu.pb1}">
+                        <af:panelBox text="Procesos" id="pb1" binding="#{backingBeanScope.backing_Menu_menu.pb1}"
+                                     icon="#{resource['images:proceso.png']}">
                             <f:facet name="toolbar"/>
                         </af:panelBox>
-                        <af:panelBox text="Reportes" id="pb2" binding="#{backingBeanScope.backing_Menu_menu.pb2}">
+                        <af:panelBox text="Reportes" id="pb2" binding="#{backingBeanScope.backing_Menu_menu.pb2}"
+                                     icon="#{resource['images:reportes.png']}">
                             <f:facet name="toolbar"/>
                         </af:panelBox>
-                        <af:panelBox text="Configuración" id="pb3" binding="#{backingBeanScope.backing_Menu_menu.pb3}">
+                        <af:panelBox text="Configuración" id="pb3" binding="#{backingBeanScope.backing_Menu_menu.pb3}"
+                                     icon="/icon/config.png">
                             <f:facet name="toolbar"/>
                             <af:link text="con_cliente_tf" action="#{viewScope.regionMenu.con_cliente_tf}" id="l1"
                                      binding="#{backingBeanScope.backing_Menu_menu.l1}"/>
