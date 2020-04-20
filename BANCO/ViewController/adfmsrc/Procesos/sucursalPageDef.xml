@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="sucursalPageDef"
+                Package="Procesos">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SucursalView1" RangeSize="25" DataControl="AppModuleDataControl" id="SucursalView1Iterator"/>
+    <searchRegion Binds="SucursalView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SucursalView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SucursalView1Iterator" id="SucursalView1">
+      <nodeDefinition DefName="model.SucursalView" Name="SucursalView10">
+        <AttrNames>
+          <Item Value="SucursalCodsuc"/>
+          <Item Value="SucursalNombre"/>
+          <Item Value="SucursalCiudad"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

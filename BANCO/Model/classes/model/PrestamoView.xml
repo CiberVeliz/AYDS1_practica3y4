@@ -13,6 +13,47 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="ClienteView1"
+    ViewObjectName="model.ClienteView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SucursalView1"
+    ViewObjectName="model.SucursalView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_PrestamoCodcli"
+    ListVOName="ClienteView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PrestamoCodcli"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ClienteCodcli"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PrestamoCodsuc"
+    ListVOName="SucursalView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PrestamoCodsuc"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SucursalCodsuc"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SucursalNombre"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Prestamo"
     Entity="model.Prestamo"/>
@@ -22,37 +63,82 @@
     PrecisionRule="true"
     EntityAttrName="PrestamoCodpre"
     EntityUsage="Prestamo"
-    AliasName="PRESTAMO_CODPRE"/>
+    AliasName="PRESTAMO_CODPRE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PrestamoView.PrestamoCodpre_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PrestamoNumero"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="PrestamoNumero"
     EntityUsage="Prestamo"
-    AliasName="PRESTAMO_NUMERO"/>
+    AliasName="PRESTAMO_NUMERO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PrestamoView.PrestamoNumero_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PrestamoImporte"
     PrecisionRule="true"
     EntityAttrName="PrestamoImporte"
     EntityUsage="Prestamo"
-    AliasName="PRESTAMO_IMPORTE"/>
+    AliasName="PRESTAMO_IMPORTE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PrestamoView.PrestamoImporte_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PrestamoCodcli"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="PrestamoCodcli"
     EntityUsage="Prestamo"
-    AliasName="PRESTAMO_CODCLI"/>
+    AliasName="PRESTAMO_CODCLI"
+    LOVName="LOV_PrestamoCodcli">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PrestamoView.PrestamoCodcli_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PrestamoCodsuc"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="PrestamoCodsuc"
     EntityUsage="Prestamo"
-    AliasName="PRESTAMO_CODSUC"/>
+    AliasName="PRESTAMO_CODSUC"
+    LOVName="LOV_PrestamoCodsuc">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PrestamoView.PrestamoCodsuc_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="PagoView"
     ViewLink="model.PagoPrestamoFkLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

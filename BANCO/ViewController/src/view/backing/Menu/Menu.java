@@ -3,11 +3,14 @@ package view.backing.Menu;
 import oracle.adf.view.rich.component.rich.RichDocument;
 import oracle.adf.view.rich.component.rich.RichForm;
 import oracle.adf.view.rich.component.rich.fragment.RichRegion;
+import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.layout.RichPanelBox;
 import oracle.adf.view.rich.component.rich.layout.RichPanelGroupLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelHeader;
+import oracle.adf.view.rich.component.rich.layout.RichPanelLabelAndMessage;
 import oracle.adf.view.rich.component.rich.layout.RichPanelSplitter;
 import oracle.adf.view.rich.component.rich.nav.RichLink;
+import oracle.adf.view.rich.component.rich.output.RichSpacer;
 
 public class Menu {
     private RichForm f1;
@@ -20,6 +23,17 @@ public class Menu {
     private RichPanelBox pb1;
     private RichPanelBox pb2;
     private RichPanelBox pb3;
+    private RichPanelGroupLayout pgl2;
+    private RichLink l2;
+    private RichLink l3;
+    private RichPanelGroupLayout pgl3;
+    private RichLink l4;
+    private RichLink l5;
+    private RichLink l6;
+    private RichSpacer s1;
+    private RichInputText it1;
+    private RichPanelLabelAndMessage plam1;
+    private RichPanelGroupLayout pgl4;
 
     public void setF1(RichForm f1) {
         this.f1 = f1;
@@ -99,5 +113,93 @@ public class Menu {
 
     public RichPanelBox getPb3() {
         return pb3;
+    }
+
+    public void setPgl2(RichPanelGroupLayout pgl2) {
+        this.pgl2 = pgl2;
+    }
+
+    public RichPanelGroupLayout getPgl2() {
+        return pgl2;
+    }
+
+    public void setL2(RichLink l2) {
+        this.l2 = l2;
+    }
+
+    public RichLink getL2() {
+        return l2;
+    }
+
+    public void setL3(RichLink l3) {
+        this.l3 = l3;
+    }
+
+    public RichLink getL3() {
+        return l3;
+    }
+
+    public void setPgl3(RichPanelGroupLayout pgl3) {
+        this.pgl3 = pgl3;
+    }
+
+    public RichPanelGroupLayout getPgl3() {
+        return pgl3;
+    }
+
+    public void setL4(RichLink l4) {
+        this.l4 = l4;
+    }
+
+    public RichLink getL4() {
+        return l4;
+    }
+
+    public void setL5(RichLink l5) {
+        this.l5 = l5;
+    }
+
+    public RichLink getL5() {
+        return l5;
+    }
+
+    public void setL6(RichLink l6) {
+        this.l6 = l6;
+    }
+
+    public RichLink getL6() {
+        return l6;
+    }
+
+    public void setS1(RichSpacer s1) {
+        this.s1 = s1;
+    }
+
+    public RichSpacer getS1() {
+        return s1;
+    }
+
+    public void setIt1(RichInputText it1) {
+        this.it1 = it1;
+    }
+
+    public RichInputText getIt1() {
+        return it1;
+    }
+
+    public void setPlam1(RichPanelLabelAndMessage plam1) {
+        this.plam1 = plam1;
+    }
+
+    public RichPanelLabelAndMessage getPlam1() {
+        return plam1;
+    }
+
+    public void setPgl4(RichPanelGroupLayout pgl4) {
+        this.pgl4 = pgl4;
+    }
+
+    public RichPanelGroupLayout getPgl4() {
+        return pgl4;
     }
 }

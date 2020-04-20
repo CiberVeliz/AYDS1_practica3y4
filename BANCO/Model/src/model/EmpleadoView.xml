@@ -22,34 +22,75 @@
     PrecisionRule="true"
     EntityAttrName="EmpleadoCodemp"
     EntityUsage="Empleado"
-    AliasName="EMPLEADO_CODEMP"/>
+    AliasName="EMPLEADO_CODEMP">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.EmpleadoView.EmpleadoCodemp_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EmpleadoNombre"
     PrecisionRule="true"
     EntityAttrName="EmpleadoNombre"
     EntityUsage="Empleado"
-    AliasName="EMPLEADO_NOMBRE"/>
+    AliasName="EMPLEADO_NOMBRE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.EmpleadoView.EmpleadoNombre_LABEL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EmpleadoAntiguedad"
     PrecisionRule="true"
     EntityAttrName="EmpleadoAntiguedad"
     EntityUsage="Empleado"
-    AliasName="EMPLEADO_ANTIGUEDAD"/>
+    AliasName="EMPLEADO_ANTIGUEDAD">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.EmpleadoView.EmpleadoAntiguedad_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EmpleadoFecini"
     PrecisionRule="true"
     EntityAttrName="EmpleadoFecini"
     EntityUsage="Empleado"
-    AliasName="EMPLEADO_FECINI"/>
+    AliasName="EMPLEADO_FECINI">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.EmpleadoView.EmpleadoFecini_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EmpleadoPuesto"
     PrecisionRule="true"
     EntityAttrName="EmpleadoPuesto"
     EntityUsage="Empleado"
-    AliasName="EMPLEADO_PUESTO"/>
+    AliasName="EMPLEADO_PUESTO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.EmpleadoView.EmpleadoPuesto_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="AsesorView"
     ViewLink="model.AsesorEmpleadoFkLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>
