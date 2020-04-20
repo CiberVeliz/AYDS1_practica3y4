@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="asesorPageDef"
+                Package="Procesos">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmpleadoView1" RangeSize="25" DataControl="AppModuleDataControl" id="EmpleadoView1Iterator"/>
+    <searchRegion Binds="EmpleadoView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="EmpleadoView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EmpleadoView1Iterator" id="EmpleadoView1">
+      <nodeDefinition DefName="model.EmpleadoView" Name="EmpleadoView10">
+        <AttrNames>
+          <Item Value="EmpleadoCodemp"/>
+          <Item Value="EmpleadoNombre"/>
+          <Item Value="EmpleadoAntiguedad"/>
+          <Item Value="EmpleadoFecini"/>
+          <Item Value="EmpleadoPuesto"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -13,6 +13,28 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="PrestamoView1"
+    ViewObjectName="model.PrestamoView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_PagoCodpre"
+    ListVOName="PrestamoView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PagoCodpre"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PrestamoCodpre"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PrestamoCodpre"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Pago"
     Entity="model.Pago"/>
@@ -22,31 +44,73 @@
     PrecisionRule="true"
     EntityAttrName="PagoNumpag"
     EntityUsage="Pago"
-    AliasName="PAGO_NUMPAG"/>
+    AliasName="PAGO_NUMPAG">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PagoView.PagoNumpag_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PagoFecha"
     PrecisionRule="true"
     EntityAttrName="PagoFecha"
     EntityUsage="Pago"
-    AliasName="PAGO_FECHA"/>
+    AliasName="PAGO_FECHA">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PagoView.PagoFecha_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PagoImporte"
     PrecisionRule="true"
     EntityAttrName="PagoImporte"
     EntityUsage="Pago"
-    AliasName="PAGO_IMPORTE"/>
+    AliasName="PAGO_IMPORTE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PagoView.PagoImporte_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PagoCodpre"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="PagoCodpre"
     EntityUsage="Pago"
-    AliasName="PAGO_CODPRE"/>
+    AliasName="PAGO_CODPRE"
+    LOVName="LOV_PagoCodpre">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PagoView.PagoCodpre_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PagoNumero"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="PagoNumero"
     EntityUsage="Pago"
-    AliasName="PAGO_NUMERO"/>
+    AliasName="PAGO_NUMERO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PagoView.PagoNumero_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

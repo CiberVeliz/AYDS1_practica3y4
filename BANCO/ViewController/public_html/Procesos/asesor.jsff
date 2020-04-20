@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+     <af:panelGroupLayout id="pgl1" layout="scroll">
+        <af:panelBox text="EMPLEADOS Y ASESORES" id="pb1" showDisclosure="false">
+            <f:facet name="toolbar"/>
+            <af:toolbar id="t2">
+                <af:spacer width="25" height="10" id="s1"/>
+                <af:button id="b1" useWindow="true" icon="#{resource['images:nuevo.png']}" shortDesc="Crear">
+                    <af:setPropertyListener from="#{'ingresar'}" to="#{viewScope.accion}" type="action"/>
+                </af:button>
+                <af:button id="b2" icon="#{resource['images:mod.png']}" shortDesc="Editar">
+                    <af:setPropertyListener from="#{'editar'}" to="#{viewScope.accion}" type="action"/>
+                </af:button>
+                <af:button id="b3" icon="#{resource['images:bor.png']}" shortDesc="Eliminar">
+                    <af:setPropertyListener from="#{'eliminar'}" to="#{viewScope.accion}" type="action"/>
+                </af:button>
+            </af:toolbar>
+        </af:panelBox>
+        <af:panelBox text="PanelBox1" id="pb2" showHeader="never">
+            <f:facet name="toolbar"/>
+            <af:panelGridLayout id="pgl2">
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                    <af:gridCell valign="middle" id="gc1"/>
+                    <af:gridCell id="gc13" width="25%"/>
+                    <af:gridCell marginStart="5px" width="30%" halign="stretch" valign="middle" id="gc2"/>
+                    <af:gridCell marginStart="5px" width="auto" id="gc4" valign="middle" halign="end" marginEnd="10px"/>
+                </af:gridRow>
+                <af:gridRow id="gr2">
+                    <af:gridCell columnSpan="4" halign="stretch" id="gc5">
+                        <af:panelCollection id="pc2" featuresOff="statusBar viewMenu" partialTriggers="::puCRUD ::d1"
+                                            styleClass="AFStretchWidth" inlineStyle="padding-top:10px;">
+                            <af:table value="#{bindings.EmpleadoView1.collectionModel}" var="row"
+                                      rows="#{bindings.EmpleadoView1.rangeSize}"
+                                      emptyText="#{bindings.EmpleadoView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.EmpleadoView1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.EmpleadoView1.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.EmpleadoView1.rangeSize}"
+                                      filterModel="#{bindings.EmpleadoView1Query.queryDescriptor}" filterVisible="true"
+                                      queryListener="#{bindings.EmpleadoView1Query.processQuery}" varStatus="vs"
+                                      id="t1">
+                                <af:column sortProperty="#{bindings.EmpleadoView1.hints.EmpleadoCodemp.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.EmpleadoView1.hints.EmpleadoCodemp.label}" id="c1">
+                                    <af:outputText value="#{row.EmpleadoCodemp}"
+                                                   shortDesc="#{bindings.EmpleadoView1.hints.EmpleadoCodemp.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmpleadoView1.hints.EmpleadoNombre.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.EmpleadoView1.hints.EmpleadoNombre.label}" id="c2"
+                                           width="200">
+                                    <af:outputText value="#{row.EmpleadoNombre}"
+                                                   shortDesc="#{bindings.EmpleadoView1.hints.EmpleadoNombre.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmpleadoView1.hints.EmpleadoAntiguedad.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.EmpleadoView1.hints.EmpleadoAntiguedad.label}"
+                                           id="c3">
+                                    <af:outputText value="#{row.EmpleadoAntiguedad}"
+                                                   shortDesc="#{bindings.EmpleadoView1.hints.EmpleadoAntiguedad.tooltip}"
+                                                   id="ot3">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.EmpleadoView1.hints.EmpleadoAntiguedad.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmpleadoView1.hints.EmpleadoFecini.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.EmpleadoView1.hints.EmpleadoFecini.label}" id="c4">
+                                    <f:facet name="filter">
+                                        <af:inputDate value="#{bindings.EmpleadoView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EmpleadoFecini.value}"
+                                                      id="id1">
+                                            <af:convertDateTime pattern="#{bindings.EmpleadoView1.hints.EmpleadoFecini.format}"/>
+                                        </af:inputDate>
+                                    </f:facet>
+                                    <af:outputText value="#{row.EmpleadoFecini}"
+                                                   shortDesc="#{bindings.EmpleadoView1.hints.EmpleadoFecini.tooltip}"
+                                                   id="ot4">
+                                        <af:convertDateTime pattern="#{bindings.EmpleadoView1.hints.EmpleadoFecini.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmpleadoView1.hints.EmpleadoPuesto.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.EmpleadoView1.hints.EmpleadoPuesto.label}" id="c5">
+                                    <af:outputText value="#{row.EmpleadoPuesto}"
+                                                   shortDesc="#{bindings.EmpleadoView1.hints.EmpleadoPuesto.tooltip}"
+                                                   id="ot5"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelCollection>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:panelBox>
+                <af:resource type="javascript">
+                  function dobleClick(evt) {
+                      var table = evt.getSource();
+                      AdfCustomEvent.queue(table, "eventoClick", 
+                      {
+                      },
+                      true);
+                      evt.cancel();
+                  }
+                </af:resource>
+                <af:resource type="javascript">
+                      function changeToUpper(event) {
+                          var inputComp = event.getCurrentTarget();
+                          inputComp.setValue(inputComp.getSubmittedValue().toUpperCase());
+                      }
+                    </af:resource>
+                <af:popup id="puCRUD" contentDelivery="lazyUncached">
+                    <af:dialog id="d1">
+                        <f:facet name="buttonBar">
+                            <af:outputText value="El registro se borrará permanentemente. ¿Está seguro que desea continuar?"
+                                           id="etiqEliminar" styleClass="AFErrorIconStyle"/>
+                            <af:spacer width="150" height="10" id="s2"/>
+                        </f:facet>
+            </af:dialog>
+                </af:popup>
+  </af:panelGroupLayout>
+</ui:composition>

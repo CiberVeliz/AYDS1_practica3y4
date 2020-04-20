@@ -13,6 +13,29 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="ClienteView1"
+    ViewObjectName="model.ClienteView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CuentaCodcli"
+    ListVOName="ClienteView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CuentaCodcli"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ClienteCodcli"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ClienteCodcli"/>
+      <Item Value="ClienteNombre"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Cuenta"
     Entity="model.Cuenta"/>
@@ -22,29 +45,66 @@
     PrecisionRule="true"
     EntityAttrName="CuentaNumcue"
     EntityUsage="Cuenta"
-    AliasName="CUENTA_NUMCUE"/>
+    AliasName="CUENTA_NUMCUE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.CuentaView.CuentaNumcue_LABEL"/>
+        <DISPLAYWIDTH
+          Value="15"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CuentaSaldo"
     PrecisionRule="true"
     EntityAttrName="CuentaSaldo"
     EntityUsage="Cuenta"
-    AliasName="CUENTA_SALDO"/>
+    AliasName="CUENTA_SALDO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.CuentaView.CuentaSaldo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CuentaTipo"
     PrecisionRule="true"
     EntityAttrName="CuentaTipo"
     EntityUsage="Cuenta"
-    AliasName="CUENTA_TIPO"/>
+    AliasName="CUENTA_TIPO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.CuentaView.CuentaTipo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CuentaCodcli"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CuentaCodcli"
     EntityUsage="Cuenta"
-    AliasName="CUENTA_CODCLI"/>
+    AliasName="CUENTA_CODCLI"
+    LOVName="LOV_CuentaCodcli">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.CuentaView.CuentaCodcli_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="AsesorView"
     ViewLink="model.AsesorCuentaFkLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

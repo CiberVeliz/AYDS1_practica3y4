@@ -1,20 +1,82 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
     <af:document title="Login.jsf" id="d1" binding="#{backingBeanScope.backing_Login.d1}">
+        <af:messages id="m1"/>
         <af:form id="f1" binding="#{backingBeanScope.backing_Login.f1}">
-            <af:panelHeader text="Ingreso al sistema bancario" id="ph1"
-                            inlineStyle="height:95px;">
-                <f:facet name="context"/>
-                <f:facet name="toolbar"/>
-                <f:facet name="menuBar"/>
-                <f:facet name="legend"/>
-                <f:facet name="info"/>
-            </af:panelHeader>
-            <af:panelFormLayout id="pfl1">
-                <af:button text="Entrar" id="b1" action="ir_menu"/>
-                <f:facet name="footer"/>
-            </af:panelFormLayout>
+            <af:panelGroupLayout id="pgl1" layout="scroll" halign="center">
+                <af:spacer width="10" height="98" id="s2"/>
+                <h:outputText value="SISTEMA DE GESTION BANCARIA" id="ot1"
+                              style="font-size:large;"/>
+                <af:spacer width="10" height="37" id="s5"/>
+                <af:panelFormLayout id="pfl1">
+                    <f:facet name="footer">
+                        <af:spacer width="10" height="10" id="s4"/>
+                        <af:link text="Registrarse" id="l1"
+                                 action="#{backingBeanScope.backing_Login.mostrarPopUpCRUD}"/>
+                    </f:facet>
+                    <af:inputText label="Usuario" id="it1" binding="#{backingBeanScope.backing_Login.usuario}"/>
+                    <af:panelLabelAndMessage label="Contraseña" id="plam1">
+                        <h:inputSecret id="is1" binding="#{backingBeanScope.backing_Login.password}"/>
+                    </af:panelLabelAndMessage>
+                    <af:separator id="s1"/>
+                    <af:panelLabelAndMessage id="plam2">
+                        <af:spacer width="48" height="11" id="s3"/>
+                        <af:button text="Ingresar" id="b1" action="#{backingBeanScope.backing_Login.ingresar}"/>
+                    </af:panelLabelAndMessage>
+                    <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                              binding="#{backingBeanScope.backing_Login.puCRUD}"
+                              popupCanceledListener="#{backingBeanScope.backing_Login.editPopupCancelListener}">
+                        <af:dialog id="d2" dialogListener="#{backingBeanScope.backing_Login.onDialogAction}">
+                            <f:facet name="buttonBar"/>
+                            <af:panelFormLayout id="pfl2">
+                                <af:inputText value="#{bindings.ClienteCodcli.inputValue}"
+                                              label="#{bindings.ClienteCodcli.hints.label}"
+                                              required="#{bindings.ClienteCodcli.hints.mandatory}"
+                                              columns="#{bindings.ClienteCodcli.hints.displayWidth}"
+                                              maximumLength="#{bindings.ClienteCodcli.hints.precision}"
+                                              shortDesc="#{bindings.ClienteCodcli.hints.tooltip}" id="it2">
+                                    <f:validator binding="#{bindings.ClienteCodcli.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.ClienteNombre.inputValue}"
+                                              label="#{bindings.ClienteNombre.hints.label}"
+                                              required="#{bindings.ClienteNombre.hints.mandatory}"
+                                              columns="#{bindings.ClienteNombre.hints.displayWidth}"
+                                              maximumLength="#{bindings.ClienteNombre.hints.precision}"
+                                              shortDesc="#{bindings.ClienteNombre.hints.tooltip}" id="it3">
+                                    <f:validator binding="#{bindings.ClienteNombre.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.ClienteDireccion.inputValue}"
+                                              label="#{bindings.ClienteDireccion.hints.label}"
+                                              required="#{bindings.ClienteDireccion.hints.mandatory}"
+                                              columns="#{bindings.ClienteDireccion.hints.displayWidth}"
+                                              maximumLength="#{bindings.ClienteDireccion.hints.precision}"
+                                              shortDesc="#{bindings.ClienteDireccion.hints.tooltip}" id="it4">
+                                    <f:validator binding="#{bindings.ClienteDireccion.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.ClienteContrasena.inputValue}"
+                                              label="#{bindings.ClienteContrasena.hints.label}"
+                                              required="#{bindings.ClienteContrasena.hints.mandatory}"
+                                              columns="#{bindings.ClienteContrasena.hints.displayWidth}"
+                                              maximumLength="#{bindings.ClienteContrasena.hints.precision}"
+                                              shortDesc="#{bindings.ClienteContrasena.hints.tooltip}" id="it5">
+                                    <f:validator binding="#{bindings.ClienteContrasena.validator}"/>
+                                </af:inputText>
+                                <af:inputText label="Vuelva a ingresar la contraseña" id="it7"/>
+                                <af:inputText value="#{bindings.ClienteCorreo.inputValue}"
+                                              label="#{bindings.ClienteCorreo.hints.label}"
+                                              required="#{bindings.ClienteCorreo.hints.mandatory}"
+                                              columns="#{bindings.ClienteCorreo.hints.displayWidth}"
+                                              maximumLength="#{bindings.ClienteCorreo.hints.precision}"
+                                              shortDesc="#{bindings.ClienteCorreo.hints.tooltip}" id="it6">
+                                    <f:validator binding="#{bindings.ClienteCorreo.validator}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                        </af:dialog>
+                    </af:popup>
+                </af:panelFormLayout>
+            </af:panelGroupLayout>
         </af:form>
     </af:document>
 </f:view>

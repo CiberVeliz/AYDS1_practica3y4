@@ -22,12 +22,30 @@
     PrecisionRule="true"
     EntityAttrName="AsesorNumcue"
     EntityUsage="Asesor"
-    AliasName="ASESOR_NUMCUE"/>
+    AliasName="ASESOR_NUMCUE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.AsesorView.AsesorNumcue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AsesorCodemp"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="AsesorCodemp"
     EntityUsage="Asesor"
-    AliasName="ASESOR_CODEMP"/>
+    AliasName="ASESOR_CODEMP">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.AsesorView.AsesorCodemp_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

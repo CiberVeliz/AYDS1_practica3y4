@@ -4,6 +4,11 @@
   <pageMap>
     <page path="/Menu/menu.jsf" usageId="view_menuPageDef"/>
     <page path="/Procesos/cliente.jsff" usageId="view_clientePageDef"/>
+    <page path="/Login.jsf" usageId="view_LoginPageDef"/>
+    <page path="/Procesos/asesor.jsff" usageId="view_asesorPageDef"/>
+    <page path="/Procesos/prestamo.jsff" usageId="view_prestamoPageDef"/>
+    <page path="/Procesos/sucursal.jsff" usageId="view_sucursalPageDef"/>
+    <page path="/Procesos/cuenta.jsff" usageId="view_cuentaPageDef"/>
   </pageMap>
   <definitionFactories>
     <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
@@ -13,6 +18,11 @@
   <pageDefinitionUsages>
     <page id="view_menuPageDef" path="Menu.menuPageDef"/>
     <page id="view_clientePageDef" path="Procesos.clientePageDef"/>
+    <page id="view_LoginPageDef" path="view.pageDefs.LoginPageDef"/>
+    <page id="view_asesorPageDef" path="Procesos.asesorPageDef"/>
+    <page id="view_prestamoPageDef" path="Procesos.prestamoPageDef"/>
+    <page id="view_sucursalPageDef" path="Procesos.sucursalPageDef"/>
+    <page id="view_cuentaPageDef" path="Procesos.cuentaPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="model"

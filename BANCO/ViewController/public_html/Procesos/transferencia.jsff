@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+     <af:panelGroupLayout id="pgl1" layout="scroll">
+        <af:panelBox text="TRANSFERENCIAS" id="pb1" showDisclosure="false">
+            <f:facet name="toolbar"/>
+            <af:toolbar id="t2">
+                <af:spacer width="25" height="10" id="s1"/>
+                <af:button id="b1" useWindow="true" icon="#{resource['images:nuevo.png']}" shortDesc="Crear">
+                    <af:setPropertyListener from="#{'ingresar'}" to="#{viewScope.accion}" type="action"/>
+                </af:button>
+                <af:button id="b2" icon="#{resource['images:mod.png']}" shortDesc="Editar">
+                    <af:setPropertyListener from="#{'editar'}" to="#{viewScope.accion}" type="action"/>
+                </af:button>
+                <af:button id="b3" icon="#{resource['images:bor.png']}" shortDesc="Eliminar">
+                    <af:setPropertyListener from="#{'eliminar'}" to="#{viewScope.accion}" type="action"/>
+                </af:button>
+            </af:toolbar>
+        </af:panelBox>
+        <af:panelBox text="PanelBox1" id="pb2" showHeader="never">
+            <f:facet name="toolbar"/>
+            <af:panelGridLayout id="pgl2">
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                    <af:gridCell valign="middle" id="gc1"/>
+                    <af:gridCell id="gc13" width="25%"/>
+                    <af:gridCell marginStart="5px" width="30%" halign="stretch" valign="middle" id="gc2"/>
+                    <af:gridCell marginStart="5px" width="auto" id="gc4" valign="middle" halign="end" marginEnd="10px"/>
+                </af:gridRow>
+                <af:gridRow id="gr2">
+                    <af:gridCell columnSpan="4" halign="stretch" id="gc5">
+                        <af:panelCollection id="pc2" featuresOff="statusBar viewMenu" partialTriggers="::puCRUD ::d1"
+                                            styleClass="AFStretchWidth" inlineStyle="padding-top:10px;"/>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:panelBox>
+                <af:resource type="javascript">
+                  function dobleClick(evt) {
+                      var table = evt.getSource();
+                      AdfCustomEvent.queue(table, "eventoClick", 
+                      {
+                      },
+                      true);
+                      evt.cancel();
+                  }
+                </af:resource>
+                <af:resource type="javascript">
+                      function changeToUpper(event) {
+                          var inputComp = event.getCurrentTarget();
+                          inputComp.setValue(inputComp.getSubmittedValue().toUpperCase());
+                      }
+                    </af:resource>
+                <af:popup id="puCRUD" contentDelivery="lazyUncached">
+                    <af:dialog id="d1">
+                        <f:facet name="buttonBar">
+                            <af:outputText value="El registro se borrará permanentemente. ¿Está seguro que desea continuar?"
+                                           id="etiqEliminar" styleClass="AFErrorIconStyle"/>
+                            <af:spacer width="150" height="10" id="s2"/>
+                        </f:facet>
+            </af:dialog>
+                </af:popup>
+  </af:panelGroupLayout>
+  </ui:composition>
