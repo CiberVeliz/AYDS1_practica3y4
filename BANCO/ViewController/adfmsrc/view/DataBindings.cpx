@@ -9,6 +9,11 @@
     <page path="/Procesos/prestamo.jsff" usageId="view_prestamoPageDef"/>
     <page path="/Procesos/sucursal.jsff" usageId="view_sucursalPageDef"/>
     <page path="/Procesos/cuenta.jsff" usageId="view_cuentaPageDef"/>
+    <page path="/WEB-INF/con_cuenta_tf.xml#con_cuenta_tf@CreateWithParameters"
+          usageId="view_con_cuenta_tf_con_cuenta_tf_CreateWithParametersPageDef"/>
+    <page path="/WEB-INF/con_cuenta_tf.xml#con_cuenta_tf@Rollback"
+          usageId="view_con_cuenta_tf_con_cuenta_tf_RollbackPageDef"/>
+    <page path="/Procesos/cuenta_crud.jsff" usageId="view_cuenta_crudPageDef"/>
   </pageMap>
   <definitionFactories>
     <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
@@ -23,6 +28,11 @@
     <page id="view_prestamoPageDef" path="Procesos.prestamoPageDef"/>
     <page id="view_sucursalPageDef" path="Procesos.sucursalPageDef"/>
     <page id="view_cuentaPageDef" path="Procesos.cuentaPageDef"/>
+    <page id="view_con_cuenta_tf_con_cuenta_tf_CreateWithParametersPageDef"
+          path="view.pageDefs.con_cuenta_tf_con_cuenta_tf_CreateWithParametersPageDef"/>
+    <page id="view_con_cuenta_tf_con_cuenta_tf_RollbackPageDef"
+          path="view.pageDefs.con_cuenta_tf_con_cuenta_tf_RollbackPageDef"/>
+    <page id="view_cuenta_crudPageDef" path="Procesos.cuenta_crudPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="model"

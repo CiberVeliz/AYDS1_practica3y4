@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="con_cuenta_tf_con_cuenta_tf_CreateWithParametersPageDef" Package="view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="CuentaView1" RangeSize="25" DataControl="AppModuleDataControl" id="CuentaView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CuentaView1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"/>
+  </bindings>
+</pageDefinition>

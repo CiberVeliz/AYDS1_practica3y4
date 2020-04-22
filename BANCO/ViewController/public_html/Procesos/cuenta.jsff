@@ -6,13 +6,16 @@
             <f:facet name="toolbar"/>
             <af:toolbar id="t2">
                 <af:spacer width="25" height="10" id="s1"/>
-                <af:button id="b1" useWindow="true" icon="#{resource['images:nuevo.png']}" shortDesc="Crear">
+                <af:button id="b1" useWindow="true" icon="#{resource['images:nuevo.png']}" shortDesc="Crear"
+                           action="crud_cuenta">
                     <af:setPropertyListener from="#{'ingresar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
-                <af:button id="b2" icon="#{resource['images:mod.png']}" shortDesc="Editar">
+                <af:button id="b2" icon="#{resource['images:mod.png']}" shortDesc="Editar"
+                           binding="#{backingBeanScope.backing_Procesos_cuenta.btnEditar}" action="ir_cuenta">
                     <af:setPropertyListener from="#{'editar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
-                <af:button id="b3" icon="#{resource['images:bor.png']}" shortDesc="Eliminar">
+                <af:button id="b3" icon="#{resource['images:bor.png']}" shortDesc="Eliminar"
+                           action="#{backingBeanScope.backing_Procesos_cuenta.mostrarPopUpCRUD}">
                     <af:setPropertyListener from="#{'eliminar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
             </af:toolbar>
@@ -83,13 +86,47 @@
                           inputComp.setValue(inputComp.getSubmittedValue().toUpperCase());
                       }
                     </af:resource>
-                <af:popup id="puCRUD" contentDelivery="lazyUncached">
+                <af:popup id="puCRUD" contentDelivery="lazyUncached"
+                          binding="#{backingBeanScope.backing_Procesos_cuenta.puCRUD}">
                     <af:dialog id="d1">
-                        <f:facet name="buttonBar">
+                <f:facet name="buttonBar">
                             <af:outputText value="El registro se borrará permanentemente. ¿Está seguro que desea continuar?"
-                                           id="etiqEliminar" styleClass="AFErrorIconStyle"/>
+                                           id="etiqEliminar" styleClass="AFErrorIconStyle"
+                                           binding="#{backingBeanScope.backing_Procesos_cuenta.etiqEliminar}"/>
                             <af:spacer width="150" height="10" id="s2"/>
                         </f:facet>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.CuentaNumcue.inputValue}"
+                                  label="#{bindings.CuentaNumcue.hints.label}"
+                                  required="#{bindings.CuentaNumcue.hints.mandatory}"
+                                  columns="#{bindings.CuentaNumcue.hints.displayWidth}"
+                                  maximumLength="#{bindings.CuentaNumcue.hints.precision}"
+                                  shortDesc="#{bindings.CuentaNumcue.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.CuentaNumcue.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CuentaSaldo.inputValue}" label="#{bindings.CuentaSaldo.hints.label}"
+                                  required="#{bindings.CuentaSaldo.hints.mandatory}"
+                                  columns="#{bindings.CuentaSaldo.hints.displayWidth}"
+                                  maximumLength="#{bindings.CuentaSaldo.hints.precision}"
+                                  shortDesc="#{bindings.CuentaSaldo.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.CuentaSaldo.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CuentaSaldo.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CuentaTipo.inputValue}" label="#{bindings.CuentaTipo.hints.label}"
+                                  required="#{bindings.CuentaTipo.hints.mandatory}"
+                                  columns="#{bindings.CuentaTipo.hints.displayWidth}"
+                                  maximumLength="#{bindings.CuentaTipo.hints.precision}"
+                                  shortDesc="#{bindings.CuentaTipo.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.CuentaTipo.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.CuentaCodcli.inputValue}"
+                                        label="#{bindings.CuentaCodcli.label}"
+                                        required="#{bindings.CuentaCodcli.hints.mandatory}"
+                                        shortDesc="#{bindings.CuentaCodcli.hints.tooltip}" id="soc1">
+                        <f:selectItems value="#{bindings.CuentaCodcli.items}" id="si1"/>
+                        <f:validator binding="#{bindings.CuentaCodcli.validator}"/>
+                    </af:selectOneChoice>
+                </af:panelFormLayout>
             </af:dialog>
                 </af:popup>
   </af:panelGroupLayout>

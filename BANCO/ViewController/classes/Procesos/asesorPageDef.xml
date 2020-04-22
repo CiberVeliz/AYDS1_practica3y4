@@ -20,5 +20,38 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="EmpleadoView1Iterator" id="EmpleadoCodemp">
+      <AttrNames>
+        <Item Value="EmpleadoCodemp"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpleadoView1Iterator" id="EmpleadoNombre">
+      <AttrNames>
+        <Item Value="EmpleadoNombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpleadoView1Iterator" id="EmpleadoAntiguedad">
+      <AttrNames>
+        <Item Value="EmpleadoAntiguedad"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpleadoView1Iterator" id="EmpleadoFecini">
+      <AttrNames>
+        <Item Value="EmpleadoFecini"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpleadoView1Iterator" id="EmpleadoPuesto">
+      <AttrNames>
+        <Item Value="EmpleadoPuesto"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="EmpleadoView1Iterator" id="CreateWithParams" InstanceName="AppModuleDataControl.EmpleadoView1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="EmpleadoCodemp" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="EmpleadoView1Iterator" id="Delete" InstanceName="AppModuleDataControl.EmpleadoView1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
   </bindings>
 </pageDefinition>

@@ -9,7 +9,8 @@
                 <af:button id="b1" useWindow="true" icon="#{resource['images:nuevo.png']}" shortDesc="Crear">
                     <af:setPropertyListener from="#{'ingresar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
-                <af:button id="b2" icon="#{resource['images:mod.png']}" shortDesc="Editar">
+                <af:button id="b2" icon="#{resource['images:mod.png']}" shortDesc="Editar"
+                           binding="#{backingBeanScope.backing_Procesos_transferencia.btnEditar}">
                     <af:setPropertyListener from="#{'editar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
                 <af:button id="b3" icon="#{resource['images:bor.png']}" shortDesc="Eliminar">
@@ -50,11 +51,13 @@
                           inputComp.setValue(inputComp.getSubmittedValue().toUpperCase());
                       }
                     </af:resource>
-                <af:popup id="puCRUD" contentDelivery="lazyUncached">
+                <af:popup id="puCRUD" contentDelivery="lazyUncached"
+                          binding="#{backingBeanScope.backing_Procesos_transferencia.puCRUD}">
                     <af:dialog id="d1">
                         <f:facet name="buttonBar">
                             <af:outputText value="El registro se borrará permanentemente. ¿Está seguro que desea continuar?"
-                                           id="etiqEliminar" styleClass="AFErrorIconStyle"/>
+                                           id="etiqEliminar" styleClass="AFErrorIconStyle"
+                                           binding="#{backingBeanScope.backing_Procesos_transferencia.etiqEliminar}"/>
                             <af:spacer width="150" height="10" id="s2"/>
                         </f:facet>
             </af:dialog>
