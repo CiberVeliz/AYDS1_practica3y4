@@ -68,7 +68,7 @@ public class Transferencia {
     /*DialogListener (Dialog)*/
     public void onDialogAction(DialogEvent dialogEvent) {
 
-        if (dialogEvent.getOutcome().name().equals("ok")) {
+       /* if (dialogEvent.getOutcome().name().equals("ok")) {
 
             BindingContainer bindings = null;
             OperationBinding operationBinding = null;
@@ -87,7 +87,7 @@ public class Transferencia {
             operationBinding = bindings.getOperationBinding("Commit");
             operationBinding.execute();
         }
-
+*/
     }
 
     public BindingContainer getBindings() {

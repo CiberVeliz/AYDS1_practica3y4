@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+     <af:document id="d1">
+        <af:form id="f1">
+            <af:panelStretchLayout id="psl1"
+                                   topHeight="73px" dimensionsFrom="parent">
+                <f:facet name="center">
+                    <af:inlineFrame id="if1"
+                                    source="/reporte?tipoReporte=#{pageFlowScope.parTipoReporte}&amp;nombreReporte=#{pageFlowScope.parNombreReporteTitulo}"/>
+                    <!-- id="af_one_column_stretched"   -->
+                </f:facet>
+                <f:facet name="start"/>
+                <f:facet name="top">
+                    <af:panelGroupLayout layout="scroll" id="pgl1">
+                        <af:outputText value="#{pageFlowScope.parNombreReporteTitulo}" id="ot1"
+                                       inlineStyle="color:Black; font-weight:bold; font-size:25pt;"/>
+                        <af:toolbar id="t1"
+                                    inlineStyle="background-color:rgb(147,186,219); border-style:solid; border-width:thin; border-color:rgb(195,208,223);">
+                            <af:spacer width="50" height="10" id="s13"/>
+                            <af:link id="gil1" icon="/IMAGENES/botones/cancelar.png"
+                                     disabledIcon="/IMAGENES/botones/cancelar_disabled.png"
+                                     hoverIcon="/IMAGENES/botones/cancelar_hover.png"
+                                     depressedIcon="/IMAGENES/botones/cancelar_pressed.png" immediate="true"
+                                     shortDesc="Salir"
+                                     action="regresar" visible="false">
+                                <af:resetActionListener/>
+                            </af:link>
+                            <af:spacer width="20" height="10" id="s21"/>
+                            <af:spacer width="20" height="10" id="s1"/>
+                        </af:toolbar>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelStretchLayout>
+        </af:form>
+    </af:document>
+</f:view>

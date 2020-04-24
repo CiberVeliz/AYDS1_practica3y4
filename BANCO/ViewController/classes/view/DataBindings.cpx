@@ -14,6 +14,7 @@
     <page path="/WEB-INF/con_cuenta_tf.xml#con_cuenta_tf@Rollback"
           usageId="view_con_cuenta_tf_con_cuenta_tf_RollbackPageDef"/>
     <page path="/Procesos/cuenta_crud.jsff" usageId="view_cuenta_crudPageDef"/>
+    <page path="/Procesos/transferencia.jsff" usageId="view_transferenciaPageDef"/>
   </pageMap>
   <definitionFactories>
     <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
@@ -33,6 +34,7 @@
     <page id="view_con_cuenta_tf_con_cuenta_tf_RollbackPageDef"
           path="view.pageDefs.con_cuenta_tf_con_cuenta_tf_RollbackPageDef"/>
     <page id="view_cuenta_crudPageDef" path="Procesos.cuenta_crudPageDef"/>
+    <page id="view_transferenciaPageDef" path="Procesos.transferenciaPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="model"

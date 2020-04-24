@@ -46,6 +46,9 @@
   <ViewUsage
     Name="PagoView2"
     ViewObjectName="model.PagoView"/>
+  <ViewUsage
+    Name="CuentaView3"
+    ViewObjectName="model.CuentaView"/>
   <ViewLinkUsage
     Name="CuentaClienteFkLink1"
     ViewLinkObjectName="model.CuentaClienteFkLink"

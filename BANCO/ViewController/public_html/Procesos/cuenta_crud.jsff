@@ -17,13 +17,21 @@
         <f:facet name="info"/>
     </af:panelHeader>
     <af:panelBox text="Datos del cliente" id="pb1" binding="#{backingBeanScope.backing_Procesos_cuenta_crud.pb1}">
-        <f:facet name="toolbar"/>
+        <f:facet name="toolbar">
+            <af:toolbar id="t3" inlineStyle="alignment-adjust:auto;">
+                <af:button id="b6" icon="#{resource['images:imprimir.png']}" shortDesc="Crear" useWindow="true"
+                           action="#{backingBeanScope.backing_Procesos_cuenta_crud.generarReporteCliente}">
+                    <af:setPropertyListener from="#{'ingresar'}" to="#{viewScope.accion}" type="action"/>
+                </af:button>
+            </af:toolbar>
+        </f:facet>
         <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_Procesos_cuenta_crud.pfl1}" rows="2">
             <af:inputText value="#{bindings.ClienteCodcli.inputValue}" label="#{bindings.ClienteCodcli.hints.label}"
                           required="#{bindings.ClienteCodcli.hints.mandatory}"
                           columns="#{bindings.ClienteCodcli.hints.displayWidth}"
                           maximumLength="#{bindings.ClienteCodcli.hints.precision}"
-                          shortDesc="#{bindings.ClienteCodcli.hints.tooltip}" id="it1">
+                          shortDesc="#{bindings.ClienteCodcli.hints.tooltip}" id="it1"
+                          binding="#{backingBeanScope.backing_Procesos_cuenta_crud.dpi}">
                 <f:validator binding="#{bindings.ClienteCodcli.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.ClienteNombre.inputValue}" label="#{bindings.ClienteNombre.hints.label}"

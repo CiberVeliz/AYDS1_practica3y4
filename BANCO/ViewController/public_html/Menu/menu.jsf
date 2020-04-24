@@ -4,7 +4,7 @@
     <af:document title="menu.jsf" id="d1" binding="#{backingBeanScope.backing_Menu_menu.d1}">
         <af:form id="f1" binding="#{backingBeanScope.backing_Menu_menu.f1}">
             <af:panelHeader text="Sistema de gestion bancaria" id="ph1" binding="#{backingBeanScope.backing_Menu_menu.ph1}"
-                            inlineStyle="height:94px;" shortDesc="Sistema de gestión bancaria">
+                            inlineStyle="height:119px;" shortDesc="Sistema de gestión bancaria">
                 <f:facet name="context">
                     <af:panelLabelAndMessage id="plam1"
                                              binding="#{backingBeanScope.backing_Menu_menu.plam1}">

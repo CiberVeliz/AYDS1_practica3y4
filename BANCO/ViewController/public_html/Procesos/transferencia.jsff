@@ -6,15 +6,10 @@
             <f:facet name="toolbar"/>
             <af:toolbar id="t2">
                 <af:spacer width="25" height="10" id="s1"/>
-                <af:button id="b1" useWindow="true" icon="#{resource['images:nuevo.png']}" shortDesc="Crear">
-                    <af:setPropertyListener from="#{'ingresar'}" to="#{viewScope.accion}" type="action"/>
-                </af:button>
                 <af:button id="b2" icon="#{resource['images:mod.png']}" shortDesc="Editar"
-                           binding="#{backingBeanScope.backing_Procesos_transferencia.btnEditar}">
+                           binding="#{backingBeanScope.backing_Procesos_transferencia.btnEditar}"
+                           action="#{backingBeanScope.backing_Procesos_transferencia.mostrarPopUpCRUD}">
                     <af:setPropertyListener from="#{'editar'}" to="#{viewScope.accion}" type="action"/>
-                </af:button>
-                <af:button id="b3" icon="#{resource['images:bor.png']}" shortDesc="Eliminar">
-                    <af:setPropertyListener from="#{'eliminar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
             </af:toolbar>
         </af:panelBox>
@@ -30,7 +25,43 @@
                 <af:gridRow id="gr2">
                     <af:gridCell columnSpan="4" halign="stretch" id="gc5">
                         <af:panelCollection id="pc2" featuresOff="statusBar viewMenu" partialTriggers="::puCRUD ::d1"
-                                            styleClass="AFStretchWidth" inlineStyle="padding-top:10px;"/>
+                                            styleClass="AFStretchWidth" inlineStyle="padding-top:10px;">
+                            <af:table value="#{bindings.CuentaView3.collectionModel}" var="row"
+                                      rows="#{bindings.CuentaView3.rangeSize}"
+                                      emptyText="#{bindings.CuentaView3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.CuentaView3.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.CuentaView3.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.CuentaView3.rangeSize}"
+                                      filterModel="#{bindings.CuentaView3Query.queryDescriptor}" filterVisible="true"
+                                      queryListener="#{bindings.CuentaView3Query.processQuery}" varStatus="vs" id="t1">
+                                <af:column sortProperty="#{bindings.CuentaView3.hints.CuentaNumcue.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CuentaView3.hints.CuentaNumcue.label}" id="c1"
+                                           width="150">
+                                    <af:outputText value="#{row.CuentaNumcue}"
+                                                   shortDesc="#{bindings.CuentaView3.hints.CuentaNumcue.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CuentaView3.hints.CuentaSaldo.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CuentaView3.hints.CuentaSaldo.label}" id="c2">
+                                    <af:outputText value="#{row.CuentaSaldo}"
+                                                   shortDesc="#{bindings.CuentaView3.hints.CuentaSaldo.tooltip}"
+                                                   id="ot2">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CuentaView3.hints.CuentaSaldo.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CuentaView3.hints.CuentaTipo.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CuentaView3.hints.CuentaTipo.label}" id="c3">
+                                    <af:outputText value="#{row.CuentaTipo}"
+                                                   shortDesc="#{bindings.CuentaView3.hints.CuentaTipo.tooltip}"
+                                                   id="ot3"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelCollection>
                     </af:gridCell>
                 </af:gridRow>
             </af:panelGridLayout>
@@ -52,9 +83,44 @@
                       }
                     </af:resource>
                 <af:popup id="puCRUD" contentDelivery="lazyUncached"
-                          binding="#{backingBeanScope.backing_Procesos_transferencia.puCRUD}">
-                    <af:dialog id="d1">
-                        <f:facet name="buttonBar">
+                          binding="#{backingBeanScope.backing_Procesos_transferencia.puCRUD}"
+                          popupCanceledListener="#{backingBeanScope.backing_Procesos_transferencia.editPopupCancelListener}">
+                    <af:dialog id="d1"
+                               dialogListener="#{backingBeanScope.backing_Procesos_transferencia.onDialogAction}">
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.CuentaNumcue.inputValue}"
+                                  label="#{bindings.CuentaNumcue.hints.label}"
+                                  required="#{bindings.CuentaNumcue.hints.mandatory}"
+                                  columns="#{bindings.CuentaNumcue.hints.displayWidth}"
+                                  maximumLength="#{bindings.CuentaNumcue.hints.precision}"
+                                  shortDesc="#{bindings.CuentaNumcue.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.CuentaNumcue.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CuentaSaldo.inputValue}" label="#{bindings.CuentaSaldo.hints.label}"
+                                  required="#{bindings.CuentaSaldo.hints.mandatory}"
+                                  columns="#{bindings.CuentaSaldo.hints.displayWidth}"
+                                  maximumLength="#{bindings.CuentaSaldo.hints.precision}"
+                                  shortDesc="#{bindings.CuentaSaldo.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.CuentaSaldo.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CuentaSaldo.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CuentaTipo.inputValue}" label="#{bindings.CuentaTipo.hints.label}"
+                                  required="#{bindings.CuentaTipo.hints.mandatory}"
+                                  columns="#{bindings.CuentaTipo.hints.displayWidth}"
+                                  maximumLength="#{bindings.CuentaTipo.hints.precision}"
+                                  shortDesc="#{bindings.CuentaTipo.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.CuentaTipo.validator}"/>
+                    </af:inputText>
+                    <af:separator id="s3" visible="false"/>
+                    <af:selectOneChoice
+                                        label="Cuenta destino"
+                                        shortDesc="#{bindings.CuentaNumcue1.hints.tooltip}" id="soc1">
+                        <f:selectItems value="#{bindings.CuentaNumcue1.items}" id="si1"/>
+                        <f:validator binding="#{bindings.CuentaNumcue1.validator}"/>
+                    </af:selectOneChoice>
+                    <af:inputText label="Monto" id="it4"/>
+                </af:panelFormLayout>
+                <f:facet name="buttonBar">
                             <af:outputText value="El registro se borrará permanentemente. ¿Está seguro que desea continuar?"
                                            id="etiqEliminar" styleClass="AFErrorIconStyle"
                                            binding="#{backingBeanScope.backing_Procesos_transferencia.etiqEliminar}"/>

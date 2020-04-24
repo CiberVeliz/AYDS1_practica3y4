@@ -17,6 +17,10 @@
     Name="ClienteView1"
     ViewObjectName="model.ClienteView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CuentaView1"
+    ViewObjectName="model.CuentaView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_CuentaCodcli"
     ListVOName="ClienteView1"
@@ -36,6 +40,24 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_CuentaNumcue"
+    ListVOName="CuentaView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CuentaNumcue"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CuentaNumcue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CuentaNumcue"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Cuenta"
     Entity="model.Cuenta"/>
@@ -45,13 +67,16 @@
     PrecisionRule="true"
     EntityAttrName="CuentaNumcue"
     EntityUsage="Cuenta"
-    AliasName="CUENTA_NUMCUE">
+    AliasName="CUENTA_NUMCUE"
+    LOVName="LOV_CuentaNumcue">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.CuentaView.CuentaNumcue_LABEL"/>
         <DISPLAYWIDTH
           Value="15"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

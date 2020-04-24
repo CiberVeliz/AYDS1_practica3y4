@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <Router
+      id="Router2">
+      <property
+         name="activityId">router1</property>
+      <property
+         name="x">180.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>router1&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
+      <property
+         name="y">173.44238</property>
+      <property
+         name="exceptionHandler">false</property>
+   </Router>
+   <View
+      id="View3">
+      <property
+         name="activityId">banco_rep_pdf</property>
+      <property
+         name="x">433.2422</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>banco_rep_pdf&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">207.79883</property>
+      <property
+         name="page">/banco_rep_pdf.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="Router2"
+      to="View3">
+      <property
+         name="fromOutcome">imprimir</property>
+      <property
+         name="sdm:polyPoints">R50,221.0,173.0918,392.2422,207.44824,L50</property>
+   </ControlFlowCase>
+</SDM>

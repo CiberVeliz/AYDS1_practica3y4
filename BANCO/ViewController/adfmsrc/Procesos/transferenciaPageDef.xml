@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="transferenciaPageDef"
+                Package="Procesos">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CuentaView3" RangeSize="25" DataControl="AppModuleDataControl" id="CuentaView3Iterator"/>
+    <searchRegion Binds="CuentaView3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CuentaView3Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CuentaView3Iterator" id="CuentaView3">
+      <nodeDefinition DefName="model.CuentaView" Name="CuentaView30">
+        <AttrNames>
+          <Item Value="CuentaNumcue"/>
+          <Item Value="CuentaSaldo"/>
+          <Item Value="CuentaTipo"/>
+          <Item Value="CuentaCodcli"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="CuentaView3Iterator" id="CuentaNumcue">
+      <AttrNames>
+        <Item Value="CuentaNumcue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CuentaView3Iterator" id="CuentaSaldo">
+      <AttrNames>
+        <Item Value="CuentaSaldo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CuentaView3Iterator" id="CuentaTipo">
+      <AttrNames>
+        <Item Value="CuentaTipo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CuentaView3Iterator" StaticList="false" Uses="LOV_CuentaNumcue" id="CuentaNumcue1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

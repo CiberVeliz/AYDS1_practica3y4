@@ -294,6 +294,10 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="IText-2.1.7"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="Oracle XML Parser v2"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -321,7 +325,226 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Jxl-2.6.10.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="IText-2.1.7.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="IText-5.0.5.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ITextAsian.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Jasperreports-4.5.0.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Jasperreports-extensions-3.5.3.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Jasperreports-flash-2.0.5.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Javacsv.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Javadbf-0.4.0.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Jdt-compiler-3.1.1.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Jxl-2.6.10.jar1"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Poi-3.7-20101029.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Poi-contrib-3.5-beta5-20090219.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Poi-ooxml-3.7-20101029.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Poi-scratchpad-3.7-20101029.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
+      <hash n="internalDefinitions">
+         <list n="libraryDefinitions">
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/iText-2.1.7.jar" jar-entry=""/>
+                  <url path="../libs/jasper/iText-5.0.5.jar" jar-entry=""/>
+                  <url path="../libs/jasper/iTextAsian.jar" jar-entry=""/>
+                  <url path="../libs/jasper/jasperreports-4.5.0.jar" jar-entry=""/>
+                  <url path="../libs/jasper/jasperreports-extensions-3.5.3.jar" jar-entry=""/>
+                  <url path="../libs/jasper/jasperreports-flash-2.0.5.jar" jar-entry=""/>
+                  <url path="../libs/jasper/javacsv.jar" jar-entry=""/>
+                  <url path="../libs/jasper/javadbf-0.4.0.jar" jar-entry=""/>
+                  <url path="../libs/jasper/jdt-compiler-3.1.1.jar" jar-entry=""/>
+                  <url path="../libs/jasper/jxl-2.6.10.jar" jar-entry=""/>
+                  <url path="../libs/jasper/poi-3.7-20101029.jar" jar-entry=""/>
+                  <url path="../libs/jasper/poi-contrib-3.5-beta5-20090219.jar" jar-entry=""/>
+                  <url path="../libs/jasper/poi-ooxml-3.7-20101029.jar" jar-entry=""/>
+                  <url path="../libs/jasper/poi-scratchpad-3.7-20101029.jar" jar-entry=""/>
+               </list>
+               <value n="description" v="IText-2.1.7"/>
+               <value n="id" v="IText-2.1.7"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/jxl-2.6.10.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Jxl-2.6.10.jar"/>
+               <value n="id" v="Jxl-2.6.10.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/iText-2.1.7.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="IText-2.1.7.jar"/>
+               <value n="id" v="IText-2.1.7.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/iText-5.0.5.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="IText-5.0.5.jar"/>
+               <value n="id" v="IText-5.0.5.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/iTextAsian.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="ITextAsian.jar"/>
+               <value n="id" v="ITextAsian.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/jasperreports-4.5.0.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Jasperreports-4.5.0.jar"/>
+               <value n="id" v="Jasperreports-4.5.0.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/jasperreports-extensions-3.5.3.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Jasperreports-extensions-3.5.3.jar"/>
+               <value n="id" v="Jasperreports-extensions-3.5.3.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/jasperreports-flash-2.0.5.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Jasperreports-flash-2.0.5.jar"/>
+               <value n="id" v="Jasperreports-flash-2.0.5.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/javacsv.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Javacsv.jar"/>
+               <value n="id" v="Javacsv.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/javadbf-0.4.0.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Javadbf-0.4.0.jar"/>
+               <value n="id" v="Javadbf-0.4.0.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/jdt-compiler-3.1.1.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Jdt-compiler-3.1.1.jar"/>
+               <value n="id" v="Jdt-compiler-3.1.1.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/jxl-2.6.10.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Jxl-2.6.10.jar1"/>
+               <value n="id" v="Jxl-2.6.10.jar1"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/poi-3.7-20101029.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Poi-3.7-20101029.jar"/>
+               <value n="id" v="Poi-3.7-20101029.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/poi-contrib-3.5-beta5-20090219.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Poi-contrib-3.5-beta5-20090219.jar"/>
+               <value n="id" v="Poi-contrib-3.5-beta5-20090219.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/poi-ooxml-3.7-20101029.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Poi-ooxml-3.7-20101029.jar"/>
+               <value n="id" v="Poi-ooxml-3.7-20101029.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/jasper/poi-scratchpad-3.7-20101029.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Poi-scratchpad-3.7-20101029.jar"/>
+               <value n="id" v="Poi-scratchpad-3.7-20101029.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+         </list>
+      </hash>
       <list n="libraryReferences">
          <hash>
             <value n="id" v="JSP Runtime"/>
@@ -408,6 +631,10 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="IText-2.1.7"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="Oracle XML Parser v2"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -433,6 +660,66 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Jxl-2.6.10.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="IText-2.1.7.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="IText-5.0.5.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ITextAsian.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Jasperreports-4.5.0.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Jasperreports-extensions-3.5.3.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Jasperreports-flash-2.0.5.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Javacsv.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Javadbf-0.4.0.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Jdt-compiler-3.1.1.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Jxl-2.6.10.jar1"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Poi-3.7-20101029.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Poi-contrib-3.5-beta5-20090219.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Poi-ooxml-3.7-20101029.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Poi-scratchpad-3.7-20101029.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

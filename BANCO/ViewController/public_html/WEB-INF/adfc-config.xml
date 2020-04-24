@@ -69,4 +69,10 @@
     <managed-bean-class>view.backing.Procesos.Cuenta_crud</managed-bean-class>
     <managed-bean-scope>backingBean</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__13">
+    <managed-bean-name>backing_banco_rep_pdf</managed-bean-name>
+    <managed-bean-class>view.backing.Banco_rep_pdf</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1banco_rep_pdf.jsf-->
+  </managed-bean>
 </adfc-config>

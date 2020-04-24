@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="banco_rep_pdf_tf">
+    <default-activity>router1</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__3">
+      <name>parTipoReporte</name>
+      <value>#{pageFlowScope.parTipoReporte}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__4">
+      <name>parNombreReporteTitulo</name>
+      <value>#{pageFlowScope.parNombreReporteTitulo}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <router id="router1">
+      <default-outcome>imprimir</default-outcome>
+    </router>
+    <view id="banco_rep_pdf">
+      <page>/banco_rep_pdf.jsf</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>imprimir</from-outcome>
+        <to-activity-id>banco_rep_pdf</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility>
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>
