@@ -34,6 +34,7 @@ public class Menu {
     private RichInputText it1;
     private RichPanelLabelAndMessage plam1;
     private RichPanelGroupLayout pgl4;
+    private RichPanelBox pb4;
 
     public void setF1(RichForm f1) {
         this.f1 = f1;
@@ -204,4 +205,11 @@ public class Menu {
     }
 
 
+    public void setPb4(RichPanelBox pb4) {
+        this.pb4 = pb4;
+    }
+
+    public RichPanelBox getPb4() {
+        return pb4;
+    }
 }

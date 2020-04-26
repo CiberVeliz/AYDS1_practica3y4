@@ -3,27 +3,33 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="menu.jsf" id="d1" binding="#{backingBeanScope.backing_Menu_menu.d1}">
         <af:form id="f1" binding="#{backingBeanScope.backing_Menu_menu.f1}">
-            <af:panelHeader text="Sistema de gestion bancaria" id="ph1" binding="#{backingBeanScope.backing_Menu_menu.ph1}"
-                            inlineStyle="height:119px;" shortDesc="Sistema de gestión bancaria">
-                <f:facet name="context">
-                    <af:panelLabelAndMessage id="plam1"
-                                             binding="#{backingBeanScope.backing_Menu_menu.plam1}">
-                        <af:panelGroupLayout id="pgl4" binding="#{backingBeanScope.backing_Menu_menu.pgl4}"
-                                             layout="horizontal">
-                            <af:spacer width="155" height="10" id="s1"
-                                       binding="#{backingBeanScope.backing_Menu_menu.s1}"/>
-                            <af:inputText label="Tipo de cambio" id="it1" binding="#{backingBeanScope.backing_Menu_menu.it1}"
-                                          disabled="true" value="7.50"/>
-                        </af:panelGroupLayout>
-                    </af:panelLabelAndMessage>
-                </f:facet>
+            <af:panelBox text="PanelBox1" id="pb4" binding="#{backingBeanScope.backing_Menu_menu.pb4}"
+                         background="dark" titleHalign="center" showHeader="never" showDisclosure="false">
                 <f:facet name="toolbar"/>
-                <f:facet name="menuBar"/>
-                <f:facet name="legend"/>
-                <f:facet name="info"/>
-            </af:panelHeader>
+                <af:panelHeader text="Sistema de gestion bancaria" id="ph1"
+                                binding="#{backingBeanScope.backing_Menu_menu.ph1}" inlineStyle="height:80px;"
+                                shortDesc="Sistema de gestión bancaria">
+                    <f:facet name="context">
+                        <af:panelLabelAndMessage id="plam1" binding="#{backingBeanScope.backing_Menu_menu.plam1}">
+                            <af:panelGroupLayout id="pgl4" binding="#{backingBeanScope.backing_Menu_menu.pgl4}"
+                                                 layout="horizontal">
+                                <af:spacer width="155" height="10" id="s1"
+                                           binding="#{backingBeanScope.backing_Menu_menu.s1}"/>
+                                <af:inputText label="Tipo de cambio" id="it1"
+                                              binding="#{backingBeanScope.backing_Menu_menu.it1}" disabled="true"
+                                              value="7.50"/>
+                            </af:panelGroupLayout>
+                        </af:panelLabelAndMessage>
+                    </f:facet>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                </af:panelHeader>
+            </af:panelBox>
             <af:panelSplitter id="ps1" binding="#{backingBeanScope.backing_Menu_menu.ps1}"
-                              inlineStyle="width:1255px; height:891px;" splitterPosition="200">
+                              inlineStyle="width:1273px; height:891px;" splitterPosition="200"
+                              dimensionsFrom="parent">
                 <f:facet name="first">
                     <af:panelGroupLayout id="pgl1" binding="#{backingBeanScope.backing_Menu_menu.pgl1}"
                                          layout="scroll">

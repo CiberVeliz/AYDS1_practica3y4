@@ -40,10 +40,10 @@ public class Cuenta_crudTest {
     }
 
     /**
-     * @see Cuenta_crud#guardarCuenta()
+     * @see Cuenta_crud#generarReporteCliente(String)
      */
     @Test
-    public void testGuardarCuenta() {
+    public void testGenerarReporteCliente() {
         fail("Unimplemented");
     }
 }
