@@ -31,7 +31,7 @@ public class Transferencia {
             accion = ADFContext.getCurrent().getViewScope().get("accion").toString();
         if ("ingresar".equalsIgnoreCase(accion)) {
              bindings = getBindings();
-            OperationBinding operationBinding = bindings.getOperationBinding("CreateWithParams");
+            OperationBinding operationBinding = bindings.getOperationBinding("ExecuteWithParams");
             operationBinding.execute();
 
             RichPopup popup = this.getPuCRUD();
@@ -68,26 +68,12 @@ public class Transferencia {
     /*DialogListener (Dialog)*/
     public void onDialogAction(DialogEvent dialogEvent) {
 
-       /* if (dialogEvent.getOutcome().name().equals("ok")) {
-
-            BindingContainer bindings = null;
+           BindingContainer bindings = null;
             OperationBinding operationBinding = null;
-
-            if ("eliminar".equalsIgnoreCase(ADFContext.getCurrent().getViewScope().get("accion").toString())) {
-                bindings = getBindings();
-                operationBinding = bindings.getOperationBinding("Delete");
-                operationBinding.execute();
-
-                bindings = getBindings();
-                operationBinding = bindings.getOperationBinding("Commit");
-                operationBinding.execute();
-            }
 
             bindings = getBindings();
             operationBinding = bindings.getOperationBinding("Commit");
             operationBinding.execute();
-        }
-*/
     }
 
     public BindingContainer getBindings() {

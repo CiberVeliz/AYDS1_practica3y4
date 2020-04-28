@@ -11,9 +11,6 @@
     Name="AsesorView1"
     ViewObjectName="model.AsesorView"/>
   <ViewUsage
-    Name="ClienteView1"
-    ViewObjectName="model.ClienteView"/>
-  <ViewUsage
     Name="CuentaView1"
     ViewObjectName="model.CuentaView"/>
   <ViewUsage
@@ -32,41 +29,21 @@
     Name="SucursualView1"
     ViewObjectName="model.SucursualView"/>
   <ViewUsage
-    Name="CuentaView2"
-    ViewObjectName="model.CuentaView"/>
-  <ViewUsage
-    Name="PrestamoView2"
-    ViewObjectName="model.PrestamoView"/>
-  <ViewUsage
-    Name="AsesorView2"
-    ViewObjectName="model.AsesorView"/>
-  <ViewUsage
     Name="AsesorView3"
     ViewObjectName="model.AsesorView"/>
   <ViewUsage
-    Name="PagoView2"
-    ViewObjectName="model.PagoView"/>
+    Name="ClienteView1"
+    ViewObjectName="model.ClienteView"/>
+  <ViewUsage
+    Name="CuentaView2"
+    ViewObjectName="model.CuentaView"/>
   <ViewUsage
     Name="CuentaView3"
-    ViewObjectName="model.CuentaView"/>
-  <ViewLinkUsage
-    Name="CuentaClienteFkLink1"
-    ViewLinkObjectName="model.CuentaClienteFkLink"
-    SrcViewUsageName="model.AppModule.ClienteView1"
-    DstViewUsageName="model.AppModule.CuentaView2"
-    Reversed="false"/>
-  <ViewLinkUsage
-    Name="PrestamoClienteFkLink1"
-    ViewLinkObjectName="model.PrestamoClienteFkLink"
-    SrcViewUsageName="model.AppModule.ClienteView1"
-    DstViewUsageName="model.AppModule.PrestamoView2"
-    Reversed="false"/>
-  <ViewLinkUsage
-    Name="AsesorCuentaFkLink1"
-    ViewLinkObjectName="model.AsesorCuentaFkLink"
-    SrcViewUsageName="model.AppModule.CuentaView2"
-    DstViewUsageName="model.AppModule.AsesorView2"
-    Reversed="false"/>
+    ViewObjectName="model.CuentaView">
+    <ViewCriteriaUsage
+      Name="CuentaViewCriteria"
+      FullName="model.CuentaView.CuentaViewCriteria"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="AsesorEmpleadoFkLink1"
     ViewLinkObjectName="model.AsesorEmpleadoFkLink"
@@ -74,9 +51,9 @@
     DstViewUsageName="model.AppModule.AsesorView3"
     Reversed="false"/>
   <ViewLinkUsage
-    Name="PagoPrestamoFkLink1"
-    ViewLinkObjectName="model.PagoPrestamoFkLink"
-    SrcViewUsageName="model.AppModule.PrestamoView2"
-    DstViewUsageName="model.AppModule.PagoView2"
+    Name="CuentaClienteFkLink1"
+    ViewLinkObjectName="model.CuentaClienteFkLink"
+    SrcViewUsageName="model.AppModule.ClienteView1"
+    DstViewUsageName="model.AppModule.CuentaView2"
     Reversed="false"/>
 </AppModule>

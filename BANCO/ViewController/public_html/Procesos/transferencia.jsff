@@ -38,17 +38,22 @@
                                 <af:column sortProperty="#{bindings.CuentaView3.hints.CuentaNumcue.name}"
                                            filterable="true" sortable="true"
                                            headerText="#{bindings.CuentaView3.hints.CuentaNumcue.label}" id="c1"
-                                           width="150">
-                                    <af:outputText value="#{row.CuentaNumcue}"
-                                                   shortDesc="#{bindings.CuentaView3.hints.CuentaNumcue.tooltip}"
-                                                   id="ot1"/>
+                                           width="250">
+                                    <af:selectOneChoice value="#{row.bindings.CuentaNumcue.inputValue}"
+                                                        label="#{row.bindings.CuentaNumcue.label}"
+                                                        required="#{bindings.CuentaView3.hints.CuentaNumcue.mandatory}"
+                                                        shortDesc="#{bindings.CuentaView3.hints.CuentaNumcue.tooltip}"
+                                                        readOnly="true" id="soc1">
+                                        <f:selectItems value="#{row.bindings.CuentaNumcue.items}" id="si1"/>
+                                        <f:validator binding="#{row.bindings.CuentaNumcue.validator}"/>
+                                    </af:selectOneChoice>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.CuentaView3.hints.CuentaSaldo.name}"
                                            filterable="true" sortable="true"
                                            headerText="#{bindings.CuentaView3.hints.CuentaSaldo.label}" id="c2">
                                     <af:outputText value="#{row.CuentaSaldo}"
                                                    shortDesc="#{bindings.CuentaView3.hints.CuentaSaldo.tooltip}"
-                                                   id="ot2">
+                                                   id="ot1">
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.CuentaView3.hints.CuentaSaldo.format}"/>
                                     </af:outputText>
@@ -58,7 +63,19 @@
                                            headerText="#{bindings.CuentaView3.hints.CuentaTipo.label}" id="c3">
                                     <af:outputText value="#{row.CuentaTipo}"
                                                    shortDesc="#{bindings.CuentaView3.hints.CuentaTipo.tooltip}"
-                                                   id="ot3"/>
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CuentaView3.hints.CuentaCodcli.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CuentaView3.hints.CuentaCodcli.label}" id="c4">
+                                    <af:selectOneChoice value="#{row.bindings.CuentaCodcli.inputValue}"
+                                                        label="#{row.bindings.CuentaCodcli.label}"
+                                                        required="#{bindings.CuentaView3.hints.CuentaCodcli.mandatory}"
+                                                        shortDesc="#{bindings.CuentaView3.hints.CuentaCodcli.tooltip}"
+                                                        readOnly="true" id="soc2">
+                                        <f:selectItems value="#{row.bindings.CuentaCodcli.items}" id="si2"/>
+                                        <f:validator binding="#{row.bindings.CuentaCodcli.validator}"/>
+                                    </af:selectOneChoice>
                                 </af:column>
                             </af:table>
                         </af:panelCollection>
@@ -87,45 +104,33 @@
                           popupCanceledListener="#{backingBeanScope.backing_Procesos_transferencia.editPopupCancelListener}">
                     <af:dialog id="d1"
                                dialogListener="#{backingBeanScope.backing_Procesos_transferencia.onDialogAction}">
-                <af:panelFormLayout id="pfl1">
-                    <af:inputText value="#{bindings.CuentaNumcue.inputValue}"
-                                  label="#{bindings.CuentaNumcue.hints.label}"
-                                  required="#{bindings.CuentaNumcue.hints.mandatory}"
-                                  columns="#{bindings.CuentaNumcue.hints.displayWidth}"
-                                  maximumLength="#{bindings.CuentaNumcue.hints.precision}"
-                                  shortDesc="#{bindings.CuentaNumcue.hints.tooltip}" id="it1">
-                        <f:validator binding="#{bindings.CuentaNumcue.validator}"/>
-                    </af:inputText>
-                    <af:inputText value="#{bindings.CuentaSaldo.inputValue}" label="#{bindings.CuentaSaldo.hints.label}"
-                                  required="#{bindings.CuentaSaldo.hints.mandatory}"
-                                  columns="#{bindings.CuentaSaldo.hints.displayWidth}"
-                                  maximumLength="#{bindings.CuentaSaldo.hints.precision}"
-                                  shortDesc="#{bindings.CuentaSaldo.hints.tooltip}" id="it2">
-                        <f:validator binding="#{bindings.CuentaSaldo.validator}"/>
-                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CuentaSaldo.format}"/>
-                    </af:inputText>
-                    <af:inputText value="#{bindings.CuentaTipo.inputValue}" label="#{bindings.CuentaTipo.hints.label}"
-                                  required="#{bindings.CuentaTipo.hints.mandatory}"
-                                  columns="#{bindings.CuentaTipo.hints.displayWidth}"
-                                  maximumLength="#{bindings.CuentaTipo.hints.precision}"
-                                  shortDesc="#{bindings.CuentaTipo.hints.tooltip}" id="it3">
-                        <f:validator binding="#{bindings.CuentaTipo.validator}"/>
-                    </af:inputText>
-                    <af:separator id="s3" visible="false"/>
-                    <af:selectOneChoice
-                                        label="Cuenta destino"
-                                        shortDesc="#{bindings.CuentaNumcue1.hints.tooltip}" id="soc1">
-                        <f:selectItems value="#{bindings.CuentaNumcue1.items}" id="si1"/>
-                        <f:validator binding="#{bindings.CuentaNumcue1.validator}"/>
-                    </af:selectOneChoice>
-                    <af:inputText label="Monto" id="it4"/>
-                </af:panelFormLayout>
                 <f:facet name="buttonBar">
                             <af:outputText value="El registro se borrará permanentemente. ¿Está seguro que desea continuar?"
                                            id="etiqEliminar" styleClass="AFErrorIconStyle"
                                            binding="#{backingBeanScope.backing_Procesos_transferencia.etiqEliminar}"/>
                             <af:spacer width="150" height="10" id="s2"/>
                         </f:facet>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputComboboxListOfValues id="cuentaNumcue1Id"
+                                                  popupTitle="Search and Select: #{bindings.CuentaNumcue1.hints.label}"
+                                                  value="#{bindings.CuentaNumcue1.inputValue}"
+                                                  label="#{bindings.CuentaNumcue1.hints.label}"
+                                                  model="#{bindings.CuentaNumcue1.listOfValuesModel}"
+                                                  required="#{bindings.CuentaNumcue1.hints.mandatory}"
+                                                  columns="#{bindings.CuentaNumcue1.hints.displayWidth}"
+                                                  shortDesc="#{bindings.CuentaNumcue1.hints.tooltip}">
+                        <f:validator binding="#{bindings.CuentaNumcue1.validator}"/>
+                    </af:inputComboboxListOfValues>
+                    <af:spacer width="10" height="10" id="s3" visible="false"/>
+                    <af:selectOneChoice
+                                        label="Cuenta destino"
+                                        required="#{bindings.CuentaNumcue.hints.mandatory}"
+                                        shortDesc="#{bindings.CuentaNumcue.hints.tooltip}" id="soc3">
+                        <f:selectItems value="#{bindings.CuentaNumcue.items}" id="si3"/>
+                        <f:validator binding="#{bindings.CuentaNumcue.validator}"/>
+                    </af:selectOneChoice>
+                    <af:inputText label="Monto" id="it2"/>
+                </af:panelFormLayout>
             </af:dialog>
                 </af:popup>
   </af:panelGroupLayout>

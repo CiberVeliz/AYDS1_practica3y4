@@ -9,6 +9,8 @@
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CuentaView3Query"/>
   </executables>
   <bindings>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <tree IterBinding="CuentaView3Iterator" id="CuentaView3">
       <nodeDefinition DefName="model.CuentaView" Name="CuentaView30">
         <AttrNames>
@@ -19,24 +21,16 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="CuentaView3Iterator" id="CuentaNumcue">
-      <AttrNames>
-        <Item Value="CuentaNumcue"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="CuentaView3Iterator" id="CuentaSaldo">
-      <AttrNames>
-        <Item Value="CuentaSaldo"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="CuentaView3Iterator" id="CuentaTipo">
-      <AttrNames>
-        <Item Value="CuentaTipo"/>
-      </AttrNames>
-    </attributeValues>
-    <list IterBinding="CuentaView3Iterator" StaticList="false" Uses="LOV_CuentaNumcue" id="CuentaNumcue1"
+    <list IterBinding="CuentaView3Iterator" StaticList="false" Uses="LOV_CuentaNumcue" id="CuentaNumcue"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
-    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="CuentaView3Iterator" StaticList="false" Uses="LOV_CuentaCodcli" id="CuentaCodcli"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="CuentaView3Iterator" id="ExecuteWithParams" InstanceName="AppModuleDataControl.CuentaView3"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="codCli" NDValue="#{pageFlowScope.USUARIO}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="CuentaView3Iterator" id="Delete" InstanceName="AppModuleDataControl.CuentaView3"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <listOfValues IterBinding="CuentaView3Iterator" StaticList="false" Uses="LOV_CuentaNumcue" id="CuentaNumcue1"/>
   </bindings>
 </pageDefinition>

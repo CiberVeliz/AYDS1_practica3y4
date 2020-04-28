@@ -54,10 +54,11 @@ CREATE TABLE cuenta (
     cuenta_numcue            VARCHAR2(25 BYTE) NOT NULL,
     cuenta_saldo             NUMBER,
     cuenta_tipo              VARCHAR2(1 BYTE),
-    cuenta_codcli   VARCHAR2(4 BYTE) NOT NULL
+    cuenta_codcli  VARCHAR2(35 BYTE) NOT NULL
 );
 
 ALTER TABLE cuenta ADD CONSTRAINT cuenta_pk PRIMARY KEY ( cuenta_numcue );
+
 
 CREATE TABLE empleado (
     empleado_codemp       VARCHAR2(5 BYTE) NOT NULL,
@@ -118,3 +119,4 @@ ALTER TABLE prestamo ADD CONSTRAINT prestamo_cliente_fk FOREIGN KEY ( prestamo_c
 
 ALTER TABLE prestamo ADD CONSTRAINT prestamo_sucursual_fk FOREIGN KEY ( prestamo_codsuc )
     REFERENCES sucursal ( sucursal_codsuc );
+

@@ -42,4 +42,37 @@
       <property
          name="sdm:polyPoints">R50,84.5,314.74707,210.5,347.44824,L50</property>
    </ControlFlowCase>
+   <MethodCall
+      id="MethodCall5">
+      <property
+         name="activityId">Rollback</property>
+      <property
+         name="x">162.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Rollback&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">527.1494</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View3"
+      to="MethodCall5">
+      <property
+         name="fromOutcome">cerrarsession</property>
+      <property
+         name="sdm:polyPoints">B50,251.5,401.44824,162.5,472.79883,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase7"
+      from="MethodCall5"
+      to="View2">
+      <property
+         name="fromOutcome">Rollback</property>
+      <property
+         name="sdm:polyPoints">T16,B88</property>
+   </ControlFlowCase>
 </SDM>

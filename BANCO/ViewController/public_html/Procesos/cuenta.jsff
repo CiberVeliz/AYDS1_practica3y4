@@ -6,16 +6,14 @@
             <f:facet name="toolbar"/>
             <af:toolbar id="t2">
                 <af:spacer width="25" height="10" id="s1"/>
-                <af:button id="b1" useWindow="true" icon="#{resource['images:nuevo.png']}" shortDesc="Crear"
-                           action="crud_cuenta">
+                <af:button id="b1" useWindow="true" icon="#{resource['images:nuevo.png']}" shortDesc="Crear">
                     <af:setPropertyListener from="#{'ingresar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
                 <af:button id="b2" icon="#{resource['images:mod.png']}" shortDesc="Editar"
                            binding="#{backingBeanScope.backing_Procesos_cuenta.btnEditar}" action="ir_cuenta">
                     <af:setPropertyListener from="#{'editar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
-                <af:button id="b3" icon="#{resource['images:bor.png']}" shortDesc="Eliminar"
-                           action="#{backingBeanScope.backing_Procesos_cuenta.mostrarPopUpCRUD}">
+                <af:button id="b3" icon="#{resource['images:bor.png']}" shortDesc="Eliminar">
                     <af:setPropertyListener from="#{'eliminar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
             </af:toolbar>

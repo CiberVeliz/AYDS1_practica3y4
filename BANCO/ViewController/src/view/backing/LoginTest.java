@@ -46,4 +46,12 @@ public class LoginTest {
     public void testIngresar() {
         fail("Unimplemented");
     }
+
+    /**
+     * @see Login#ingresoUsuario(javax.faces.event.ValueChangeEvent)
+     */
+    @Test
+    public void testIngresoUsuario() {
+        fail("Unimplemented");
+    }
 }

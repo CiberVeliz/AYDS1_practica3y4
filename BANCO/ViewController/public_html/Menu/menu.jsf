@@ -9,22 +9,26 @@
                 <af:panelHeader text="Sistema de gestion bancaria" id="ph1"
                                 binding="#{backingBeanScope.backing_Menu_menu.ph1}" inlineStyle="height:80px;"
                                 shortDesc="Sistema de gestión bancaria">
-                    <f:facet name="context">
-                        <af:panelLabelAndMessage id="plam1" binding="#{backingBeanScope.backing_Menu_menu.plam1}">
-                            <af:panelGroupLayout id="pgl4" binding="#{backingBeanScope.backing_Menu_menu.pgl4}"
-                                                 layout="horizontal">
-                                <af:spacer width="155" height="10" id="s1"
-                                           binding="#{backingBeanScope.backing_Menu_menu.s1}"/>
-                                <af:inputText label="Tipo de cambio" id="it1"
-                                              binding="#{backingBeanScope.backing_Menu_menu.it1}" disabled="true"
-                                              value="7.50"/>
-                            </af:panelGroupLayout>
-                        </af:panelLabelAndMessage>
+                    <f:facet name="context"/>
+                    <f:facet name="toolbar">
+                        <af:inputText label="Tipo de cambio" id="it1"
+                                      binding="#{backingBeanScope.backing_Menu_menu.it1}" disabled="true" value="7.50"/>
                     </f:facet>
-                    <f:facet name="toolbar"/>
-                    <f:facet name="menuBar"/>
+                    <f:facet name="menuBar">
+                        <af:spacer width="44" height="10" id="s1" binding="#{backingBeanScope.backing_Menu_menu.s1}"/>
+                        <af:inputText label="Label 1" id="it3" binding="#{backingBeanScope.backing_Menu_menu.it3}"
+                                      simple="true" readOnly="true" value="#{sessionScope.NOMBRE}"/>
+                    </f:facet>
                     <f:facet name="legend"/>
-                    <f:facet name="info"/>
+                    <f:facet name="info">
+                        <af:panelGroupLayout id="pgl4" binding="#{backingBeanScope.backing_Menu_menu.pgl4}"
+                                             layout="vertical">
+                            <af:inputText label="Usuario" id="it2" binding="#{backingBeanScope.backing_Menu_menu.it2}"
+                                          value="#{pageFlowScope.USUARIO}" readOnly="true"/>
+                            <af:link text="Cerrar sesión" id="l7" binding="#{backingBeanScope.backing_Menu_menu.l7}"
+                                     action="cerrarsession"/>
+                        </af:panelGroupLayout>
+                    </f:facet>
                 </af:panelHeader>
             </af:panelBox>
             <af:panelSplitter id="ps1" binding="#{backingBeanScope.backing_Menu_menu.ps1}"
@@ -39,7 +43,8 @@
                                                  layout="scroll" halign="center">
                                 <af:link text="Prestamos" action="#{viewScope.regionMenu.pro_prestamo_tf}" id="l3"
                                          binding="#{backingBeanScope.backing_Menu_menu.l3}"
-                                         icon="#{resource['images:prestamo.png']}"/>
+                                         icon="#{resource['images:prestamo.png']}"
+                                         visible="#{pageFlowScope.USUARIO=='admin'}"/>
                                 <af:link text="Transferencias" action="#{viewScope.regionMenu.pro_transferencia}"
                                          id="l6" binding="#{backingBeanScope.backing_Menu_menu.l6}"
                                          icon="#{resource['images:transferencia.png']}"/>
@@ -48,7 +53,8 @@
                         <af:panelBox text="Reportes" id="pb2" binding="#{backingBeanScope.backing_Menu_menu.pb2}">
                             <f:facet name="toolbar"/>
                         </af:panelBox>
-                        <af:panelBox text="Configuración" id="pb3" binding="#{backingBeanScope.backing_Menu_menu.pb3}">
+                        <af:panelBox text="Configuración" id="pb3" binding="#{backingBeanScope.backing_Menu_menu.pb3}"
+                                     visible="#{pageFlowScope.USUARIO=='admin'}">
                             <f:facet name="toolbar"/>
                             <af:panelGroupLayout id="pgl2" binding="#{backingBeanScope.backing_Menu_menu.pgl2}"
                                                  layout="scroll" halign="center">

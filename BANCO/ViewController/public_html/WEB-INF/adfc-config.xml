@@ -6,11 +6,31 @@
   <view id="menu">
     <page>/Menu/menu.jsf</page>
   </view>
+  <method-call id="Rollback">
+    <method>#{bindings.Rollback.execute}</method>
+    <outcome>
+      <fixed-outcome>Rollback</fixed-outcome>
+    </outcome>
+  </method-call>
   <control-flow-rule id="__4">
     <from-activity-id>Login</from-activity-id>
     <control-flow-case id="__5">
       <from-outcome>ir_menu</from-outcome>
       <to-activity-id>menu</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__14">
+    <from-activity-id>menu</from-activity-id>
+    <control-flow-case id="__15">
+      <from-outcome>cerrarsession</from-outcome>
+      <to-activity-id>Rollback</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__16">
+    <from-activity-id>Rollback</from-activity-id>
+    <control-flow-case id="__17">
+      <from-outcome>Rollback</from-outcome>
+      <to-activity-id>Login</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__1">
@@ -74,5 +94,11 @@
     <managed-bean-class>view.backing.Banco_rep_pdf</managed-bean-class>
     <managed-bean-scope>backingBean</managed-bean-scope>
     <!--oracle-jdev-comment:managed-bean-jsp-link:1banco_rep_pdf.jsf-->
+  </managed-bean>
+  <managed-bean id="__18">
+    <managed-bean-name>backing_Procesos_welcome</managed-bean-name>
+    <managed-bean-class>view.backing.Procesos.Welcome</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1Procesos/welcome.jsff-->
   </managed-bean>
 </adfc-config>

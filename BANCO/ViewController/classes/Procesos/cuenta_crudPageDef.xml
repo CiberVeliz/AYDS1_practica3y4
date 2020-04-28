@@ -35,6 +35,27 @@
         <Item Value="ClienteCorreo"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="CuentaView2Iterator" id="CreateWithParams" InstanceName="AppModuleDataControl.CuentaView2"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="CuentaNumcue" NDType="java.lang.String"/>
+      <NamedData NDName="CuentaCodcli" NDType="java.lang.String"/>
+    </action>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action IterBinding="CuentaView2Iterator" id="Delete" InstanceName="AppModuleDataControl.CuentaView2"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="CuentaView2Iterator" id="CuentaSaldo">
+      <AttrNames>
+        <Item Value="CuentaSaldo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CuentaView2Iterator" id="CuentaTipo">
+      <AttrNames>
+        <Item Value="CuentaTipo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CuentaView2Iterator" StaticList="false" Uses="LOV_CuentaCodcli" id="CuentaCodcli"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <tree IterBinding="CuentaView2Iterator" id="CuentaView2">
       <nodeDefinition DefName="model.CuentaView" Name="CuentaView20">
         <AttrNames>
@@ -50,26 +71,5 @@
         <Item Value="CuentaNumcue"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="CuentaView2Iterator" id="CuentaSaldo">
-      <AttrNames>
-        <Item Value="CuentaSaldo"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="CuentaView2Iterator" id="CuentaTipo">
-      <AttrNames>
-        <Item Value="CuentaTipo"/>
-      </AttrNames>
-    </attributeValues>
-    <list IterBinding="CuentaView2Iterator" StaticList="false" Uses="LOV_CuentaCodcli" id="CuentaCodcli"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <action IterBinding="CuentaView2Iterator" id="CreateWithParams" InstanceName="AppModuleDataControl.CuentaView2"
-            DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="createWithParams">
-      <NamedData NDName="CuentaNumcue" NDType="java.lang.String"/>
-      <NamedData NDName="CuentaCodcli" NDType="java.lang.String"/>
-    </action>
-    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
-    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
-    <action IterBinding="CuentaView2Iterator" id="Delete" InstanceName="AppModuleDataControl.CuentaView2"
-            DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

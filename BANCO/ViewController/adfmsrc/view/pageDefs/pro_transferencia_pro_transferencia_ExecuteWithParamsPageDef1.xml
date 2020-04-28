@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="pro_transferencia_pro_transferencia_ExecuteWithParamsPageDef1" Package="view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="CuentaView3" RangeSize="25" DataControl="AppModuleDataControl" id="CuentaView3Iterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CuentaView3Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="codCli" NDValue="#{sessionScope.USUARIO}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

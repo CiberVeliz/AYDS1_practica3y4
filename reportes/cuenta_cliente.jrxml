@@ -7,8 +7,7 @@
 	<queryString>
 		<![CDATA[select *from cliente T1, cuenta T2
 where T1.cliente_codcli = $P{parDpi}
-and T1.cliente_codcli = cuenta_codcli
-]]>
+and T1.cliente_codcli = cuenta_codcli]]>
 	</queryString>
 	<field name="CLIENTE_CODCLI" class="java.lang.String"/>
 	<field name="CLIENTE_NOMBRE" class="java.lang.String"/>
@@ -80,10 +79,6 @@ and T1.cliente_codcli = cuenta_codcli
 				<textElement/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="20" y="-1" width="37" height="42"/>
-				<imageExpression><![CDATA["C:\\Users\\elder\\Desktop\\bancologo.png"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<pageHeader>

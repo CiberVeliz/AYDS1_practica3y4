@@ -7,7 +7,6 @@ import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.layout.RichPanelBox;
 import oracle.adf.view.rich.component.rich.layout.RichPanelGroupLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelHeader;
-import oracle.adf.view.rich.component.rich.layout.RichPanelLabelAndMessage;
 import oracle.adf.view.rich.component.rich.layout.RichPanelSplitter;
 import oracle.adf.view.rich.component.rich.nav.RichLink;
 import oracle.adf.view.rich.component.rich.output.RichSpacer;
@@ -30,11 +29,13 @@ public class Menu {
     private RichLink l4;
     private RichLink l5;
     private RichLink l6;
-    private RichSpacer s1;
     private RichInputText it1;
-    private RichPanelLabelAndMessage plam1;
-    private RichPanelGroupLayout pgl4;
     private RichPanelBox pb4;
+    private RichPanelGroupLayout pgl4;
+    private RichInputText it2;
+    private RichLink l7;
+    private RichInputText it3;
+    private RichSpacer s1;
 
     public void setF1(RichForm f1) {
         this.f1 = f1;
@@ -172,13 +173,6 @@ public class Menu {
         return l6;
     }
 
-    public void setS1(RichSpacer s1) {
-        this.s1 = s1;
-    }
-
-    public RichSpacer getS1() {
-        return s1;
-    }
 
     public void setIt1(RichInputText it1) {
         this.it1 = it1;
@@ -188,12 +182,13 @@ public class Menu {
         return it1;
     }
 
-    public void setPlam1(RichPanelLabelAndMessage plam1) {
-        this.plam1 = plam1;
+
+    public void setPb4(RichPanelBox pb4) {
+        this.pb4 = pb4;
     }
 
-    public RichPanelLabelAndMessage getPlam1() {
-        return plam1;
+    public RichPanelBox getPb4() {
+        return pb4;
     }
 
     public void setPgl4(RichPanelGroupLayout pgl4) {
@@ -204,12 +199,35 @@ public class Menu {
         return pgl4;
     }
 
-
-    public void setPb4(RichPanelBox pb4) {
-        this.pb4 = pb4;
+    public void setIt2(RichInputText it2) {
+        this.it2 = it2;
     }
 
-    public RichPanelBox getPb4() {
-        return pb4;
+    public RichInputText getIt2() {
+        return it2;
+    }
+
+    public void setL7(RichLink l7) {
+        this.l7 = l7;
+    }
+
+    public RichLink getL7() {
+        return l7;
+    }
+
+    public void setIt3(RichInputText it3) {
+        this.it3 = it3;
+    }
+
+    public RichInputText getIt3() {
+        return it3;
+    }
+
+    public void setS1(RichSpacer s1) {
+        this.s1 = s1;
+    }
+
+    public RichSpacer getS1() {
+        return s1;
     }
 }
