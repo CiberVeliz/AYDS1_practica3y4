@@ -63,7 +63,7 @@
       <property
          name="fromOutcome">cerrarsession</property>
       <property
-         name="sdm:polyPoints">B50,251.5,401.44824,162.5,472.79883,T50</property>
+         name="sdm:polyPoints">B50,251.5,401.44824,166.0,472.79883,T56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -73,6 +73,6 @@
       <property
          name="fromOutcome">Rollback</property>
       <property
-         name="sdm:polyPoints">T16,B88</property>
+         name="sdm:polyPoints">T44,159.0,472.79883,43.5,368.74707,B50</property>
    </ControlFlowCase>
 </SDM>

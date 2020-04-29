@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="con_serviciotipocambio_tf">
+    <default-activity>ViewTipoCAmbio</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="ViewTipoCAmbio"></view>
+    <view id="TipoCambioDia"></view>
+    <view id="TipoFechaInicial"></view>
+    <control-flow-rule id="__1">
+      <from-activity-id>ViewTipoCAmbio</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>verCambioDia</from-outcome>
+        <to-activity-id>TipoCambioDia</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>verCambioFecha</from-outcome>
+        <to-activity-id>TipoFechaInicial</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>TipoCambioDia</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>ViewTipoCAmbio</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>TipoFechaInicial</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>ViewTipoCAmbio</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

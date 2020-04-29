@@ -1,15 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
    <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
-   <task-flow-descriptor path="WEB-INF/banco_rep_pdf_tf.xml" id="banco_rep_pdf_tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
-      <input-parameter name="parNombreReporteTitulo"/>
-      <input-parameter name="parTipoReporte"/>
-   </task-flow-descriptor>
-   <task-flow-descriptor path="WEB-INF/bienvenida.xml" id="bienvenida" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
-   <task-flow-descriptor path="WEB-INF/con_asesor_tf.xml" id="con_asesor_tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
-   <task-flow-descriptor path="WEB-INF/con_cliente_tf.xml" id="con_cliente_tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
-   <task-flow-descriptor path="WEB-INF/con_cuenta_tf.xml" id="con_cuenta_tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
-   <task-flow-descriptor path="WEB-INF/con_sucursal_tf.xml" id="con_sucursal_tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
-   <task-flow-descriptor path="WEB-INF/pro_prestamo_tf.xml" id="pro_prestamo_tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
-   <task-flow-descriptor path="WEB-INF/pro_transferencia.xml" id="pro_transferencia" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/con_serviciotipocambio_tf.xml" id="con_serviciotipocambio_tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified"/>
 </task-flow-registry>
