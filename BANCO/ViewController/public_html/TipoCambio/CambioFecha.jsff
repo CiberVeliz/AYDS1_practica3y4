@@ -8,7 +8,7 @@
     </f:facet>
     <af:image source="#{resource['images:bancogt.png']}" id="i1" inlineStyle="width:217px; height:239px;"/>
     <h:outputText value="Cambio Dolar" id="ot1"/>
-    <af:inputText value="#{bindings.fechainit.inputValue}" label="#{bindings.fechainit.hints.label}"
+    <af:inputText value="#{bindings.fechainit.inputValue}" label="Fecha Inicial(dd/mm/aaaa)"
                   required="#{bindings.fechainit.hints.mandatory}" columns="#{bindings.fechainit.hints.displayWidth}"
                   maximumLength="#{bindings.fechainit.hints.precision}" shortDesc="#{bindings.fechainit.hints.tooltip}"
                   id="it1" autoSubmit="true">
