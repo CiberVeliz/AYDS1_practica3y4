@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration" version="12.2.1.22.48" id="DataControls"
+                    Package="model">
+  <AdapterDataControl id="BancoGT" FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adfinternal.model.adapter.webservice.WSDefinition" SupportsTransactions="false"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true" Definition="model.BancoGT"
+                      BeanClass="model.BancoGT" xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <definition xmlns="http://xmlns.oracle.com/adfm/adapter/webservice" name="BancoGT" version="1.0"
+                  provider="oracle.adfinternal.model.adapter.webservice.provider.soap.SOAPProvider"
+                  ensureKeyAttribute="true" useWSDLIdentity="true" dcStructureVersion="2" UsePersistedStructure="false">
+        <service name="TipoCambio" namespace="http://www.banguat.gob.gt/variables/ws/" connection="BancoGT">
+          <port name="TipoCambioSoap12">
+            <operation name="TipoCambioDia"/>
+            <operation name="TipoCambioFechaInicial"/>
+          </port>
+        </service>
+      </definition>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

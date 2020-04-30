@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <af:panelFormLayout id="pfl1">
+    <f:facet name="footer">
+      <af:button text="Regresar" id="b1" action="regreso"/>
+      <af:button text="Actualizar" id="b2" partialTriggers="b2"/>
+    </f:facet>
+    <af:image source="#{resource['images:bancogt.png']}" id="i1" inlineStyle="width:217px; height:239px;"/>
+    <h:outputText value="Cambio Dolar" id="ot1"/>
+    <af:inputText value="#{bindings.fechainit.inputValue}" label="#{bindings.fechainit.hints.label}"
+                  required="#{bindings.fechainit.hints.mandatory}" columns="#{bindings.fechainit.hints.displayWidth}"
+                  maximumLength="#{bindings.fechainit.hints.precision}" shortDesc="#{bindings.fechainit.hints.tooltip}"
+                  id="it1" autoSubmit="true">
+      <f:validator binding="#{bindings.fechainit.validator}"/>
+    </af:inputText>
+    <af:table value="#{bindings.Var.collectionModel}" var="row" rows="#{bindings.Var.rangeSize}"
+              emptyText="#{bindings.Var.viewable ? 'No data to display.' : 'Access Denied.'}" rowBandingInterval="0"
+              fetchSize="#{bindings.Var.rangeSize}" id="t1">
+      <af:column headerText="#{bindings.Var.hints.fecha.label}" id="c2">
+        <af:inputText value="#{row.bindings.fecha.inputValue}" label="#{bindings.Var.hints.fecha.label}"
+                      required="#{bindings.Var.hints.fecha.mandatory}"
+                      columns="#{bindings.Var.hints.fecha.displayWidth}"
+                      maximumLength="#{bindings.Var.hints.fecha.precision}"
+                      shortDesc="#{bindings.Var.hints.fecha.tooltip}" id="it2">
+          <f:validator binding="#{row.bindings.fecha.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column headerText="#{bindings.Var.hints.venta.label}" id="c3">
+        <af:inputText value="#{row.bindings.venta.inputValue}" label="#{bindings.Var.hints.venta.label}"
+                      required="#{bindings.Var.hints.venta.mandatory}"
+                      columns="#{bindings.Var.hints.venta.displayWidth}"
+                      maximumLength="#{bindings.Var.hints.venta.precision}"
+                      shortDesc="#{bindings.Var.hints.venta.tooltip}" id="it3">
+          <f:validator binding="#{row.bindings.venta.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.Var.hints.venta.format}"/>
+        </af:inputText>
+      </af:column>
+      <af:column headerText="#{bindings.Var.hints.compra.label}" id="c4">
+        <af:inputText value="#{row.bindings.compra.inputValue}" label="#{bindings.Var.hints.compra.label}"
+                      required="#{bindings.Var.hints.compra.mandatory}"
+                      columns="#{bindings.Var.hints.compra.displayWidth}"
+                      maximumLength="#{bindings.Var.hints.compra.precision}"
+                      shortDesc="#{bindings.Var.hints.compra.tooltip}" id="it4">
+          <f:validator binding="#{row.bindings.compra.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.Var.hints.compra.format}"/>
+        </af:inputText>
+      </af:column>
+    </af:table>
+  </af:panelFormLayout>
+</ui:composition>

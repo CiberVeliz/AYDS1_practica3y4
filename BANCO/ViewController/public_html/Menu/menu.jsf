@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="menu.jsf" id="d1" binding="#{backingBeanScope.backing_Menu_menu.d1}">
+        <af:messages binding="#{backingBeanScope.backing_Menu_menu.m1}" id="m1"/>
         <af:form id="f1" binding="#{backingBeanScope.backing_Menu_menu.f1}">
             <af:panelBox text="PanelBox1" id="pb4" binding="#{backingBeanScope.backing_Menu_menu.pb4}"
                          background="dark" titleHalign="center" showHeader="never" showDisclosure="false">
@@ -10,10 +11,7 @@
                                 binding="#{backingBeanScope.backing_Menu_menu.ph1}" inlineStyle="height:80px;"
                                 shortDesc="Sistema de gestión bancaria">
                     <f:facet name="context"/>
-                    <f:facet name="toolbar">
-                        <af:inputText label="Tipo de cambio" id="it1"
-                                      binding="#{backingBeanScope.backing_Menu_menu.it1}" disabled="true" value="7.50"/>
-                    </f:facet>
+                    <f:facet name="toolbar"/>
                     <f:facet name="menuBar">
                         <af:spacer width="44" height="10" id="s1" binding="#{backingBeanScope.backing_Menu_menu.s1}"/>
                         <af:inputText label="Label 1" id="it3" binding="#{backingBeanScope.backing_Menu_menu.it3}"
@@ -30,6 +28,25 @@
                         </af:panelGroupLayout>
                     </f:facet>
                 </af:panelHeader>
+                <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_Menu_menu.pfl1}">
+                    <af:inputText value="#{bindings.fecha.inputValue}" label="#{bindings.fecha.hints.label}"
+                                  required="#{bindings.fecha.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.fecha.hints.displayWidth}"
+                                  maximumLength="#{bindings.fecha.hints.precision}"
+                                  shortDesc="#{bindings.fecha.hints.tooltip}" id="it1"
+                                  binding="#{backingBeanScope.backing_Menu_menu.it1}">
+                        <f:validator binding="#{bindings.fecha.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.referencia.inputValue}" label="#{bindings.referencia.hints.label}"
+                                  required="#{bindings.referencia.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.referencia.hints.displayWidth}"
+                                  maximumLength="#{bindings.referencia.hints.precision}"
+                                  shortDesc="#{bindings.referencia.hints.tooltip}" id="it4"
+                                  binding="#{backingBeanScope.backing_Menu_menu.it4}">
+                        <f:validator binding="#{bindings.referencia.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.referencia.format}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
             </af:panelBox>
             <af:panelSplitter id="ps1" binding="#{backingBeanScope.backing_Menu_menu.ps1}"
                               inlineStyle="width:1273px; height:891px;" splitterPosition="200"
@@ -48,6 +65,9 @@
                                 <af:link text="Transferencias" action="#{viewScope.regionMenu.pro_transferencia}"
                                          id="l6" binding="#{backingBeanScope.backing_Menu_menu.l6}"
                                          icon="#{resource['images:transferencia.png']}"/>
+                                <af:link text="Tipo Cambio" id="l8" binding="#{backingBeanScope.backing_Menu_menu.l8}"
+                                         icon="#{resource['images:cambio.png']}"
+                                         action="#{viewScope.regionMenu.con_tipocambio_tf}"/>
                             </af:panelGroupLayout>
                         </af:panelBox>
                         <af:panelBox text="Reportes" id="pb2" binding="#{backingBeanScope.backing_Menu_menu.pb2}">

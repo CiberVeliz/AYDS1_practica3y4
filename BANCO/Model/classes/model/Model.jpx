@@ -4,7 +4,7 @@
 <JboProject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="Model"
-  Version="12.2.1.11.57"
+  Version="12.2.1.22.48"
   SeparateXMLFiles="true"
   PackageName="model">
   <DesignTime>
@@ -14,6 +14,14 @@
     <Attr Name="_NamedConnection" Value="Connection1"/>
     <Attr Name="_appModuleNames0" Value="model.AppModule"/>
   </DesignTime>
+  <Containee
+    Name="TipoCambioDia"
+    PackageName="model.BancoGT.TipoCambioDia"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
   <Containee
     Name="model"
     PackageName="model"

@@ -18,6 +18,9 @@
     <page path="PageFlow#Rollback" usageId="view_adfc_config___RollbackPageDef"/>
     <page path="/WEB-INF/pro_transferencia.xml#pro_transferencia@ExecuteWithParams"
           usageId="view_pro_transferencia_pro_transferencia_ExecuteWithParamsPageDef1"/>
+    <page path="/TipoCambio/CambioDia.jsff" usageId="view_CambioDiaPageDef"/>
+    <page path="/TipoCambio/MenuTipoCambio.jsff" usageId="view_MenuTipoCambioPageDef"/>
+    <page path="/TipoCambio/CambioFecha.jsff" usageId="view_CambioFechaPageDef"/>
   </pageMap>
   <definitionFactories>
     <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
@@ -43,8 +46,12 @@
           path="view.pageDefs.pro_transferencia_pro_transferencia_ExecuteWithParamsPageDef"/>
     <page id="view_pro_transferencia_pro_transferencia_ExecuteWithParamsPageDef1"
           path="view.pageDefs.pro_transferencia_pro_transferencia_ExecuteWithParamsPageDef1"/>
+    <page id="view_CambioDiaPageDef" path="TipoCambio.CambioDiaPageDef"/>
+    <page id="view_MenuTipoCambioPageDef" path="TipoCambio.MenuTipoCambioPageDef"/>
+    <page id="view_CambioFechaPageDef" path="TipoCambio.CambioFechaPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="BancoGT" path="model.BancoGT"/>
     <BC4JDataControl id="AppModuleDataControl" Package="model"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"

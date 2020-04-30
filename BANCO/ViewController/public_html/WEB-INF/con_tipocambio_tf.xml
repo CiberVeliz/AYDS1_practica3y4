@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="con_tipocambio_tf">
+    <default-activity>MenuTipoCambio</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="MenuTipoCambio">
+      <page>/TipoCambio/MenuTipoCambio.jsff</page>
+    </view>
+    <view id="CambioDia">
+      <page>/TipoCambio/CambioDia.jsff</page>
+    </view>
+    <view id="CambioFecha">
+      <page>/TipoCambio/CambioFecha.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>MenuTipoCambio</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>ac_cambiodia</from-outcome>
+        <to-activity-id>CambioDia</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>ac_cambioFecha</from-outcome>
+        <to-activity-id>CambioFecha</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>CambioDia</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>regreso</from-outcome>
+        <to-activity-id>MenuTipoCambio</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>CambioFecha</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>regreso</from-outcome>
+        <to-activity-id>MenuTipoCambio</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

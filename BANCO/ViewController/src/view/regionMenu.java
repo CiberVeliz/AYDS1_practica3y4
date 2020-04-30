@@ -47,4 +47,10 @@ public class regionMenu implements Serializable {
         setDynamicTaskFlowId("/WEB-INF/pro_transferencia.xml#pro_transferencia");
         return null;
     }
+
+    public String con_tipocambio_tf() {
+        // Add event code here...
+        setDynamicTaskFlowId("/WEB-INF/con_tipocambio_tf.xml#con_tipocambio_tf");
+        return null;
+    }
 }
