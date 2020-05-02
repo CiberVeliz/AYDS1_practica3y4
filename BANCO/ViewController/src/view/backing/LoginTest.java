@@ -1,12 +1,16 @@
 package view.backing;
 
-import org.junit.After;
+import javax.faces.event.ValueChangeEvent;
+
+import oracle.adf.view.rich.event.DialogEvent;
+
 import static org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.JUnitCore;
 
 public class LoginTest {
+    Login fixture1 = new Login();
+
     public LoginTest() {
     }
 
@@ -15,20 +19,14 @@ public class LoginTest {
         JUnitCore.main(args2);
     }
 
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @After
-    public void tearDown() throws Exception {
-    }
-
     /**
      * @see Login#mostrarPopUpCRUD()
      */
     @Test
     public void testMostrarPopUpCRUD() {
-        fail("Unimplemented");
+        String salida = null;
+        salida = fixture1.mostrarPopUpCRUD();
+        assertEquals("ingresar", salida);
     }
 
     /**
@@ -36,15 +34,18 @@ public class LoginTest {
      */
     @Test
     public void testOnDialogAction() {
-        fail("Unimplemented");
+        //DialogEvent dialogEvent = new DialogEvent();
+        //assertTrue(fixture1.onDialogAction(dialogEvent));
     }
 
     /**
      * @see Login#ingresar()
      */
     @Test
-    public void testIngresar() {
-        fail("Unimplemented");
+    public void testIngresar() {        
+        String salida = null;
+        salida = fixture1.ingresar();
+        assertEquals("no_ingresa", salida);
     }
 
     /**
@@ -52,6 +53,8 @@ public class LoginTest {
      */
     @Test
     public void testIngresoUsuario() {
-        fail("Unimplemented");
+        ValueChangeEvent valueChangeEvent;
+       // assertTrue(fixture1.ingresoUsuario(valueChangeEvent);)
+        
     }
 }

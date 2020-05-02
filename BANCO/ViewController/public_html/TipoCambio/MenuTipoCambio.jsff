@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core">
-  <af:gridCell id="gc1"/>
-  <af:outputText value="Menu Tipo Cambio:" id="ot1" inlineStyle="color:Blue; font-size:xx-large;"/>
-  <af:button text="Tipo Cambio Dia" id="b1" icon="#{resource['images:cambio.png']}" action="ac_cambiodia"/>
-  <af:button text="Tipo Cambio  Fecha" id="b2" icon="#{resource['images:cambiofecha.png']}" action="ac_cambioFecha"/>
-</ui:composition>

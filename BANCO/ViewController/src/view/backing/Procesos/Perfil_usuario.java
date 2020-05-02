@@ -75,8 +75,7 @@ public class Perfil_usuario {
         
             String parTipoReporte = tipoReporte; //Valor por defecto
             String parNombreReporteTitulo = "Reporte - Perfil de usuario";
-            String nombreReporte = "preplanilla";
-
+          
             Map<String, Object> params = new HashMap<String, Object>();
             params.put("parDpi", this.codDpi.getValue().toString());
         

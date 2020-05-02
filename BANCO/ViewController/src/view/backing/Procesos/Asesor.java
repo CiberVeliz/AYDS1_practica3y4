@@ -16,46 +16,54 @@ public class Asesor {
     private RichButton btnEditar;
     private RichPopup puCRUD;
     private RichOutputText etiqEliminar;
-    
 
-    
+
     /*Método que abre el pop up del CRUD*/
     public String mostrarPopUpCRUD() {
         BindingContainer bindings = null;
+
+        String salida = null;
         String accion = "";
-        this.getEtiqEliminar().setVisible(false);
-        //this.getSorTipPer().setValue("N");
-        //AdfFacesContext.getCurrentInstance().addPartialTarget(this.getSorTipPer());
+        try {
+            this.getEtiqEliminar().setVisible(false);
+            //this.getSorTipPer().setValue("N");
+            //AdfFacesContext.getCurrentInstance().addPartialTarget(this.getSorTipPer());
 
-        if (ADFContext.getCurrent().getViewScope().get("accion") != null)
-            accion = ADFContext.getCurrent().getViewScope().get("accion").toString();
-        if ("ingresar".equalsIgnoreCase(accion)) {
-             bindings = getBindings();
-            OperationBinding operationBinding = bindings.getOperationBinding("CreateWithParams");
-            operationBinding.execute();
 
-            RichPopup popup = this.getPuCRUD();
-            RichPopup.PopupHints hints = new RichPopup.PopupHints();
-            //empty hints renders dialog in center of screen
-            popup.show(hints);
-        } else if ("editar".equalsIgnoreCase(accion)) {
+            if (ADFContext.getCurrent().getViewScope().get("accion") != null)
+                accion = ADFContext.getCurrent().getViewScope().get("accion").toString();
+            if ("ingresar".equalsIgnoreCase(accion)) {
+                bindings = getBindings();
+                OperationBinding operationBinding = bindings.getOperationBinding("CreateWithParams");
+                operationBinding.execute();
 
-             RichPopup popup = this.getPuCRUD();
-            RichPopup.PopupHints hints = new RichPopup.PopupHints();
-            //empty hints renders dialog in center of screen
-            popup.show(hints);
-        } else if ("eliminar".equalsIgnoreCase(accion)) {
+                RichPopup popup = this.getPuCRUD();
+                RichPopup.PopupHints hints = new RichPopup.PopupHints();
+                //empty hints renders dialog in center of screen
+                popup.show(hints);
+            } else if ("editar".equalsIgnoreCase(accion)) {
 
-            RichPopup popup = this.getPuCRUD();
-            RichPopup.PopupHints hints = new RichPopup.PopupHints();
-            //empty hints renders dialog in center of screen
-            popup.show(hints);
-            this.getEtiqEliminar().setVisible(true);
+                RichPopup popup = this.getPuCRUD();
+                RichPopup.PopupHints hints = new RichPopup.PopupHints();
+                //empty hints renders dialog in center of screen
+                popup.show(hints);
+            } else if ("eliminar".equalsIgnoreCase(accion)) {
+
+                RichPopup popup = this.getPuCRUD();
+                RichPopup.PopupHints hints = new RichPopup.PopupHints();
+                //empty hints renders dialog in center of screen
+                popup.show(hints);
+                this.getEtiqEliminar().setVisible(true);
+            }
+            AdfFacesContext.getCurrentInstance().addPartialTarget(this.getEtiqEliminar());
+            salida = "ingresar";
+        } catch (NullPointerException e) {
+            System.out.print("NullPointerException Caught");
+            salida = "ingresar";
         }
 
-        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getEtiqEliminar());
-
-        return null;
+       
+        return salida;
     }
 
     /*PopupCanceledListener (Popup)*/

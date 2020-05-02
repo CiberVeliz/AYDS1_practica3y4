@@ -62,6 +62,9 @@
       <Item Value="CuentaNumcue"/>
     </AttrArray>
     <DisplayCriteria/>
+    <ViewCriteriaUsage
+      Name="CuentaViewCriteria"
+      FullName="model.CuentaView.CuentaViewCriteria"/>
   </ListBinding>
   <EntityUsage
     Name="Cuenta"
@@ -162,64 +165,6 @@
         Value=":codCli"
         IsBindVarValue="true"
         Required="Optional"/>
-    </ViewCriteriaRow>
-  </ViewCriteria>
-  <ViewCriteria
-    Name="CuentaViewCriteria1"
-    ViewObjectName="model.CuentaView"
-    Conjunction="AND">
-    <Properties Name="_Props">
-      <CustomProperties>
-        <Property
-          Name="autoExecute"
-          Value="false"/>
-        <Property
-          Name="mode"
-          Value="Basic"/>
-        <Property
-          Name="allowConjunctionOverride"
-          Value="true"/>
-        <Property
-          Name="showInList"
-          Value="true"/>
-        <Property
-          Name="displayOperators"
-          Value="InAdvancedMode"/>
-      </CustomProperties>
-    </Properties>
-    <ViewCriteriaRow
-      Name="CuentaViewCriteria1_row_0"
-      UpperColumns="1">
-      <ViewCriteriaItem
-        Name="CuentaViewCriteria1_CuentaViewCriteria1_row_0_CuentaCodcli"
-        ViewAttribute="CuentaCodcli"
-        Operator="="
-        Conjunction="AND"
-        Value="261803735"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="CuentaViewCriteria1_CuentaViewCriteria1_row_0_AsesorView"
-        ViewAttribute="AsesorView"
-        Operator="EXISTS"
-        Conjunction="AND"
-        IsNestedCriteria="true"
-        Required="Optional">
-        <ViewCriteria
-          Name="AsesorViewNestedCriteria"
-          ViewObjectName="model.AsesorView"
-          Conjunction="AND">
-          <ViewCriteriaRow
-            Name="AsesorViewNestedCriteria_row_0"
-            UpperColumns="1">
-            <ViewCriteriaItem
-              Name="AsesorViewNestedCriteria_AsesorViewNestedCriteria_row_0_AsesorNumcue"
-              ViewAttribute="AsesorNumcue"
-              Operator="STARTSWITH"
-              Conjunction="AND"
-              Required="Optional"/>
-          </ViewCriteriaRow>
-        </ViewCriteria>
-      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor

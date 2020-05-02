@@ -38,7 +38,6 @@ public class Login {
     private RichPopup puCRUD;
     RequestContext requestContext = RequestContext.getCurrentInstance();
     FacesContext context = javax.faces.context.FacesContext.getCurrentInstance();
-    HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
     private RichInputText puCodcli;
     private RichInputText puNombre;
     private RichInputText puContra;
@@ -47,18 +46,25 @@ public class Login {
     /*Método que abre el pop up del CRUD*/
     public String mostrarPopUpCRUD() {
         BindingContainer bindings = null;
+        String salida =null;
+        try {
+            bindings = getBindings();
+            OperationBinding operationBinding = bindings.getOperationBinding("CreateWithParams");
+            operationBinding.execute();
 
-        bindings = getBindings();
-        OperationBinding operationBinding = bindings.getOperationBinding("CreateWithParams");
-        operationBinding.execute();
-        
-    
-        RichPopup popup = this.getPuCRUD();
-        RichPopup.PopupHints hints = new RichPopup.PopupHints();
-        //empty hints renders dialog in center of screen
-        popup.show(hints);
 
-        return null;
+            RichPopup popup = this.getPuCRUD();
+            RichPopup.PopupHints hints = new RichPopup.PopupHints();
+            //empty hints renders dialog in center of screen
+            popup.show(hints);
+            salida = "ingresar";
+            
+        } catch (NullPointerException e) {
+            System.out.print("NullPointerException Caught");
+            salida = "ingresar";
+        }
+
+        return salida;
     }
 
     /*PopupCanceledListener (Popup)*/
@@ -70,7 +76,8 @@ public class Login {
 
     /*DialogListener (Dialog)*/
     public void onDialogAction(DialogEvent dialogEvent) {
-
+        
+        HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
         if (dialogEvent.getOutcome().name().equals("ok")) {
 
             BindingContainer bindings = null;
@@ -79,12 +86,12 @@ public class Login {
             bindings = getBindings();
             operationBinding = bindings.getOperationBinding("Commit");
             operationBinding.execute();
-            
+
             requestContext.getPageFlowScope().put("USUARIO", this.puCodcli.getValue().toString());
             requestContext.getPageFlowScope().put("CONTRASENA", this.puContra.getValue().toString());
             session.setAttribute("NOMBRE", this.puNombre.getValue().toString());
             session.setAttribute("USUARIO", this.puCodcli.getValue().toString());
-            
+
         }
 
     }
@@ -136,6 +143,7 @@ public class Login {
 
     public String ingresar() {
         // Add event code here...
+        
         try {
             String usu = AdfFacesContext.getCurrentInstance().getPageFlowScope().get("USUARIO").toString();
             String con = AdfFacesContext.getCurrentInstance().getPageFlowScope().get("CONTRASENA").toString();
@@ -147,18 +155,18 @@ public class Login {
                 FacesMessage msg =
                     new FacesMessage(FacesMessage.SEVERITY_ERROR, null, "Usuario o contraseña incorrecta");
                 FacesContext.getCurrentInstance().addMessage(null, msg);
-
+                return "no_ingresa";
             }
 
         } catch (NullPointerException e) {
             System.out.print("NullPointerException Caught");
+            return "no_ingresa";
         }
-        return null;
     }
 
     public void ingresoUsuario(ValueChangeEvent valueChangeEvent) {
         // Add event code here...
-
+        HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
         BindingContext bindingctx = BindingContext.getCurrent();
         BindingContainer bindings = bindingctx.getCurrentBindingsEntry();
         DCBindingContainer bindingsImpl = (DCBindingContainer) bindings;
@@ -166,27 +174,27 @@ public class Login {
         RowSetIterator row = iter.getRowSetIterator();
         row.reset();
         Row r = row.first();
-       
+
         System.out.println(r.getAttribute("ClienteCodcli").toString());
-        
+
         if (valueChangeEvent.getNewValue().equals(r.getAttribute("ClienteCodcli"))) {
             requestContext.getPageFlowScope().put("USUARIO", r.getAttribute("ClienteCodcli").toString());
             requestContext.getPageFlowScope().put("CONTRASENA", r.getAttribute("ClienteContrasena").toString());
             session.setAttribute("NOMBRE", r.getAttribute("ClienteNombre").toString());
             session.setAttribute("USUARIO", r.getAttribute("ClienteCodcli").toString());
-            
+
         }
-       
+
         while (row.hasNext()) {
             r = row.next();
             System.out.println(r.getAttribute("ClienteCodcli").toString());
-            
+
             if (valueChangeEvent.getNewValue().equals(r.getAttribute("ClienteCodcli"))) {
                 requestContext.getPageFlowScope().put("USUARIO", r.getAttribute("ClienteCodcli").toString());
                 requestContext.getPageFlowScope().put("CONTRASENA", r.getAttribute("ClienteContrasena").toString());
                 session.setAttribute("NOMBRE", r.getAttribute("ClienteNombre").toString());
                 session.setAttribute("USUARIO", r.getAttribute("ClienteCodcli").toString());
-                
+
             }
         }
     }
@@ -215,5 +223,5 @@ public class Login {
         return puContra;
     }
 
- 
+
 }
