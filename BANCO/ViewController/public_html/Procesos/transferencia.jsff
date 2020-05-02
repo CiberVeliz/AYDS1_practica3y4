@@ -39,14 +39,9 @@
                                            filterable="true" sortable="true"
                                            headerText="#{bindings.CuentaView3.hints.CuentaNumcue.label}" id="c1"
                                            width="250">
-                                    <af:selectOneChoice value="#{row.bindings.CuentaNumcue.inputValue}"
-                                                        label="#{row.bindings.CuentaNumcue.label}"
-                                                        required="#{bindings.CuentaView3.hints.CuentaNumcue.mandatory}"
-                                                        shortDesc="#{bindings.CuentaView3.hints.CuentaNumcue.tooltip}"
-                                                        readOnly="true" id="soc1">
-                                        <f:selectItems value="#{row.bindings.CuentaNumcue.items}" id="si1"/>
-                                        <f:validator binding="#{row.bindings.CuentaNumcue.validator}"/>
-                                    </af:selectOneChoice>
+                                    <af:outputText value="#{row.CuentaNumcue}"
+                                                   shortDesc="#{bindings.CuentaView3.hints.CuentaNumcue.tooltip}"
+                                                   id="ot3"/>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.CuentaView3.hints.CuentaSaldo.name}"
                                            filterable="true" sortable="true"

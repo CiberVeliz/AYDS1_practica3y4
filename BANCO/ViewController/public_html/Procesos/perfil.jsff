@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+                <af:panelHeader text="Perfil de usuario" id="ph1" inlineStyle="height:54px;" visible="false">
+        <f:facet name="context"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+    </af:panelHeader>
+    <af:panelBox text="Datos del cliente" id="pb1" binding="#{backingBeanScope.backing_Procesos_cuenta_crud.pb1}"
+                 showDisclosure="false">
+        <f:facet name="toolbar">
+            <af:toolbar id="t3" inlineStyle="alignment-adjust:auto;">
+                <af:button id="b6" icon="#{resource['images:imprimir.png']}" shortDesc="Crear" useWindow="true"
+                           action="#{backingBeanScope.backing_Procesos_perfil.generarReportePerfil}"/>
+            </af:toolbar>
+        </f:facet>
+        <af:panelGroupLayout id="pgl3" layout="horizontal">
+            <af:spacer width="153" height="10" id="s2"/>
+            <af:panelFormLayout id="pfl1">
+                <af:inputText value="#{bindings.ClienteCodcli.inputValue}" label="#{bindings.ClienteCodcli.hints.label}"
+                              required="#{bindings.ClienteCodcli.hints.mandatory}" readOnly="true"
+                              columns="#{bindings.ClienteCodcli.hints.displayWidth}"
+                              maximumLength="#{bindings.ClienteCodcli.hints.precision}"
+                              shortDesc="#{bindings.ClienteCodcli.hints.tooltip}" id="it1"
+                              binding="#{backingBeanScope.backing_Procesos_perfil.codDpi}">
+                    <f:validator binding="#{bindings.ClienteCodcli.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ClienteNombre.inputValue}" label="#{bindings.ClienteNombre.hints.label}"
+                              required="#{bindings.ClienteNombre.hints.mandatory}" readOnly="true"
+                              columns="#{bindings.ClienteNombre.hints.displayWidth}"
+                              maximumLength="#{bindings.ClienteNombre.hints.precision}"
+                              shortDesc="#{bindings.ClienteNombre.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.ClienteNombre.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ClienteDireccion.inputValue}"
+                              label="#{bindings.ClienteDireccion.hints.label}"
+                              required="#{bindings.ClienteDireccion.hints.mandatory}" readOnly="true"
+                              columns="#{bindings.ClienteDireccion.hints.displayWidth}"
+                              maximumLength="#{bindings.ClienteDireccion.hints.precision}"
+                              shortDesc="#{bindings.ClienteDireccion.hints.tooltip}" id="it3">
+                    <f:validator binding="#{bindings.ClienteDireccion.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ClienteContrasena.inputValue}"
+                              label="#{bindings.ClienteContrasena.hints.label}"
+                              required="#{bindings.ClienteContrasena.hints.mandatory}" readOnly="true"
+                              columns="#{bindings.ClienteContrasena.hints.displayWidth}"
+                              maximumLength="#{bindings.ClienteContrasena.hints.precision}"
+                              shortDesc="#{bindings.ClienteContrasena.hints.tooltip}" id="it4">
+                    <f:validator binding="#{bindings.ClienteContrasena.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ClienteCorreo.inputValue}" label="#{bindings.ClienteCorreo.hints.label}"
+                              required="#{bindings.ClienteCorreo.hints.mandatory}" readOnly="true"
+                              columns="#{bindings.ClienteCorreo.hints.displayWidth}"
+                              maximumLength="#{bindings.ClienteCorreo.hints.precision}"
+                              shortDesc="#{bindings.ClienteCorreo.hints.tooltip}" id="it5">
+                    <f:validator binding="#{bindings.ClienteCorreo.validator}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl1">
+                        <af:button actionListener="#{bindings.First.execute}" text="Primero"
+                                   disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                        <af:button actionListener="#{bindings.Previous.execute}" text="Anterior"
+                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                        <af:button actionListener="#{bindings.Next.execute}" text="Siguiente"
+                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                        <af:button actionListener="#{bindings.Last.execute}" text="Ultimo"
+                                   disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <af:spacer width="10" height="30" id="s1"/>
+            </af:panelFormLayout>
+        </af:panelGroupLayout>
+    </af:panelBox>
+</ui:composition>

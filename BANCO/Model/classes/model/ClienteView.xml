@@ -13,6 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="codCli"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="Cliente"
     Entity="model.Cliente"/>
@@ -92,6 +96,42 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="ClienteViewCriteria"
+    ViewObjectName="model.ClienteView"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ClienteViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ClienteViewCriteria_ClienteViewCriteria_row_0_ClienteCodcli"
+        ViewAttribute="ClienteCodcli"
+        Operator="="
+        Conjunction="AND"
+        Value=":codCli"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="CuentaView"
     ViewLink="model.CuentaClienteFkLink"

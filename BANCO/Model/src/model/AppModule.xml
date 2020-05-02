@@ -44,6 +44,13 @@
       Name="CuentaViewCriteria"
       FullName="model.CuentaView.CuentaViewCriteria"/>
   </ViewUsage>
+  <ViewUsage
+    Name="ClienteView2"
+    ViewObjectName="model.ClienteView">
+    <ViewCriteriaUsage
+      Name="ClienteViewCriteria"
+      FullName="model.ClienteView.ClienteViewCriteria"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="AsesorEmpleadoFkLink1"
     ViewLinkObjectName="model.AsesorEmpleadoFkLink"

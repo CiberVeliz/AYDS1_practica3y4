@@ -106,19 +106,6 @@
                   <url path="Menu Principal/"/>
                </list>
             </hash>
-            <hash>
-               <list n="pattern-filters">
-                  <string v="+cambio.png"/>
-                  <string v="+bancogt.png"/>
-                  <string v="+bancogt.png"/>
-                  <string v="+bancogt.png"/>
-                  <string v="+cambiofecha.png"/>
-                  <string v="+cambio.png"/>
-               </list>
-               <list n="url-path">
-                  <url path="src/META-INF/resources/images/"/>
-               </list>
-            </hash>
          </list>
          <list n="url-path"/>
       </hash>
@@ -398,18 +385,6 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
-         <hash>
-            <value n="id" v="oracle.adfm.adapter.WebServiceDataControl Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Security"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Web Service Data Control"/>
-            <value n="isJDK" v="false"/>
-         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
@@ -567,14 +542,6 @@
                <value n="description" v="Poi-scratchpad-3.7-20101029.jar"/>
                <value n="id" v="Poi-scratchpad-3.7-20101029.jar"/>
                <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../.adf/"/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="oracle.adfm.adapter.WebServiceDataControl Library"/>
-               <value n="id" v="oracle.adfm.adapter.WebServiceDataControl Library"/>
             </hash>
          </list>
       </hash>
@@ -753,18 +720,6 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="oracle.adfm.adapter.WebServiceDataControl Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Security"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Web Service Data Control"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

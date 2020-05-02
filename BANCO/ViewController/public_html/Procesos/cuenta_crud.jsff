@@ -1,28 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-    <af:panelHeader text="Cuenta bancaria" id="ph1" inlineStyle="height:54px;">
-        <f:facet name="context"/>
+    <af:panelBox text="PanelBox1" id="pb3" showDisclosure="false" showHeader="never">
         <f:facet name="toolbar"/>
-        <f:facet name="menuBar">
-            <af:panelGroupLayout id="pgl1" binding="#{backingBeanScope.backing_Procesos_cuenta_crud.pgl1}"
-                                 halign="right" layout="horizontal">
-                <af:button text="Guardar" id="b1"
-                           action="#{backingBeanScope.backing_Procesos_cuenta_crud.guardarCuenta}"/>
-                <af:button text="Salir" id="b2"
-                           action="regresar_rollback" immediate="true"/>
-            </af:panelGroupLayout>
-        </f:facet>
-        <f:facet name="legend"/>
-        <f:facet name="info"/>
-    </af:panelHeader>
+        <af:panelHeader text="Cuenta bancaria" id="ph1" inlineStyle="height:54px;">
+            <f:facet name="context"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="menuBar">
+                <af:panelGroupLayout id="pgl1" binding="#{backingBeanScope.backing_Procesos_cuenta_crud.pgl1}"
+                                     halign="right" layout="horizontal">
+                    <af:button text="Guardar" id="b1"
+                               action="#{backingBeanScope.backing_Procesos_cuenta_crud.guardarCuenta}"/>
+                    <af:button text="Salir" id="b2" action="regresar_rollback" immediate="true"/>
+                </af:panelGroupLayout>
+            </f:facet>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+        </af:panelHeader>
+    </af:panelBox>
     <af:panelBox text="Datos del cliente" id="pb1" binding="#{backingBeanScope.backing_Procesos_cuenta_crud.pb1}">
         <f:facet name="toolbar">
             <af:toolbar id="t3" inlineStyle="alignment-adjust:auto;">
                 <af:button id="b6" icon="#{resource['images:imprimir.png']}" shortDesc="Crear" useWindow="true"
-                           action="#{backingBeanScope.backing_Procesos_cuenta_crud.generarReporteCliente}">
-                    <af:setPropertyListener from="#{'ingresar'}" to="#{viewScope.accion}" type="action"/>
-                </af:button>
+                           action="#{backingBeanScope.backing_Procesos_cuenta_crud.generarReporteCliente}"/>
             </af:toolbar>
         </f:facet>
         <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_Procesos_cuenta_crud.pfl1}" rows="2">
@@ -135,7 +135,8 @@
                   selectionListener="#{bindings.CuentaView2.collectionModel.makeCurrent}" rowSelection="single"
                   fetchSize="#{bindings.CuentaView2.rangeSize}"
                   filterModel="#{bindings.CuentaView2Query.queryDescriptor}" filterVisible="true"
-                  queryListener="#{bindings.CuentaView2Query.processQuery}" varStatus="vs" id="t1">
+                  queryListener="#{bindings.CuentaView2Query.processQuery}" varStatus="vs" id="t1"
+                  binding="#{backingBeanScope.backing_Procesos_cuenta_crud.t1}" partialTriggers="puCRUD">
             <af:column sortProperty="#{bindings.CuentaView2.hints.CuentaNumcue.name}" filterable="true" sortable="true"
                        headerText="#{bindings.CuentaView2.hints.CuentaNumcue.label}" id="c1" width="200">
                 <af:outputText value="#{row.CuentaNumcue}"

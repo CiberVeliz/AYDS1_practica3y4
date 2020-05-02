@@ -101,4 +101,15 @@
     <managed-bean-scope>backingBean</managed-bean-scope>
     <!--oracle-jdev-comment:managed-bean-jsp-link:1Procesos/welcome.jsff-->
   </managed-bean>
+  <managed-bean id="__19">
+    <managed-bean-name>backing_Procesos_perfil</managed-bean-name>
+    <managed-bean-class>view.backing.Procesos.Perfil</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__20">
+    <managed-bean-name>backing_Procesos_perfil_usuario</managed-bean-name>
+    <managed-bean-class>view.backing.Procesos.Perfil_usuario</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1Procesos/perfil_usuario.jsff-->
+  </managed-bean>
 </adfc-config>

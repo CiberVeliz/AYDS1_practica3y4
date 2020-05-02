@@ -18,9 +18,10 @@
     <page path="PageFlow#Rollback" usageId="view_adfc_config___RollbackPageDef"/>
     <page path="/WEB-INF/pro_transferencia.xml#pro_transferencia@ExecuteWithParams"
           usageId="view_pro_transferencia_pro_transferencia_ExecuteWithParamsPageDef1"/>
-    <page path="/TipoCambio/CambioDia.jsff" usageId="view_CambioDiaPageDef"/>
-    <page path="/TipoCambio/MenuTipoCambio.jsff" usageId="view_MenuTipoCambioPageDef"/>
-    <page path="/TipoCambio/CambioFecha.jsff" usageId="view_CambioFechaPageDef"/>
+    <page path="/Procesos/perfil.jsff" usageId="view_perfilPageDef"/>
+    <page path="/Procesos/perfil_usuario.jsff" usageId="view_perfil_usuarioPageDef"/>
+    <page path="/WEB-INF/perfil_usuario_tf.xml#perfil_usuario_tf@ExecuteWithParams"
+          usageId="view_perfil_usuario_tf_perfil_usuario_tf_ExecuteWithParamsPageDef"/>
   </pageMap>
   <definitionFactories>
     <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
@@ -46,12 +47,12 @@
           path="view.pageDefs.pro_transferencia_pro_transferencia_ExecuteWithParamsPageDef"/>
     <page id="view_pro_transferencia_pro_transferencia_ExecuteWithParamsPageDef1"
           path="view.pageDefs.pro_transferencia_pro_transferencia_ExecuteWithParamsPageDef1"/>
-    <page id="view_CambioDiaPageDef" path="TipoCambio.CambioDiaPageDef"/>
-    <page id="view_MenuTipoCambioPageDef" path="TipoCambio.MenuTipoCambioPageDef"/>
-    <page id="view_CambioFechaPageDef" path="TipoCambio.CambioFechaPageDef"/>
+    <page id="view_perfilPageDef" path="Procesos.perfilPageDef"/>
+    <page id="view_perfil_usuarioPageDef" path="Procesos.perfil_usuarioPageDef"/>
+    <page id="view_perfil_usuario_tf_perfil_usuario_tf_ExecuteWithParamsPageDef"
+          path="view.pageDefs.perfil_usuario_tf_perfil_usuario_tf_ExecuteWithParamsPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
-    <dc id="BancoGT" path="model.BancoGT"/>
     <BC4JDataControl id="AppModuleDataControl" Package="model"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"

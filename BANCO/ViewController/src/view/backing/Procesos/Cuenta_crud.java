@@ -68,10 +68,8 @@ public class Cuenta_crud {
         BindingContainer bindings = null;
         String accion = "";
         this.getEtiqEliminarC().setVisible(false);
-        //this.getSorTipPer().setValue("N");
-        //AdfFacesContext.getCurrentInstance().addPartialTarget(this.getSorTipPer());
-
-        if (ADFContext.getCurrent().getViewScope().get("accion") != null)
+     
+       if (ADFContext.getCurrent().getViewScope().get("accion") != null)
             accion = ADFContext.getCurrent().getViewScope().get("accion").toString();
         if ("ingresar".equalsIgnoreCase(accion)) {
             bindings = getBindings();
@@ -122,16 +120,11 @@ public class Cuenta_crud {
                 operationBinding = bindings.getOperationBinding("Delete");
                 operationBinding.execute();
 
-                bindings = getBindings();
-                operationBinding = bindings.getOperationBinding("Commit");
-                operationBinding.execute();
+              
 
             }
 
-            bindings = getBindings();
-            operationBinding = bindings.getOperationBinding("Commit");
-            operationBinding.execute();
-
+           
             AdfFacesContext.getCurrentInstance().addPartialTarget(this.t1);
 
 
@@ -154,10 +147,6 @@ public class Cuenta_crud {
         String pathReporte = null;
         DataSource ds = null;
 
-        String empresa = "";
-        String codPlanilla = "";
-
-
         StringBuilder sqlString = new StringBuilder();
         sqlString.append("");
 
@@ -165,33 +154,20 @@ public class Cuenta_crud {
 
             //Asignamos el path
             ic = new InitialContext();
-            //pathReporte = (String) ic.lookup("java:comp/env/urlReportes");
-
-            //Creamos la Conexion
-            //dataSourceName = (String) ic.lookup("java:comp/env/dataSourceName");
-
+     
             ds = (DataSource) ic.lookup("java:comp/env/jdbc/Connection1DS");
             connection = ds.getConnection();
 
             FacesContext context = javax.faces.context.FacesContext.getCurrentInstance();
             HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
 
-            //Valores que pasarán al objeto Map de Jasper Print
-            // empresa = ADFContext.getCurrent().getSessionScope().get("EMPRESA").toString();
-            //codPlanilla = this.codigoIt.getValue().toString();
-
-
             String parTipoReporte = tipoReporte; //Valor por defecto
-            String parNombreReporteTitulo = "Reporte - Perfil de usuario";
+            String parNombreReporteTitulo = "Reporte - Cuentas de usuario";
             String nombreReporte = "preplanilla";
 
-            //System.out.println("sqlString " + sqlString.toString());
-            //Parámetros que recibe el objeto Jasper Print
             Map<String, Object> params = new HashMap<String, Object>();
             params.put("parDpi", this.dpi.getValue().toString());
-            // params.put("parCodplanilla", codPlanilla);
-            // params.put("SUBREPORT_DIR", pathReporte);
-
+      
             //Parámetros objeto JasperPrint
             InputStream input = new FileInputStream(new File("C:\\reportes\\cuenta_cliente.jrxml"));
             JasperDesign design = JRXmlLoader.load(input);
