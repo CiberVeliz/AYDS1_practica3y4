@@ -101,6 +101,7 @@ public class Cliente {
     public String mostrarPopUpCRUD() {
         BindingContainer bindings = null;
         String accion = "";
+        String salida="";
         this.getEtiqEliminar().setVisible(false);
         //this.getSorTipPer().setValue("N");
         //AdfFacesContext.getCurrentInstance().addPartialTarget(this.getSorTipPer());
@@ -130,10 +131,10 @@ public class Cliente {
             popup.show(hints);
             this.getEtiqEliminar().setVisible(true);
         }
-
+            
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.getEtiqEliminar());
-
-        return null;
+        salida = "ingresar";
+        return salida;
     }
 
     /*PopupCanceledListener (Popup)*/

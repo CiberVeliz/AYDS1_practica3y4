@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelFormLayout id="pfl1">
+    <af:image source="#{resource['images:bancogt.png']}" id="i1"/>
+    <f:facet name="footer">
+      <af:outputLabel value="Tipo Cambio Dolar " id="ol1" inlineStyle="color:Blue; font-size:xx-large;"/>
+    </f:facet>
+  </af:panelFormLayout>
+  <af:panelFormLayout id="pfl2">
+    <af:panelGroupLayout id="pgl1">
+      <af:button text="Regresar" id="b1" action="back"/>
+      <af:button text="Actualizar" id="b2" partialTriggers="b2"/>
+      <af:inputText value="#{bindings.fechainit.inputValue}" label="#{bindings.fechainit.hints.label}"
+                    required="#{bindings.fechainit.hints.mandatory}" columns="#{bindings.fechainit.hints.displayWidth}"
+                    maximumLength="#{bindings.fechainit.hints.precision}"
+                    shortDesc="#{bindings.fechainit.hints.tooltip}" id="it1">
+        <f:validator binding="#{bindings.fechainit.validator}"/>
+      </af:inputText>
+    </af:panelGroupLayout>
+    <f:facet name="footer">
+      <af:table value="#{bindings.Var.collectionModel}" var="row" rows="#{bindings.Var.rangeSize}"
+                emptyText="#{bindings.Var.viewable ? 'No data to display.' : 'Access Denied.'}" rowBandingInterval="0"
+                fetchSize="#{bindings.Var.rangeSize}" id="t1">
+        <af:column headerText="#{bindings.Var.hints.fecha.label}" id="c1">
+          <af:outputText value="#{row.fecha}" shortDesc="#{bindings.Var.hints.fecha.tooltip}" id="ot2"/>
+        </af:column>
+        <af:column headerText="#{bindings.Var.hints.venta.label}" id="c2">
+          <af:outputText value="#{row.venta}" shortDesc="#{bindings.Var.hints.venta.tooltip}" id="ot3">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.Var.hints.venta.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column headerText="#{bindings.Var.hints.compra.label}" id="c3">
+          <af:outputText value="#{row.compra}" shortDesc="#{bindings.Var.hints.compra.tooltip}" id="ot4">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.Var.hints.compra.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:table>
+    </f:facet>
+  </af:panelFormLayout>
+</ui:composition>

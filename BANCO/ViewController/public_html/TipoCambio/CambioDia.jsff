@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelFormLayout id="pfl1">
+    <af:image source="#{resource['images:bancogt.png']}" id="i1"/>
+    <f:facet name="footer">
+      <af:outputText value="Cambio Dolar" id="ot1" inlineStyle="color:Blue; font-size:xx-large;"/>
+    </f:facet>
+  </af:panelFormLayout>
+  <af:panelFormLayout id="pfl2">
+    <af:inputText value="#{bindings.fecha.inputValue}" label="#{bindings.fecha.hints.label}"
+                  required="#{bindings.fecha.hints.mandatory}" readOnly="true"
+                  columns="#{bindings.fecha.hints.displayWidth}" maximumLength="#{bindings.fecha.hints.precision}"
+                  shortDesc="#{bindings.fecha.hints.tooltip}" id="it1">
+      <f:validator binding="#{bindings.fecha.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.referencia.inputValue}" label="#{bindings.referencia.hints.label}"
+                  required="#{bindings.referencia.hints.mandatory}" readOnly="true"
+                  columns="#{bindings.referencia.hints.displayWidth}"
+                  maximumLength="#{bindings.referencia.hints.precision}"
+                  shortDesc="#{bindings.referencia.hints.tooltip}" id="it2">
+      <f:validator binding="#{bindings.referencia.validator}"/>
+      <af:convertNumber groupingUsed="false" pattern="#{bindings.referencia.format}"/>
+    </af:inputText>
+  </af:panelFormLayout>
+  <af:button text="Regresar" id="b1" action="back"/>
+</ui:composition>

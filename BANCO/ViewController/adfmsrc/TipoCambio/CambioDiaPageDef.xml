@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="menuPageDef" Package="Menu">
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="CambioDiaPageDef"
+                Package="TipoCambio">
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="dynamicRegion1" taskFlowId="${viewScope.regionMenu.dynamicTaskFlowId}" activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <methodIterator Binds="TipoCambioDia.result" DataControl="BancoGT" RangeSize="25"
                     BeanClass="view.BancoGT.TipoCambioDia.TipoCambioDiaResult" id="TipoCambioDiaIterator"/>
     <accessorIterator MasterBinding="TipoCambioDiaIterator" Binds="CambioDolar" RangeSize="25" DataControl="BancoGT"

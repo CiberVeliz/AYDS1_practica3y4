@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelFormLayout id="pfl1">
+    <af:image source="#{resource['images:bancogt.png']}" id="i1"/>
+    <f:facet name="footer">
+      <af:outputText value="Menu " id="ot1" inlineStyle="font-size:xx-large; color:Blue;"/>
+    </f:facet>
+  </af:panelFormLayout>
+  <af:button text="Cambio Dia" id="b1" icon="#{resource['images:cambio.png']}" action="cambiodia"/>
+  <af:button text="Cambio Fecha" id="b2" icon="#{resource['images:cambiofecha.png']}" action="cambiofecha"/>
+</ui:composition>

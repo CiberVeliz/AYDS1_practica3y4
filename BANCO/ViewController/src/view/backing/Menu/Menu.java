@@ -5,10 +5,12 @@ import oracle.adf.view.rich.component.rich.RichForm;
 import oracle.adf.view.rich.component.rich.fragment.RichRegion;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.layout.RichPanelBox;
+import oracle.adf.view.rich.component.rich.layout.RichPanelFormLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelGroupLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelHeader;
 import oracle.adf.view.rich.component.rich.layout.RichPanelSplitter;
 import oracle.adf.view.rich.component.rich.nav.RichLink;
+import oracle.adf.view.rich.component.rich.output.RichMessages;
 import oracle.adf.view.rich.component.rich.output.RichSpacer;
 
 public class Menu {
@@ -39,6 +41,12 @@ public class Menu {
     private RichLink l8;
     private RichPanelGroupLayout pgl5;
     private RichLink l9;
+    private RichLink l10;
+    private RichLink l11;
+    private RichPanelFormLayout pfl1;
+    private RichInputText it4;
+    private RichInputText it5;
+    private RichMessages m1;
 
     public void setF1(RichForm f1) {
         this.f1 = f1;
@@ -257,5 +265,54 @@ public class Menu {
 
     public RichLink getL9() {
         return l9;
+    }
+
+    public void setL10(RichLink l10) {
+        this.l10 = l10;
+    }
+
+    public RichLink getL10() {
+        return l10;
+    }
+
+
+    public void setL11(RichLink l11) {
+        this.l11 = l11;
+    }
+
+    public RichLink getL11() {
+        return l11;
+    }
+
+    public void setPfl1(RichPanelFormLayout pfl1) {
+        this.pfl1 = pfl1;
+    }
+
+    public RichPanelFormLayout getPfl1() {
+        return pfl1;
+    }
+
+    public void setIt4(RichInputText it4) {
+        this.it4 = it4;
+    }
+
+    public RichInputText getIt4() {
+        return it4;
+    }
+
+    public void setIt5(RichInputText it5) {
+        this.it5 = it5;
+    }
+
+    public RichInputText getIt5() {
+        return it5;
+    }
+
+    public void setM1(RichMessages m1) {
+        this.m1 = m1;
+    }
+
+    public RichMessages getM1() {
+        return m1;
     }
 }

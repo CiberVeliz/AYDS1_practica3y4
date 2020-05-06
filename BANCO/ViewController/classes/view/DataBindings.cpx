@@ -22,6 +22,9 @@
     <page path="/Procesos/perfil_usuario.jsff" usageId="view_perfil_usuarioPageDef"/>
     <page path="/WEB-INF/perfil_usuario_tf.xml#perfil_usuario_tf@ExecuteWithParams"
           usageId="view_perfil_usuario_tf_perfil_usuario_tf_ExecuteWithParamsPageDef"/>
+    <page path="/TipoCambio/CambioDia.jsff" usageId="view_CambioDiaPageDef"/>
+    <page path="/TipoCambio/CambioFecha.jsff" usageId="view_CambioFechaPageDef"/>
+    <page path="/TipoCambio/MenuTipoCambio.jsff" usageId="view_MenuTipoCambioPageDef"/>
   </pageMap>
   <definitionFactories>
     <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
@@ -51,8 +54,12 @@
     <page id="view_perfil_usuarioPageDef" path="Procesos.perfil_usuarioPageDef"/>
     <page id="view_perfil_usuario_tf_perfil_usuario_tf_ExecuteWithParamsPageDef"
           path="view.pageDefs.perfil_usuario_tf_perfil_usuario_tf_ExecuteWithParamsPageDef"/>
+    <page id="view_CambioDiaPageDef" path="TipoCambio.CambioDiaPageDef"/>
+    <page id="view_CambioFechaPageDef" path="TipoCambio.CambioFechaPageDef"/>
+    <page id="view_MenuTipoCambioPageDef" path="TipoCambio.MenuTipoCambioPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="BancoGT" path="view.BancoGT"/>
     <BC4JDataControl id="AppModuleDataControl" Package="model"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"

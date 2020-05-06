@@ -5,6 +5,27 @@
     <variableIterator id="variables"/>
     <taskFlow id="dynamicRegion1" taskFlowId="${viewScope.regionMenu.dynamicTaskFlowId}" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <methodIterator Binds="TipoCambioDia.result" DataControl="BancoGT" RangeSize="25"
+                    BeanClass="view.BancoGT.TipoCambioDia.TipoCambioDiaResult" id="TipoCambioDiaIterator"/>
+    <accessorIterator MasterBinding="TipoCambioDiaIterator" Binds="CambioDolar" RangeSize="25" DataControl="BancoGT"
+                      BeanClass="view.BancoGT.TipoCambioDia.TipoCambioDiaResult.CambioDolar" id="CambioDolarIterator"/>
+    <accessorIterator MasterBinding="CambioDolarIterator" Binds="VarDolar" RangeSize="25" DataControl="BancoGT"
+                      BeanClass="view.BancoGT.TipoCambioDia.TipoCambioDiaResult.CambioDolar.VarDolar"
+                      id="VarDolarIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <methodAction id="TipoCambioDia" RequiresUpdateModel="true" Action="invokeMethod" MethodName="TipoCambioDia"
+                  IsViewObjectMethod="false" DataControl="BancoGT" InstanceName="data.BancoGT"
+                  ReturnName="data.BancoGT.methodResults.TipoCambioDia_BancoGT_TipoCambioDia_result"/>
+    <attributeValues IterBinding="VarDolarIterator" id="fecha">
+      <AttrNames>
+        <Item Value="fecha"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VarDolarIterator" id="referencia">
+      <AttrNames>
+        <Item Value="referencia"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>

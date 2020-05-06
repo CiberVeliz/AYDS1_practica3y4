@@ -24,4 +24,126 @@
       </StringRefAddr>
     </RefAddresses>
   </Reference>
+  <Reference name="BancoGT" className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+    <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="WebServiceConnection">
+        <Contents>
+          <wsconnection description="http://www.banguat.gob.gt/variables/ws/TipoCambio.asmx?wsdl"
+                        service="{http://www.banguat.gob.gt/variables/ws/}TipoCambio">
+            <model name="{http://www.banguat.gob.gt/variables/ws/}TipoCambio" xmlns="http://oracle.com/ws/model">
+              <service name="{http://www.banguat.gob.gt/variables/ws/}TipoCambio">
+                <port name="TipoCambioSoap" binding="{http://www.banguat.gob.gt/variables/ws/}TipoCambioSoap"
+                      portType="{http://www.banguat.gob.gt/variables/ws/}TipoCambioSoap">
+                  <soap addressUrl="http://www.banguat.gob.gt/variables/ws/TipoCambio.asmx"
+                        xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                  <operation name="VariablesDisponibles">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/VariablesDisponibles"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="Variables">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/Variables"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="TipoCambioFechaInicial">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/TipoCambioFechaInicial"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="TipoCambioRango">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/TipoCambioRango"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="TipoCambioFechaInicialMoneda">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/TipoCambioFechaInicialMoneda"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="TipoCambioRangoMoneda">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/TipoCambioRangoMoneda"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="TipoCambioDia">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/TipoCambioDia"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="TipoCambioDiaString">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/TipoCambioDiaString"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                </port>
+                <port name="TipoCambioSoap12" binding="{http://www.banguat.gob.gt/variables/ws/}TipoCambioSoap12"
+                      portType="{http://www.banguat.gob.gt/variables/ws/}TipoCambioSoap">
+                  <soap addressUrl="http://www.banguat.gob.gt/variables/ws/TipoCambio.asmx"
+                        xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                  <operation name="VariablesDisponibles">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/VariablesDisponibles"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="Variables">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/Variables"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="TipoCambioFechaInicial">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/TipoCambioFechaInicial"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="TipoCambioRango">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/TipoCambioRango"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="TipoCambioFechaInicialMoneda">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/TipoCambioFechaInicialMoneda"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="TipoCambioRangoMoneda">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/TipoCambioRangoMoneda"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="TipoCambioDia">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/TipoCambioDia"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="TipoCambioDiaString">
+                    <soap soapAction="http://www.banguat.gob.gt/variables/ws/TipoCambioDiaString"
+                          xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                </port>
+              </service>
+            </model>
+          </wsconnection>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
 </References>

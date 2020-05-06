@@ -68,7 +68,14 @@
       <string v="oracle.bm.commonIde.data.project.ModelerProjectSettings/modelersContentSet"/>
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
    </list>
+   <value n="DCProject" v="true"/>
    <value n="defaultPackage" v="view"/>
+   <value n="jbo.CustomContextMenus" v="true"/>
+   <value n="jbo.NoAttrEnumClasses" v="true"/>
+   <value n="JboProject" v="true"/>
+   <hash n="oracle.adfdtinternal.model.ide.settings.ADFMSettings">
+      <value n="hasDataControls" v="true"/>
+   </hash>
    <hash n="oracle.ide.model.DependencyConfiguration">
       <list n="dependencyList">
          <hash>
@@ -106,6 +113,16 @@
                   <url path="Menu Principal/"/>
                </list>
             </hash>
+            <hash>
+               <list n="pattern-filters">
+                  <string v="+bancogt.png"/>
+                  <string v="+bancogt.png"/>
+                  <string v="+cambio.png"/>
+               </list>
+               <list n="url-path">
+                  <url path="src/META-INF/resources/images/"/>
+               </list>
+            </hash>
          </list>
          <list n="url-path"/>
       </hash>
@@ -120,14 +137,91 @@
          <string v="Java"/>
          <string v="Maven"/>
          <string v="TRINIDAD"/>
+         <string v="WSDL"/>
+         <string v="WSPolicy"/>
+         <string v="WebServices"/>
          <string v="XML"/>
       </list>
    </hash>
+   <value n="oracle.jbo.SavedPreferences" v="true"/>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
+      <list n="copyRes">
+         <string v=".cpx"/>
+         <string v=".dcx"/>
+         <string v=".ejx"/>
+         <string v=".gif"/>
+         <string v=".ini"/>
+         <string v=".jpeg"/>
+         <string v=".jpg"/>
+         <string v=".png"/>
+         <string v=".properties"/>
+         <string v=".sva"/>
+         <string v=".tag"/>
+         <string v=".tld"/>
+         <string v=".wsdl"/>
+         <string v=".xcfg"/>
+         <string v=".xlf"/>
+         <string v=".xml"/>
+         <string v=".xsd"/>
+         <string v=".xsl"/>
+         <string v=".jpx"/>
+         <string v=".rpx"/>
+         <string v=".bcs"/>
+      </list>
       <value n="webIANAEncoding" v="UTF-8"/>
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
+         <hash n="BANCO_ViewController">
+            <value n="adflib-connectionDetails" v="true"/>
+            <value n="adflib-nonReusablesError" v="false"/>
+            <hash n="archiveOptions">
+               <value n="hasManifest" v="true"/>
+            </hash>
+            <hash n="fileGroups">
+               <list n="groups">
+                  <hash>
+                     <list n="contributors">
+                        <hash>
+                           <value n="type" v="2"/>
+                        </hash>
+                        <hash>
+                           <value n="type" v="5"/>
+                        </hash>
+                     </list>
+                     <value n="displayName" v="Project Output"/>
+                     <hash n="filters">
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="WEB-INF/classes/**"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="**"/>
+                              <value n="type" v="0"/>
+                           </hash>
+                        </list>
+                     </hash>
+                     <value n="internalName" v="project-output"/>
+                     <value n="type" v="1"/>
+                  </hash>
+               </list>
+            </hash>
+            <url n="jarURL" path="deploy/BANCO_ViewController.jar"/>
+            <hash n="LibraryDependencies">
+               <list n="dependencyList">
+                  <hash>
+                     <hash n="dependable">
+                        <url n="sourceOwnerURL" path="../BANCO.jws"/>
+                        <url n="sourceURL" path="../Model/Model.jpr"/>
+                     </hash>
+                     <value n="recognizerId" v="oracle.jdeveloper.library"/>
+                  </hash>
+               </list>
+            </hash>
+            <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
+            <value n="profileName" v="BANCO_ViewController"/>
+         </hash>
          <hash n="BANCO_ViewController_webapp">
             <hash n="appletArchives"/>
             <hash n="appletFiles">
@@ -365,6 +459,7 @@
          <string v="BANCO_ViewController_webapp"/>
          <string v="war_prueba"/>
          <string v="prueba1m"/>
+         <string v="BANCO_ViewController"/>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectLibraries">
@@ -450,7 +545,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="JUnit 4 Runtime"/>
+            <url n="id" path="../../../../../../../AppData/Roaming/JDeveloper/system12.2.1.0.42.170105.1157/o.jdeveloper/JUnit 4 Runtime.library"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -518,10 +613,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Oracle XML Parser v2"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="JDeveloper Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -543,6 +634,26 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Model Generic Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Oracle XML Parser v2"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="oracle.adfm.adapter.WebServiceDataControl Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="BC4J Security"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Web Service Data Control"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -703,6 +814,14 @@
                <value n="id" v="Poi-scratchpad-3.7-20101029.jar"/>
                <value n="locked" v="true"/>
             </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../.adf/"/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="oracle.adfm.adapter.WebServiceDataControl Library"/>
+               <value n="id" v="oracle.adfm.adapter.WebServiceDataControl Library"/>
+            </hash>
          </list>
       </hash>
       <list n="libraryReferences">
@@ -787,7 +906,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="JUnit 4 Runtime"/>
+            <url n="id" path="../../../../../../../AppData/Roaming/JDeveloper/system12.2.1.0.42.170105.1157/o.jdeveloper/JUnit 4 Runtime.library"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -855,10 +974,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Oracle XML Parser v2"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="JDeveloper Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -880,6 +995,26 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Model Generic Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Oracle XML Parser v2"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="oracle.adfm.adapter.WebServiceDataControl Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="BC4J Security"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Web Service Data Control"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
