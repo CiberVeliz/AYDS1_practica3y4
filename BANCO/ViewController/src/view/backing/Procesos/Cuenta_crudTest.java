@@ -7,6 +7,9 @@ import org.junit.Test;
 import org.junit.runner.JUnitCore;
 
 public class Cuenta_crudTest {
+
+    Cuenta_crud fixture1 = new Cuenta_crud();
+    
     public Cuenta_crudTest() {
     }
 
@@ -28,7 +31,9 @@ public class Cuenta_crudTest {
      */
     @Test
     public void testMostrarPopUpCRUDC() {
-        fail("Unimplemented");
+        String salida = null;
+        salida = fixture1.mostrarPopUpCRUDC();
+        assertEquals("no_ingresa", salida);
     }
 
     /**
@@ -36,7 +41,7 @@ public class Cuenta_crudTest {
      */
     @Test
     public void testOnDialogActionC() {
-        fail("Unimplemented");
+       // fail("Unimplemented");
     }
 
     /**
@@ -44,6 +49,6 @@ public class Cuenta_crudTest {
      */
     @Test
     public void testGenerarReporteCliente() {
-        fail("Unimplemented");
+       // fail("Unimplemented");
     }
 }

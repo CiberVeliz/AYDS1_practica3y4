@@ -43,10 +43,10 @@ public class Perfil_usuario {
 
         generarReportePerfil("pdf");
 
-        return "";
+        return null;
     }
 
-    public void generarReportePerfil(String tipoReporte) {
+    public String generarReportePerfil(String tipoReporte) {
         System.out.println("GENERANDO REPORTE...");
         Connection connection = null;
         String dataSourceName = null;
@@ -119,6 +119,7 @@ public class Perfil_usuario {
                 }
             }
         }
+        return tipoReporte;
     }
 
     public void setCodDpi(RichInputText codDpi) {

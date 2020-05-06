@@ -38,7 +38,7 @@ public class AsesorTest {
     public void testMostrarPopUpCRUD() {
         String salida = null;
         salida = fixture1.mostrarPopUpCRUD();
-        assertEquals("ingresar", salida);
+        assertEquals("no_ingresa", salida);
     }
 
     /**

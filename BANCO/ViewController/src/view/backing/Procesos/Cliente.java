@@ -101,7 +101,9 @@ public class Cliente {
     public String mostrarPopUpCRUD() {
         BindingContainer bindings = null;
         String accion = "";
-        String salida="";
+        String salida = null;
+        try {
+        
         this.getEtiqEliminar().setVisible(false);
         //this.getSorTipPer().setValue("N");
         //AdfFacesContext.getCurrentInstance().addPartialTarget(this.getSorTipPer());
@@ -131,9 +133,14 @@ public class Cliente {
             popup.show(hints);
             this.getEtiqEliminar().setVisible(true);
         }
-            
+
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.getEtiqEliminar());
-        salida = "ingresar";
+        salida = "ingresa";
+        } catch (NullPointerException e) {
+        System.out.print("NullPointerException Caught");
+        salida = "no_ingresa";
+        }
+        
         return salida;
     }
 

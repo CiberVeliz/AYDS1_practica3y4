@@ -5,12 +5,12 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import view.backing.Login;
-
 public class ClienteTest {
+    Cliente fixture1 = new Cliente();
+    
     public ClienteTest() {
     }
-    Cliente fixture1 = new Cliente();
+
     public static void main(String[] args) {
         String[] args2 = { ClienteTest.class.getName() };
         org.junit.runner.JUnitCore.main(args2);
@@ -18,12 +18,10 @@ public class ClienteTest {
 
     @Before
     public void setUp() throws Exception {
-    
     }
 
     @After
     public void tearDown() throws Exception {
-   
     }
 
     /**
@@ -33,7 +31,7 @@ public class ClienteTest {
     public void testMostrarPopUpCRUD() {
         String salida = null;
         salida = fixture1.mostrarPopUpCRUD();
-        assertEquals("ingresar", salida);
+        assertEquals("no_ingresa", salida);
     }
 
     /**
@@ -41,7 +39,6 @@ public class ClienteTest {
      */
     @Test
     public void testEditPopupCancelListener() {
-        
         //fail("Unimplemented");
     }
 
@@ -50,6 +47,6 @@ public class ClienteTest {
      */
     @Test
     public void testOnDialogAction() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 }

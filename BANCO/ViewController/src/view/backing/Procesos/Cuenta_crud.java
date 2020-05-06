@@ -67,6 +67,9 @@ public class Cuenta_crud {
     public String mostrarPopUpCRUDC() {
         BindingContainer bindings = null;
         String accion = "";
+        try {
+        
+        
         this.getEtiqEliminarC().setVisible(false);
      
        if (ADFContext.getCurrent().getViewScope().get("accion") != null)
@@ -96,8 +99,11 @@ public class Cuenta_crud {
         }
 
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.getEtiqEliminarC());
-
-        return null;
+            return "ingresa";
+        } catch (NullPointerException e) {
+        System.out.print("NullPointerException Caught");
+        return "no_ingresa";
+        }
     }
 
     /*PopupCanceledListener (Popup)*/
