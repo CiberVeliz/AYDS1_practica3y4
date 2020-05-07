@@ -17,8 +17,6 @@ public class Sucursal {
     private RichPopup puCRUD;
     private RichOutputText etiqEliminar;
     
-
-    
     /*Método que abre el pop up del CRUD*/
     public String mostrarPopUpCRUD() {
         BindingContainer bindings = null;
