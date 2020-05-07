@@ -59,7 +59,7 @@ public class Asesor {
             salida = "ingresar";
         } catch (NullPointerException e) {
             System.out.print("NullPointerException Caught");
-            salida = "ingresar";
+            salida = "no_ingresa";
         }
 
        

@@ -18,8 +18,8 @@
                     </f:facet>
                     <af:inputText label="Usuario" id="it1" binding="#{backingBeanScope.backing_Login.usuario}"
                                   valueChangeListener="#{backingBeanScope.backing_Login.ingresoUsuario}"
-                                  autoSubmit="true"/>
-                    <af:panelLabelAndMessage label="Contraseña" id="plam1">
+                                  autoSubmit="true" required="true"/>
+                    <af:panelLabelAndMessage label="Contraseña" id="plam1" showRequired="true">
                         <h:inputSecret id="is1" binding="#{backingBeanScope.backing_Login.password}"/>
                     </af:panelLabelAndMessage>
                     <af:separator id="s1"/>
@@ -44,7 +44,7 @@
                                 </af:inputText>
                                 <af:inputText value="#{bindings.ClienteNombre.inputValue}"
                                               label="#{bindings.ClienteNombre.hints.label}"
-                                              required="#{bindings.ClienteNombre.hints.mandatory}"
+                                              required="true"
                                               columns="#{bindings.ClienteNombre.hints.displayWidth}"
                                               maximumLength="#{bindings.ClienteNombre.hints.precision}"
                                               shortDesc="#{bindings.ClienteNombre.hints.tooltip}" id="it3"
@@ -61,14 +61,15 @@
                                 </af:inputText>
                                 <af:inputText value="#{bindings.ClienteContrasena.inputValue}"
                                               label="#{bindings.ClienteContrasena.hints.label}"
-                                              required="#{bindings.ClienteContrasena.hints.mandatory}"
+                                              required="true"
                                               columns="#{bindings.ClienteContrasena.hints.displayWidth}"
                                               maximumLength="#{bindings.ClienteContrasena.hints.precision}"
                                               shortDesc="#{bindings.ClienteContrasena.hints.tooltip}" id="it5"
                                               binding="#{backingBeanScope.backing_Login.puContra}">
                                     <f:validator binding="#{bindings.ClienteContrasena.validator}"/>
                                 </af:inputText>
-                                <af:inputText label="Vuelva a ingresar la contraseña" id="it7"/>
+                                <af:inputText label="Vuelva a ingresar la contraseña" id="it7" required="true"
+                                              valueChangeListener="#{backingBeanScope.backing_Login.contRep}"/>
                                 <af:inputText value="#{bindings.ClienteCorreo.inputValue}"
                                               label="#{bindings.ClienteCorreo.hints.label}"
                                               required="#{bindings.ClienteCorreo.hints.mandatory}"

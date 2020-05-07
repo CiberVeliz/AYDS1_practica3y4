@@ -224,4 +224,15 @@ public class Login {
     }
 
 
+    public void contRep(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        
+        if (valueChangeEvent.getNewValue() != this.puContra.getValue()){
+                FacesMessage msg =
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, null, "La contraseña no coincide");
+                FacesContext.getCurrentInstance().addMessage(null, msg);
+                
+            }
+        
+    }
 }
