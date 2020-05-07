@@ -12,7 +12,6 @@ import oracle.adf.view.rich.event.PopupCanceledEvent;
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
-
 public class Sucursal {
     private RichButton btnEditar;
     private RichPopup puCRUD;
@@ -113,7 +112,6 @@ public class Sucursal {
 
     public RichPopup getPuCRUD() {
         return puCRUD;
-        
     }
 
     public void setEtiqEliminar(RichOutputText etiqEliminar) {
