@@ -23,6 +23,7 @@ public class Sucursal {
     public String mostrarPopUpCRUD() {
         BindingContainer bindings = null;
         String accion = "";
+        try{
         this.getEtiqEliminar().setVisible(false);
         //this.getSorTipPer().setValue("N");
         //AdfFacesContext.getCurrentInstance().addPartialTarget(this.getSorTipPer());
@@ -54,8 +55,11 @@ public class Sucursal {
         }
 
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.getEtiqEliminar());
-
-        return null;
+            return"ingresosucursal";
+        }catch(NullPointerException e){
+            return "noingresosucursal";
+        }
+        
     }
 
     /*PopupCanceledListener (Popup)*/

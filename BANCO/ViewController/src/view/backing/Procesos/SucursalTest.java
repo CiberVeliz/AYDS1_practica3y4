@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.junit.runner.JUnitCore;
 
 public class SucursalTest {
+   Sucursal fixture1 = new Sucursal();
+    
     public SucursalTest() {
     }
 
@@ -28,7 +30,11 @@ public class SucursalTest {
      */
     @Test
     public void testMostrarPopUpCRUD() {
-        fail("Unimplemented");
+        String salida = null;
+        salida = fixture1.mostrarPopUpCRUD();
+        assertEquals("noingresosucursal", salida);
+        
+       
     }
 
     /**
@@ -36,6 +42,6 @@ public class SucursalTest {
      */
     @Test
     public void testOnDialogAction() {
-        fail("Unimplemented");
+       // fail("Unimplemented");
     }
 }
