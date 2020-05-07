@@ -5,11 +5,12 @@ import oracle.adf.view.rich.component.rich.RichForm;
 import oracle.adf.view.rich.component.rich.fragment.RichRegion;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.layout.RichPanelBox;
+import oracle.adf.view.rich.component.rich.layout.RichPanelFormLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelGroupLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelHeader;
-import oracle.adf.view.rich.component.rich.layout.RichPanelLabelAndMessage;
 import oracle.adf.view.rich.component.rich.layout.RichPanelSplitter;
 import oracle.adf.view.rich.component.rich.nav.RichLink;
+import oracle.adf.view.rich.component.rich.output.RichMessages;
 import oracle.adf.view.rich.component.rich.output.RichSpacer;
 
 public class Menu {
@@ -30,10 +31,22 @@ public class Menu {
     private RichLink l4;
     private RichLink l5;
     private RichLink l6;
-    private RichSpacer s1;
     private RichInputText it1;
-    private RichPanelLabelAndMessage plam1;
+    private RichPanelBox pb4;
     private RichPanelGroupLayout pgl4;
+    private RichInputText it2;
+    private RichLink l7;
+    private RichInputText it3;
+    private RichSpacer s1;
+    private RichLink l8;
+    private RichPanelGroupLayout pgl5;
+    private RichLink l9;
+    private RichLink l10;
+    private RichLink l11;
+    private RichPanelFormLayout pfl1;
+    private RichInputText it4;
+    private RichInputText it5;
+    private RichMessages m1;
 
     public void setF1(RichForm f1) {
         this.f1 = f1;
@@ -171,13 +184,6 @@ public class Menu {
         return l6;
     }
 
-    public void setS1(RichSpacer s1) {
-        this.s1 = s1;
-    }
-
-    public RichSpacer getS1() {
-        return s1;
-    }
 
     public void setIt1(RichInputText it1) {
         this.it1 = it1;
@@ -187,12 +193,13 @@ public class Menu {
         return it1;
     }
 
-    public void setPlam1(RichPanelLabelAndMessage plam1) {
-        this.plam1 = plam1;
+
+    public void setPb4(RichPanelBox pb4) {
+        this.pb4 = pb4;
     }
 
-    public RichPanelLabelAndMessage getPlam1() {
-        return plam1;
+    public RichPanelBox getPb4() {
+        return pb4;
     }
 
     public void setPgl4(RichPanelGroupLayout pgl4) {
@@ -201,5 +208,111 @@ public class Menu {
 
     public RichPanelGroupLayout getPgl4() {
         return pgl4;
+    }
+
+    public void setIt2(RichInputText it2) {
+        this.it2 = it2;
+    }
+
+    public RichInputText getIt2() {
+        return it2;
+    }
+
+    public void setL7(RichLink l7) {
+        this.l7 = l7;
+    }
+
+    public RichLink getL7() {
+        return l7;
+    }
+
+    public void setIt3(RichInputText it3) {
+        this.it3 = it3;
+    }
+
+    public RichInputText getIt3() {
+        return it3;
+    }
+
+    public void setS1(RichSpacer s1) {
+        this.s1 = s1;
+    }
+
+    public RichSpacer getS1() {
+        return s1;
+    }
+
+    public void setL8(RichLink l8) {
+        this.l8 = l8;
+    }
+
+    public RichLink getL8() {
+        return l8;
+    }
+
+
+    public void setPgl5(RichPanelGroupLayout pgl5) {
+        this.pgl5 = pgl5;
+    }
+
+    public RichPanelGroupLayout getPgl5() {
+        return pgl5;
+    }
+
+    public void setL9(RichLink l9) {
+        this.l9 = l9;
+    }
+
+    public RichLink getL9() {
+        return l9;
+    }
+
+    public void setL10(RichLink l10) {
+        this.l10 = l10;
+    }
+
+    public RichLink getL10() {
+        return l10;
+    }
+
+
+    public void setL11(RichLink l11) {
+        this.l11 = l11;
+    }
+
+    public RichLink getL11() {
+        return l11;
+    }
+
+    public void setPfl1(RichPanelFormLayout pfl1) {
+        this.pfl1 = pfl1;
+    }
+
+    public RichPanelFormLayout getPfl1() {
+        return pfl1;
+    }
+
+    public void setIt4(RichInputText it4) {
+        this.it4 = it4;
+    }
+
+    public RichInputText getIt4() {
+        return it4;
+    }
+
+    public void setIt5(RichInputText it5) {
+        this.it5 = it5;
+    }
+
+    public RichInputText getIt5() {
+        return it5;
+    }
+
+    public void setM1(RichMessages m1) {
+        this.m1 = m1;
+    }
+
+    public RichMessages getM1() {
+        return m1;
     }
 }

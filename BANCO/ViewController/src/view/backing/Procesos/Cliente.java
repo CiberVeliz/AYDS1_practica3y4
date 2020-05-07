@@ -1,5 +1,14 @@
 package view.backing.Procesos;
 
+
+import javax.faces.context.FacesContext;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.naming.InitialContext;
+
+import javax.servlet.http.HttpSession;
+
 import oracle.adf.model.BindingContext;
 import oracle.adf.share.ADFContext;
 import oracle.adf.view.rich.component.rich.RichPopup;
@@ -12,17 +21,89 @@ import oracle.adf.view.rich.event.PopupCanceledEvent;
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
+
+
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+
+import javax.faces.event.ValueChangeEvent;
+
+import javax.naming.InitialContext;
+
+import javax.servlet.http.HttpSession;
+
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+
+import oracle.adf.controller.ControllerContext;
+import oracle.adf.controller.TaskFlowId;
+import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCIteratorBinding;
+import oracle.adf.share.ADFContext;
+import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.data.RichTable;
+import oracle.adf.view.rich.component.rich.fragment.RichPageTemplate;
+import oracle.adf.view.rich.component.rich.input.RichInputDate;
+import oracle.adf.view.rich.component.rich.input.RichInputText;
+import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
+import oracle.adf.view.rich.component.rich.input.RichSelectOneRadio;
+import oracle.adf.view.rich.component.rich.layout.RichPanelBox;
+import oracle.adf.view.rich.component.rich.layout.RichPanelTabbed;
+import oracle.adf.view.rich.component.rich.layout.RichShowDetailItem;
+import oracle.adf.view.rich.component.rich.nav.RichButton;
+import oracle.adf.view.rich.component.rich.output.RichOutputText;
+
+import oracle.adf.view.rich.context.AdfFacesContext;
+import javax.sql.DataSource;
+import oracle.adf.view.rich.event.DialogEvent;
+import oracle.adf.view.rich.event.PopupCanceledEvent;
+import oracle.adf.view.rich.render.ClientEvent;
+
+import oracle.binding.BindingContainer;
+import oracle.binding.OperationBinding;
+
+import oracle.jbo.Key;
+
+import org.apache.myfaces.trinidad.context.RequestContext;
+import org.apache.myfaces.trinidad.event.DisclosureEvent;
+import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
+import org.apache.myfaces.trinidad.util.Service;
+
 public class Cliente {
     private RichButton b1;
     private RichButton btnEditar;
     private RichPopup puCRUD;
     private RichOutputText etiqEliminar;
-
+     
     
     /*Método que abre el pop up del CRUD*/
     public String mostrarPopUpCRUD() {
         BindingContainer bindings = null;
         String accion = "";
+        String salida = null;
+        try {
+        
         this.getEtiqEliminar().setVisible(false);
         //this.getSorTipPer().setValue("N");
         //AdfFacesContext.getCurrentInstance().addPartialTarget(this.getSorTipPer());
@@ -54,8 +135,13 @@ public class Cliente {
         }
 
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.getEtiqEliminar());
-
-        return null;
+        salida = "ingresa";
+        } catch (NullPointerException e) {
+        System.out.print("NullPointerException Caught");
+        salida = "no_ingresa";
+        }
+        
+        return salida;
     }
 
     /*PopupCanceledListener (Popup)*/
@@ -89,6 +175,8 @@ public class Cliente {
         }
 
     }
+    
+   
 
     public BindingContainer getBindings() {
         return BindingContext.getCurrent().getCurrentBindingsEntry();

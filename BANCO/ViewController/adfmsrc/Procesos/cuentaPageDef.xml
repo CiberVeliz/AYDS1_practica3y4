@@ -7,6 +7,7 @@
     <iterator Binds="ClienteView1" RangeSize="25" DataControl="AppModuleDataControl" id="ClienteView1Iterator"/>
     <searchRegion Binds="ClienteView1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ClienteView1Query"/>
+    <iterator Binds="CuentaView2" RangeSize="25" DataControl="AppModuleDataControl" id="CuentaView2Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="ClienteView1Iterator" id="ClienteView1">
@@ -18,5 +19,22 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="CuentaView2Iterator" id="CuentaNumcue">
+      <AttrNames>
+        <Item Value="CuentaNumcue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CuentaView2Iterator" id="CuentaSaldo">
+      <AttrNames>
+        <Item Value="CuentaSaldo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CuentaView2Iterator" id="CuentaTipo">
+      <AttrNames>
+        <Item Value="CuentaTipo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CuentaView2Iterator" StaticList="false" Uses="LOV_CuentaCodcli" id="CuentaCodcli"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

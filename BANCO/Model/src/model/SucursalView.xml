@@ -22,22 +22,51 @@
     PrecisionRule="true"
     EntityAttrName="SucursalCodsuc"
     EntityUsage="Sucursal"
-    AliasName="SUCURSAL_CODSUC"/>
+    AliasName="SUCURSAL_CODSUC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SucursalView.SucursalCodsuc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SucursalNombre"
     PrecisionRule="true"
     EntityAttrName="SucursalNombre"
     EntityUsage="Sucursal"
-    AliasName="SUCURSAL_NOMBRE"/>
+    AliasName="SUCURSAL_NOMBRE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SucursalView.SucursalNombre_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SucursalCiudad"
     PrecisionRule="true"
     EntityAttrName="SucursalCiudad"
     EntityUsage="Sucursal"
-    AliasName="SUCURSAL_CIUDAD"/>
+    AliasName="SUCURSAL_CIUDAD">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SucursalView.SucursalCiudad_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="PrestamoView"
     ViewLink="model.PrestamoSucursualFkLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

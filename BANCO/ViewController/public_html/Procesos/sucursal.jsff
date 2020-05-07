@@ -6,13 +6,17 @@
             <f:facet name="toolbar"/>
             <af:toolbar id="t2">
                 <af:spacer width="25" height="10" id="s1"/>
-                <af:button id="b1" useWindow="true" icon="#{resource['images:nuevo.png']}" shortDesc="Crear">
+                <af:button id="b1" useWindow="true" icon="#{resource['images:nuevo.png']}" shortDesc="Crear"
+                           action="#{backingBeanScope.backing_Procesos_sucursal.mostrarPopUpCRUD}">
                     <af:setPropertyListener from="#{'ingresar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
-                <af:button id="b2" icon="#{resource['images:mod.png']}" shortDesc="Editar">
+                <af:button id="b2" icon="#{resource['images:mod.png']}" shortDesc="Editar"
+                           binding="#{backingBeanScope.backing_Procesos_sucursal.btnEditar}"
+                           action="#{backingBeanScope.backing_Procesos_sucursal.mostrarPopUpCRUD}">
                     <af:setPropertyListener from="#{'editar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
-                <af:button id="b3" icon="#{resource['images:bor.png']}" shortDesc="Eliminar">
+                <af:button id="b3" icon="#{resource['images:bor.png']}" shortDesc="Eliminar"
+                           action="#{backingBeanScope.backing_Procesos_sucursal.mostrarPopUpCRUD}">
                     <af:setPropertyListener from="#{'eliminar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
             </af:toolbar>
@@ -83,11 +87,40 @@
                           inputComp.setValue(inputComp.getSubmittedValue().toUpperCase());
                       }
                     </af:resource>
-                <af:popup id="puCRUD" contentDelivery="lazyUncached">
-                    <af:dialog id="d1">
-                        <f:facet name="buttonBar">
+                <af:popup id="puCRUD" contentDelivery="lazyUncached"
+                          binding="#{backingBeanScope.backing_Procesos_sucursal.puCRUD}"
+                          popupCanceledListener="#{backingBeanScope.backing_Procesos_sucursal.editPopupCancelListener}">
+                    <af:dialog id="d1" dialogListener="#{backingBeanScope.backing_Procesos_sucursal.onDialogAction}">
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.SucursalCodsuc.inputValue}"
+                                  label="#{bindings.SucursalCodsuc.hints.label}"
+                                  required="#{bindings.SucursalCodsuc.hints.mandatory}"
+                                  columns="#{bindings.SucursalCodsuc.hints.displayWidth}"
+                                  maximumLength="#{bindings.SucursalCodsuc.hints.precision}"
+                                  shortDesc="#{bindings.SucursalCodsuc.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.SucursalCodsuc.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.SucursalNombre.inputValue}"
+                                  label="#{bindings.SucursalNombre.hints.label}"
+                                  required="#{bindings.SucursalNombre.hints.mandatory}"
+                                  columns="#{bindings.SucursalNombre.hints.displayWidth}"
+                                  maximumLength="#{bindings.SucursalNombre.hints.precision}"
+                                  shortDesc="#{bindings.SucursalNombre.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.SucursalNombre.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.SucursalCiudad.inputValue}"
+                                  label="#{bindings.SucursalCiudad.hints.label}"
+                                  required="#{bindings.SucursalCiudad.hints.mandatory}"
+                                  columns="#{bindings.SucursalCiudad.hints.displayWidth}"
+                                  maximumLength="#{bindings.SucursalCiudad.hints.precision}"
+                                  shortDesc="#{bindings.SucursalCiudad.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.SucursalCiudad.validator}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
+                <f:facet name="buttonBar">
                             <af:outputText value="El registro se borrará permanentemente. ¿Está seguro que desea continuar?"
-                                           id="etiqEliminar" styleClass="AFErrorIconStyle"/>
+                                           id="etiqEliminar" styleClass="AFErrorIconStyle"
+                                           binding="#{backingBeanScope.backing_Procesos_sucursal.etiqEliminar}"/>
                             <af:spacer width="150" height="10" id="s2"/>
                         </f:facet>
             </af:dialog>

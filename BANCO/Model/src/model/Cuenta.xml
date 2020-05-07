@@ -46,7 +46,7 @@
   <Attribute
     Name="CuentaCodcli"
     IsNotNull="true"
-    Precision="4"
+    Precision="35"
     ColumnName="CUENTA_CODCLI"
     SQLType="VARCHAR"
     Type="java.lang.String"

@@ -6,13 +6,17 @@
             <f:facet name="toolbar"/>
             <af:toolbar id="t2">
                 <af:spacer width="25" height="10" id="s1"/>
-                <af:button id="b1" useWindow="true" icon="#{resource['images:nuevo.png']}" shortDesc="Crear">
+                <af:button id="b1" useWindow="true" icon="#{resource['images:nuevo.png']}" shortDesc="Crear"
+                           action="#{backingBeanScope.backing_Procesos_asesor.mostrarPopUpCRUD}">
                     <af:setPropertyListener from="#{'ingresar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
-                <af:button id="b2" icon="#{resource['images:mod.png']}" shortDesc="Editar">
+                <af:button id="b2" icon="#{resource['images:mod.png']}" shortDesc="Editar"
+                           binding="#{backingBeanScope.backing_Procesos_asesor.btnEditar}"
+                           action="#{backingBeanScope.backing_Procesos_asesor.mostrarPopUpCRUD}">
                     <af:setPropertyListener from="#{'editar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
-                <af:button id="b3" icon="#{resource['images:bor.png']}" shortDesc="Eliminar">
+                <af:button id="b3" icon="#{resource['images:bor.png']}" shortDesc="Eliminar"
+                           action="#{backingBeanScope.backing_Procesos_asesor.mostrarPopUpCRUD}">
                     <af:setPropertyListener from="#{'eliminar'}" to="#{viewScope.accion}" type="action"/>
                 </af:button>
             </af:toolbar>
@@ -110,11 +114,57 @@
                           inputComp.setValue(inputComp.getSubmittedValue().toUpperCase());
                       }
                     </af:resource>
-                <af:popup id="puCRUD" contentDelivery="lazyUncached">
-                    <af:dialog id="d1">
-                        <f:facet name="buttonBar">
+                <af:popup id="puCRUD" contentDelivery="lazyUncached"
+                          binding="#{backingBeanScope.backing_Procesos_asesor.puCRUD}"
+                          popupCanceledListener="#{backingBeanScope.backing_Procesos_asesor.editPopupCancelListener}">
+                    <af:dialog id="d1" dialogListener="#{backingBeanScope.backing_Procesos_asesor.onDialogAction}">
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.EmpleadoCodemp.inputValue}"
+                                  label="#{bindings.EmpleadoCodemp.hints.label}"
+                                  required="#{bindings.EmpleadoCodemp.hints.mandatory}"
+                                  columns="#{bindings.EmpleadoCodemp.hints.displayWidth}"
+                                  maximumLength="#{bindings.EmpleadoCodemp.hints.precision}"
+                                  shortDesc="#{bindings.EmpleadoCodemp.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.EmpleadoCodemp.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.EmpleadoNombre.inputValue}"
+                                  label="#{bindings.EmpleadoNombre.hints.label}"
+                                  required="#{bindings.EmpleadoNombre.hints.mandatory}"
+                                  columns="#{bindings.EmpleadoNombre.hints.displayWidth}"
+                                  maximumLength="#{bindings.EmpleadoNombre.hints.precision}"
+                                  shortDesc="#{bindings.EmpleadoNombre.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.EmpleadoNombre.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.EmpleadoAntiguedad.inputValue}"
+                                  label="#{bindings.EmpleadoAntiguedad.hints.label}"
+                                  required="#{bindings.EmpleadoAntiguedad.hints.mandatory}"
+                                  columns="#{bindings.EmpleadoAntiguedad.hints.displayWidth}"
+                                  maximumLength="#{bindings.EmpleadoAntiguedad.hints.precision}"
+                                  shortDesc="#{bindings.EmpleadoAntiguedad.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.EmpleadoAntiguedad.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpleadoAntiguedad.format}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.EmpleadoFecini.inputValue}"
+                                  label="#{bindings.EmpleadoFecini.hints.label}"
+                                  required="#{bindings.EmpleadoFecini.hints.mandatory}"
+                                  columns="#{bindings.EmpleadoFecini.hints.displayWidth}"
+                                  shortDesc="#{bindings.EmpleadoFecini.hints.tooltip}" id="id2">
+                        <f:validator binding="#{bindings.EmpleadoFecini.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.EmpleadoFecini.format}"/>
+                    </af:inputDate>
+                    <af:inputText value="#{bindings.EmpleadoPuesto.inputValue}"
+                                  label="#{bindings.EmpleadoPuesto.hints.label}"
+                                  required="#{bindings.EmpleadoPuesto.hints.mandatory}"
+                                  columns="#{bindings.EmpleadoPuesto.hints.displayWidth}"
+                                  maximumLength="#{bindings.EmpleadoPuesto.hints.precision}"
+                                  shortDesc="#{bindings.EmpleadoPuesto.hints.tooltip}" id="it4">
+                        <f:validator binding="#{bindings.EmpleadoPuesto.validator}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
+                <f:facet name="buttonBar">
                             <af:outputText value="El registro se borrará permanentemente. ¿Está seguro que desea continuar?"
-                                           id="etiqEliminar" styleClass="AFErrorIconStyle"/>
+                                           id="etiqEliminar" styleClass="AFErrorIconStyle"
+                                           binding="#{backingBeanScope.backing_Procesos_asesor.etiqEliminar}"/>
                             <af:spacer width="150" height="10" id="s2"/>
                         </f:facet>
             </af:dialog>

@@ -124,7 +124,7 @@
                     </af:inputText>
                     <af:inputText value="#{bindings.ClienteNombre.inputValue}"
                                   label="#{bindings.ClienteNombre.hints.label}"
-                                  required="#{bindings.ClienteNombre.hints.mandatory}"
+                                  required="true"
                                   columns="#{bindings.ClienteNombre.hints.displayWidth}"
                                   maximumLength="#{bindings.ClienteNombre.hints.precision}"
                                   shortDesc="#{bindings.ClienteNombre.hints.tooltip}" id="it2">
@@ -140,7 +140,7 @@
                     </af:inputText>
                     <af:inputText value="#{bindings.ClienteContrasena.inputValue}"
                                   label="#{bindings.ClienteContrasena.hints.label}"
-                                  required="#{bindings.ClienteContrasena.hints.mandatory}"
+                                  required="true"
                                   columns="#{bindings.ClienteContrasena.hints.displayWidth}"
                                   maximumLength="#{bindings.ClienteContrasena.hints.precision}"
                                   shortDesc="#{bindings.ClienteContrasena.hints.tooltip}" id="it4">

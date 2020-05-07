@@ -5,7 +5,13 @@ import javax.faces.component.html.HtmlInputSecret;
 
 import javax.faces.context.FacesContext;
 
+import javax.faces.event.ValueChangeEvent;
+
+import javax.servlet.http.HttpSession;
+
 import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCBindingContainer;
+import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.ADFContext;
 import oracle.adf.view.rich.component.rich.RichDocument;
 import oracle.adf.view.rich.component.rich.RichForm;
@@ -19,28 +25,46 @@ import oracle.adf.view.rich.event.PopupCanceledEvent;
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
+import oracle.jbo.Row;
+import oracle.jbo.RowSetIterator;
+
+import org.apache.myfaces.trinidad.context.RequestContext;
+
 public class Login {
     private RichForm f1;
     private RichDocument d1;
     private RichInputText usuario;
     private HtmlInputSecret password;
     private RichPopup puCRUD;
+    RequestContext requestContext = RequestContext.getCurrentInstance();
+    FacesContext context = javax.faces.context.FacesContext.getCurrentInstance();
+    private RichInputText puCodcli;
+    private RichInputText puNombre;
+    private RichInputText puContra;
 
 
     /*Método que abre el pop up del CRUD*/
     public String mostrarPopUpCRUD() {
         BindingContainer bindings = null;
+        String salida =null;
+        try {
+            bindings = getBindings();
+            OperationBinding operationBinding = bindings.getOperationBinding("CreateWithParams");
+            operationBinding.execute();
 
-        bindings = getBindings();
-        OperationBinding operationBinding = bindings.getOperationBinding("CreateWithParams");
-        operationBinding.execute();
 
-        RichPopup popup = this.getPuCRUD();
-        RichPopup.PopupHints hints = new RichPopup.PopupHints();
-        //empty hints renders dialog in center of screen
-        popup.show(hints);
+            RichPopup popup = this.getPuCRUD();
+            RichPopup.PopupHints hints = new RichPopup.PopupHints();
+            //empty hints renders dialog in center of screen
+            popup.show(hints);
+            salida = "ingresar";
+            
+        } catch (NullPointerException e) {
+            System.out.print("NullPointerException Caught");
+            salida = "ingresar";
+        }
 
-        return null;
+        return salida;
     }
 
     /*PopupCanceledListener (Popup)*/
@@ -52,7 +76,8 @@ public class Login {
 
     /*DialogListener (Dialog)*/
     public void onDialogAction(DialogEvent dialogEvent) {
-
+        
+        HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
         if (dialogEvent.getOutcome().name().equals("ok")) {
 
             BindingContainer bindings = null;
@@ -61,6 +86,12 @@ public class Login {
             bindings = getBindings();
             operationBinding = bindings.getOperationBinding("Commit");
             operationBinding.execute();
+
+            requestContext.getPageFlowScope().put("USUARIO", this.puCodcli.getValue().toString());
+            requestContext.getPageFlowScope().put("CONTRASENA", this.puContra.getValue().toString());
+            session.setAttribute("NOMBRE", this.puNombre.getValue().toString());
+            session.setAttribute("USUARIO", this.puCodcli.getValue().toString());
+
         }
 
     }
@@ -112,20 +143,96 @@ public class Login {
 
     public String ingresar() {
         // Add event code here...
+        
         try {
-            if (this.usuario.getValue().equals("admin")) {
-                if (this.password.getValue().equals("admin"))
-                    return "ir_menu";
+            String usu = AdfFacesContext.getCurrentInstance().getPageFlowScope().get("USUARIO").toString();
+            String con = AdfFacesContext.getCurrentInstance().getPageFlowScope().get("CONTRASENA").toString();
+
+
+            if (this.usuario.getValue().equals(usu) && this.password.getValue().equals(con)) {
+                return "ir_menu";
             } else {
                 FacesMessage msg =
                     new FacesMessage(FacesMessage.SEVERITY_ERROR, null, "Usuario o contraseña incorrecta");
                 FacesContext.getCurrentInstance().addMessage(null, msg);
-
+                return "no_ingresa";
             }
 
         } catch (NullPointerException e) {
             System.out.print("NullPointerException Caught");
+            return "no_ingresa";
         }
-        return null;
+    }
+
+    public void ingresoUsuario(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
+        BindingContext bindingctx = BindingContext.getCurrent();
+        BindingContainer bindings = bindingctx.getCurrentBindingsEntry();
+        DCBindingContainer bindingsImpl = (DCBindingContainer) bindings;
+        DCIteratorBinding iter = bindingsImpl.findIteratorBinding("ClienteView1Iterator");
+        RowSetIterator row = iter.getRowSetIterator();
+        row.reset();
+        Row r = row.first();
+
+        System.out.println(r.getAttribute("ClienteCodcli").toString());
+
+        if (valueChangeEvent.getNewValue().equals(r.getAttribute("ClienteCodcli"))) {
+            requestContext.getPageFlowScope().put("USUARIO", r.getAttribute("ClienteCodcli").toString());
+            requestContext.getPageFlowScope().put("CONTRASENA", r.getAttribute("ClienteContrasena").toString());
+            session.setAttribute("NOMBRE", r.getAttribute("ClienteNombre").toString());
+            session.setAttribute("USUARIO", r.getAttribute("ClienteCodcli").toString());
+
+        }
+
+        while (row.hasNext()) {
+            r = row.next();
+            System.out.println(r.getAttribute("ClienteCodcli").toString());
+
+            if (valueChangeEvent.getNewValue().equals(r.getAttribute("ClienteCodcli"))) {
+                requestContext.getPageFlowScope().put("USUARIO", r.getAttribute("ClienteCodcli").toString());
+                requestContext.getPageFlowScope().put("CONTRASENA", r.getAttribute("ClienteContrasena").toString());
+                session.setAttribute("NOMBRE", r.getAttribute("ClienteNombre").toString());
+                session.setAttribute("USUARIO", r.getAttribute("ClienteCodcli").toString());
+
+            }
+        }
+    }
+
+    public void setPuCodcli(RichInputText puCodcli) {
+        this.puCodcli = puCodcli;
+    }
+
+    public RichInputText getPuCodcli() {
+        return puCodcli;
+    }
+
+    public void setPuNombre(RichInputText puNombre) {
+        this.puNombre = puNombre;
+    }
+
+    public RichInputText getPuNombre() {
+        return puNombre;
+    }
+
+    public void setPuContra(RichInputText puContra) {
+        this.puContra = puContra;
+    }
+
+    public RichInputText getPuContra() {
+        return puContra;
+    }
+
+
+    public void contRep(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        
+        if (valueChangeEvent.getNewValue() != this.puContra.getValue()){
+                FacesMessage msg =
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, null, "La contraseña no coincide");
+                FacesContext.getCurrentInstance().addMessage(null, msg);
+                
+            }
+        
     }
 }

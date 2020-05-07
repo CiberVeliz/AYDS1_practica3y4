@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="CambioDiaPageDef"
+                Package="TipoCambio">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="TipoCambioDia.result" DataControl="BancoGT" RangeSize="25"
+                    BeanClass="view.BancoGT.TipoCambioDia.TipoCambioDiaResult" id="TipoCambioDiaIterator"/>
+    <accessorIterator MasterBinding="TipoCambioDiaIterator" Binds="CambioDolar" RangeSize="25" DataControl="BancoGT"
+                      BeanClass="view.BancoGT.TipoCambioDia.TipoCambioDiaResult.CambioDolar" id="CambioDolarIterator"/>
+    <accessorIterator MasterBinding="CambioDolarIterator" Binds="VarDolar" RangeSize="25" DataControl="BancoGT"
+                      BeanClass="view.BancoGT.TipoCambioDia.TipoCambioDiaResult.CambioDolar.VarDolar"
+                      id="VarDolarIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="TipoCambioDia" RequiresUpdateModel="true" Action="invokeMethod" MethodName="TipoCambioDia"
+                  IsViewObjectMethod="false" DataControl="BancoGT" InstanceName="data.BancoGT"
+                  ReturnName="data.BancoGT.methodResults.TipoCambioDia_BancoGT_TipoCambioDia_result"/>
+    <attributeValues IterBinding="VarDolarIterator" id="fecha">
+      <AttrNames>
+        <Item Value="fecha"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VarDolarIterator" id="referencia">
+      <AttrNames>
+        <Item Value="referencia"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

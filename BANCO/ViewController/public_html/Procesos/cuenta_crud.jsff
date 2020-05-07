@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelBox text="PanelBox1" id="pb3" showDisclosure="false" showHeader="never">
+        <f:facet name="toolbar"/>
+        <af:panelHeader text="Cuenta bancaria" id="ph1" inlineStyle="height:54px;">
+            <f:facet name="context"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="menuBar">
+                <af:panelGroupLayout id="pgl1" binding="#{backingBeanScope.backing_Procesos_cuenta_crud.pgl1}"
+                                     halign="right" layout="horizontal">
+                    <af:button text="Guardar" id="b1"
+                               action="#{backingBeanScope.backing_Procesos_cuenta_crud.guardarCuenta}"/>
+                    <af:button text="Salir" id="b2" action="regresar_rollback" immediate="true"/>
+                </af:panelGroupLayout>
+            </f:facet>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+        </af:panelHeader>
+    </af:panelBox>
+    <af:panelBox text="Datos del cliente" id="pb1" binding="#{backingBeanScope.backing_Procesos_cuenta_crud.pb1}">
+        <f:facet name="toolbar">
+            <af:toolbar id="t3" inlineStyle="alignment-adjust:auto;">
+                <af:button id="b6" icon="#{resource['images:imprimir.png']}" shortDesc="Crear" useWindow="true"
+                           action="#{backingBeanScope.backing_Procesos_cuenta_crud.generarReporteCliente}"/>
+            </af:toolbar>
+        </f:facet>
+        <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_Procesos_cuenta_crud.pfl1}" rows="2">
+            <af:inputText value="#{bindings.ClienteCodcli.inputValue}" label="#{bindings.ClienteCodcli.hints.label}"
+                          required="#{bindings.ClienteCodcli.hints.mandatory}"
+                          columns="#{bindings.ClienteCodcli.hints.displayWidth}"
+                          maximumLength="#{bindings.ClienteCodcli.hints.precision}"
+                          shortDesc="#{bindings.ClienteCodcli.hints.tooltip}" id="it1"
+                          binding="#{backingBeanScope.backing_Procesos_cuenta_crud.dpi}">
+                <f:validator binding="#{bindings.ClienteCodcli.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.ClienteNombre.inputValue}" label="#{bindings.ClienteNombre.hints.label}"
+                          required="#{bindings.ClienteNombre.hints.mandatory}"
+                          columns="#{bindings.ClienteNombre.hints.displayWidth}"
+                          maximumLength="#{bindings.ClienteNombre.hints.precision}"
+                          shortDesc="#{bindings.ClienteNombre.hints.tooltip}" id="it2">
+                <f:validator binding="#{bindings.ClienteNombre.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.ClienteDireccion.inputValue}"
+                          label="#{bindings.ClienteDireccion.hints.label}"
+                          required="#{bindings.ClienteDireccion.hints.mandatory}"
+                          columns="#{bindings.ClienteDireccion.hints.displayWidth}"
+                          maximumLength="#{bindings.ClienteDireccion.hints.precision}"
+                          shortDesc="#{bindings.ClienteDireccion.hints.tooltip}" id="it3">
+                <f:validator binding="#{bindings.ClienteDireccion.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.ClienteContrasena.inputValue}"
+                          label="#{bindings.ClienteContrasena.hints.label}"
+                          required="#{bindings.ClienteContrasena.hints.mandatory}"
+                          columns="#{bindings.ClienteContrasena.hints.displayWidth}"
+                          maximumLength="#{bindings.ClienteContrasena.hints.precision}"
+                          shortDesc="#{bindings.ClienteContrasena.hints.tooltip}" id="it4">
+                <f:validator binding="#{bindings.ClienteContrasena.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.ClienteCorreo.inputValue}" label="#{bindings.ClienteCorreo.hints.label}"
+                          required="#{bindings.ClienteCorreo.hints.mandatory}"
+                          columns="#{bindings.ClienteCorreo.hints.displayWidth}"
+                          maximumLength="#{bindings.ClienteCorreo.hints.precision}"
+                          shortDesc="#{bindings.ClienteCorreo.hints.tooltip}" id="it5">
+                <f:validator binding="#{bindings.ClienteCorreo.validator}"/>
+            </af:inputText>
+        </af:panelFormLayout>
+    </af:panelBox>
+    <af:panelBox text="Cuenta" id="pb2" binding="#{backingBeanScope.backing_Procesos_cuenta_crud.pb2}">
+        <f:facet name="toolbar">
+            <af:toolbar id="t2">
+                <af:spacer width="25" height="10" id="s1"/>
+                <af:button id="b3" useWindow="true" icon="#{resource['images:nuevo.png']}" shortDesc="Crear"
+                           action="#{backingBeanScope.backing_Procesos_cuenta_crud.mostrarPopUpCRUDC}">
+                    <af:setPropertyListener from="#{'ingresar'}" to="#{viewScope.accion}" type="action"/>
+                </af:button>
+                <af:button id="b4" icon="#{resource['images:mod.png']}" shortDesc="Editar"
+                           binding="#{backingBeanScope.backing_Procesos_cuenta_crud.btnEditarC}"
+                           action="#{backingBeanScope.backing_Procesos_cuenta_crud.mostrarPopUpCRUDC}">
+                    <af:setPropertyListener from="#{'editar'}" to="#{viewScope.accion}" type="action"/>
+                </af:button>
+                <af:button id="b5" icon="#{resource['images:bor.png']}" shortDesc="Eliminar">
+                    <af:setPropertyListener from="#{'eliminar'}" to="#{viewScope.accion}" type="action"/>
+                </af:button>
+            </af:toolbar>
+        </f:facet>
+        <af:popup id="puCRUD" contentDelivery="lazyUncached"
+                  binding="#{backingBeanScope.backing_Procesos_cuenta_crud.puCRUDC}"
+                  popupCanceledListener="#{backingBeanScope.backing_Procesos_cuenta_crud.editPopupCancelListenerC}">
+                    <af:dialog id="d1"
+                               dialogListener="#{backingBeanScope.backing_Procesos_cuenta_crud.onDialogActionC}">
+                        <f:facet name="buttonBar">
+                            <af:outputText value="El registro se borrará permanentemente. ¿Está seguro que desea continuar?"
+                                           id="etiqEliminar" styleClass="AFErrorIconStyle"
+                                           binding="#{backingBeanScope.backing_Procesos_cuenta_crud.etiqEliminarC}"/>
+                            <af:spacer width="150" height="10" id="s2"/>
+                        </f:facet>
+                <af:panelFormLayout id="pfl2">
+                    <af:inputText value="#{bindings.CuentaNumcue.inputValue}"
+                                  label="#{bindings.CuentaNumcue.hints.label}"
+                                  required="#{bindings.CuentaNumcue.hints.mandatory}"
+                                  columns="#{bindings.CuentaNumcue.hints.displayWidth}"
+                                  maximumLength="#{bindings.CuentaNumcue.hints.precision}"
+                                  shortDesc="#{bindings.CuentaNumcue.hints.tooltip}" id="it8">
+                        <f:validator binding="#{bindings.CuentaNumcue.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CuentaSaldo.inputValue}" label="#{bindings.CuentaSaldo.hints.label}"
+                                  required="#{bindings.CuentaSaldo.hints.mandatory}"
+                                  columns="#{bindings.CuentaSaldo.hints.displayWidth}"
+                                  maximumLength="#{bindings.CuentaSaldo.hints.precision}"
+                                  shortDesc="#{bindings.CuentaSaldo.hints.tooltip}" id="it6">
+                        <f:validator binding="#{bindings.CuentaSaldo.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CuentaSaldo.format}"/>
+                    </af:inputText>
+                    <af:separator id="s3" visible="false"/>
+                    <af:selectOneChoice label="#{bindings.CuentaTipo.hints.label}" id="soc1"
+                                        value="#{bindings.CuentaTipo.inputValue}"
+                                        shortDesc="#{bindings.CuentaTipo.hints.tooltip}">
+                        <af:selectItem label="Ahorro" value="A" id="si1"/>
+                        <af:selectItem label="Monetaria" value="M" id="si3"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice value="#{bindings.CuentaCodcli.inputValue}"
+                                        label="#{bindings.CuentaCodcli.label}"
+                                        required="#{bindings.CuentaCodcli.hints.mandatory}"
+                                        shortDesc="#{bindings.CuentaCodcli.hints.tooltip}" id="soc2" visible="false">
+                        <f:selectItems value="#{bindings.CuentaCodcli.items}" id="si2"/>
+                        <f:validator binding="#{bindings.CuentaCodcli.validator}"/>
+                    </af:selectOneChoice>
+                </af:panelFormLayout>
+            </af:dialog>
+                </af:popup>
+        <af:table value="#{bindings.CuentaView2.collectionModel}" var="row" rows="#{bindings.CuentaView2.rangeSize}"
+                  emptyText="#{bindings.CuentaView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.CuentaView2.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.CuentaView2.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.CuentaView2.rangeSize}"
+                  filterModel="#{bindings.CuentaView2Query.queryDescriptor}" filterVisible="true"
+                  queryListener="#{bindings.CuentaView2Query.processQuery}" varStatus="vs" id="t1"
+                  binding="#{backingBeanScope.backing_Procesos_cuenta_crud.t1}" partialTriggers="puCRUD">
+            <af:column sortProperty="#{bindings.CuentaView2.hints.CuentaNumcue.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.CuentaView2.hints.CuentaNumcue.label}" id="c1" width="200">
+                <af:outputText value="#{row.CuentaNumcue}"
+                               shortDesc="#{bindings.CuentaView2.hints.CuentaNumcue.tooltip}" id="ot1"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.CuentaView2.hints.CuentaSaldo.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.CuentaView2.hints.CuentaSaldo.label}" id="c2">
+                <af:outputText value="#{row.CuentaSaldo}" shortDesc="#{bindings.CuentaView2.hints.CuentaSaldo.tooltip}"
+                               id="ot2">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CuentaView2.hints.CuentaSaldo.format}"/>
+                </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.CuentaView2.hints.CuentaTipo.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.CuentaView2.hints.CuentaTipo.label}" id="c3">
+                <af:outputText value="#{row.CuentaTipo}" shortDesc="#{bindings.CuentaView2.hints.CuentaTipo.tooltip}"
+                               id="ot3"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.CuentaView2.hints.CuentaCodcli.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.CuentaView2.hints.CuentaCodcli.label}" id="c4">
+                <af:outputText value="#{row.CuentaCodcli}"
+                               shortDesc="#{bindings.CuentaView2.hints.CuentaCodcli.tooltip}" id="ot4"/>
+            </af:column>
+        </af:table>
+    </af:panelBox>
+</ui:composition>

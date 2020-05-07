@@ -9,6 +9,22 @@
     <page path="/Procesos/prestamo.jsff" usageId="view_prestamoPageDef"/>
     <page path="/Procesos/sucursal.jsff" usageId="view_sucursalPageDef"/>
     <page path="/Procesos/cuenta.jsff" usageId="view_cuentaPageDef"/>
+    <page path="/WEB-INF/con_cuenta_tf.xml#con_cuenta_tf@CreateWithParameters"
+          usageId="view_con_cuenta_tf_con_cuenta_tf_CreateWithParametersPageDef"/>
+    <page path="/WEB-INF/con_cuenta_tf.xml#con_cuenta_tf@Rollback"
+          usageId="view_con_cuenta_tf_con_cuenta_tf_RollbackPageDef"/>
+    <page path="/Procesos/cuenta_crud.jsff" usageId="view_cuenta_crudPageDef"/>
+    <page path="/Procesos/transferencia.jsff" usageId="view_transferenciaPageDef"/>
+    <page path="PageFlow#Rollback" usageId="view_adfc_config___RollbackPageDef"/>
+    <page path="/WEB-INF/pro_transferencia.xml#pro_transferencia@ExecuteWithParams"
+          usageId="view_pro_transferencia_pro_transferencia_ExecuteWithParamsPageDef1"/>
+    <page path="/Procesos/perfil.jsff" usageId="view_perfilPageDef"/>
+    <page path="/Procesos/perfil_usuario.jsff" usageId="view_perfil_usuarioPageDef"/>
+    <page path="/WEB-INF/perfil_usuario_tf.xml#perfil_usuario_tf@ExecuteWithParams"
+          usageId="view_perfil_usuario_tf_perfil_usuario_tf_ExecuteWithParamsPageDef"/>
+    <page path="/TipoCambio/CambioDia.jsff" usageId="view_CambioDiaPageDef"/>
+    <page path="/TipoCambio/CambioFecha.jsff" usageId="view_CambioFechaPageDef"/>
+    <page path="/TipoCambio/MenuTipoCambio.jsff" usageId="view_MenuTipoCambioPageDef"/>
   </pageMap>
   <definitionFactories>
     <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
@@ -23,8 +39,27 @@
     <page id="view_prestamoPageDef" path="Procesos.prestamoPageDef"/>
     <page id="view_sucursalPageDef" path="Procesos.sucursalPageDef"/>
     <page id="view_cuentaPageDef" path="Procesos.cuentaPageDef"/>
+    <page id="view_con_cuenta_tf_con_cuenta_tf_CreateWithParametersPageDef"
+          path="view.pageDefs.con_cuenta_tf_con_cuenta_tf_CreateWithParametersPageDef"/>
+    <page id="view_con_cuenta_tf_con_cuenta_tf_RollbackPageDef"
+          path="view.pageDefs.con_cuenta_tf_con_cuenta_tf_RollbackPageDef"/>
+    <page id="view_cuenta_crudPageDef" path="Procesos.cuenta_crudPageDef"/>
+    <page id="view_transferenciaPageDef" path="Procesos.transferenciaPageDef"/>
+    <page id="view_adfc_config___RollbackPageDef" path="view.pageDefs.adfc_config___RollbackPageDef"/>
+    <page id="view_pro_transferencia_pro_transferencia_ExecuteWithParamsPageDef"
+          path="view.pageDefs.pro_transferencia_pro_transferencia_ExecuteWithParamsPageDef"/>
+    <page id="view_pro_transferencia_pro_transferencia_ExecuteWithParamsPageDef1"
+          path="view.pageDefs.pro_transferencia_pro_transferencia_ExecuteWithParamsPageDef1"/>
+    <page id="view_perfilPageDef" path="Procesos.perfilPageDef"/>
+    <page id="view_perfil_usuarioPageDef" path="Procesos.perfil_usuarioPageDef"/>
+    <page id="view_perfil_usuario_tf_perfil_usuario_tf_ExecuteWithParamsPageDef"
+          path="view.pageDefs.perfil_usuario_tf_perfil_usuario_tf_ExecuteWithParamsPageDef"/>
+    <page id="view_CambioDiaPageDef" path="TipoCambio.CambioDiaPageDef"/>
+    <page id="view_CambioFechaPageDef" path="TipoCambio.CambioFechaPageDef"/>
+    <page id="view_MenuTipoCambioPageDef" path="TipoCambio.MenuTipoCambioPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="BancoGT" path="view.BancoGT"/>
     <BC4JDataControl id="AppModuleDataControl" Package="model"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"

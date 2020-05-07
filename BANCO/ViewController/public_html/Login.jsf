@@ -6,7 +6,7 @@
         <af:messages id="m1"/>
         <af:form id="f1" binding="#{backingBeanScope.backing_Login.f1}">
             <af:panelGroupLayout id="pgl1" layout="scroll" halign="center">
-                <af:spacer width="10" height="98" id="s2"/>
+                <af:spacer width="10" height="185" id="s2"/>
                 <h:outputText value="SISTEMA DE GESTION BANCARIA" id="ot1"
                               style="font-size:large;"/>
                 <af:spacer width="10" height="37" id="s5"/>
@@ -16,8 +16,10 @@
                         <af:link text="Registrarse" id="l1"
                                  action="#{backingBeanScope.backing_Login.mostrarPopUpCRUD}"/>
                     </f:facet>
-                    <af:inputText label="Usuario" id="it1" binding="#{backingBeanScope.backing_Login.usuario}"/>
-                    <af:panelLabelAndMessage label="Contraseña" id="plam1">
+                    <af:inputText label="Usuario" id="it1" binding="#{backingBeanScope.backing_Login.usuario}"
+                                  valueChangeListener="#{backingBeanScope.backing_Login.ingresoUsuario}"
+                                  autoSubmit="true" required="true"/>
+                    <af:panelLabelAndMessage label="Contraseña" id="plam1" showRequired="true">
                         <h:inputSecret id="is1" binding="#{backingBeanScope.backing_Login.password}"/>
                     </af:panelLabelAndMessage>
                     <af:separator id="s1"/>
@@ -36,15 +38,17 @@
                                               required="#{bindings.ClienteCodcli.hints.mandatory}"
                                               columns="#{bindings.ClienteCodcli.hints.displayWidth}"
                                               maximumLength="#{bindings.ClienteCodcli.hints.precision}"
-                                              shortDesc="#{bindings.ClienteCodcli.hints.tooltip}" id="it2">
+                                              shortDesc="#{bindings.ClienteCodcli.hints.tooltip}" id="it2"
+                                              binding="#{backingBeanScope.backing_Login.puCodcli}">
                                     <f:validator binding="#{bindings.ClienteCodcli.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.ClienteNombre.inputValue}"
                                               label="#{bindings.ClienteNombre.hints.label}"
-                                              required="#{bindings.ClienteNombre.hints.mandatory}"
+                                              required="true"
                                               columns="#{bindings.ClienteNombre.hints.displayWidth}"
                                               maximumLength="#{bindings.ClienteNombre.hints.precision}"
-                                              shortDesc="#{bindings.ClienteNombre.hints.tooltip}" id="it3">
+                                              shortDesc="#{bindings.ClienteNombre.hints.tooltip}" id="it3"
+                                              binding="#{backingBeanScope.backing_Login.puNombre}">
                                     <f:validator binding="#{bindings.ClienteNombre.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.ClienteDireccion.inputValue}"
@@ -57,13 +61,15 @@
                                 </af:inputText>
                                 <af:inputText value="#{bindings.ClienteContrasena.inputValue}"
                                               label="#{bindings.ClienteContrasena.hints.label}"
-                                              required="#{bindings.ClienteContrasena.hints.mandatory}"
+                                              required="true"
                                               columns="#{bindings.ClienteContrasena.hints.displayWidth}"
                                               maximumLength="#{bindings.ClienteContrasena.hints.precision}"
-                                              shortDesc="#{bindings.ClienteContrasena.hints.tooltip}" id="it5">
+                                              shortDesc="#{bindings.ClienteContrasena.hints.tooltip}" id="it5"
+                                              binding="#{backingBeanScope.backing_Login.puContra}">
                                     <f:validator binding="#{bindings.ClienteContrasena.validator}"/>
                                 </af:inputText>
-                                <af:inputText label="Vuelva a ingresar la contraseña" id="it7"/>
+                                <af:inputText label="Vuelva a ingresar la contraseña" id="it7" required="true"
+                                              valueChangeListener="#{backingBeanScope.backing_Login.contRep}"/>
                                 <af:inputText value="#{bindings.ClienteCorreo.inputValue}"
                                               label="#{bindings.ClienteCorreo.hints.label}"
                                               required="#{bindings.ClienteCorreo.hints.mandatory}"

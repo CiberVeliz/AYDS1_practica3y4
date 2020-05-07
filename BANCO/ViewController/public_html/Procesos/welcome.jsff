@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout id="pgl1" halign="center" layout="scroll">
+        <af:spacer width="10" height="65" id="s1"/>
+        <af:activeOutputText value="BIENVENIDO #{sessionScope.NOMBRE}" id="aot1"/>
+    </af:panelGroupLayout>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_Procesos_welcome-->
+</ui:composition>

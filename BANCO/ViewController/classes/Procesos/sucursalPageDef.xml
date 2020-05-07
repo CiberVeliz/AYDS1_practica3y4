@@ -18,5 +18,28 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="SucursalView1Iterator" id="SucursalCodsuc">
+      <AttrNames>
+        <Item Value="SucursalCodsuc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SucursalView1Iterator" id="SucursalNombre">
+      <AttrNames>
+        <Item Value="SucursalNombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SucursalView1Iterator" id="SucursalCiudad">
+      <AttrNames>
+        <Item Value="SucursalCiudad"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SucursalView1Iterator" id="CreateWithParams" InstanceName="AppModuleDataControl.SucursalView1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="SucursalCodsuc" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="SucursalView1Iterator" id="Delete" InstanceName="AppModuleDataControl.SucursalView1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
   </bindings>
 </pageDefinition>

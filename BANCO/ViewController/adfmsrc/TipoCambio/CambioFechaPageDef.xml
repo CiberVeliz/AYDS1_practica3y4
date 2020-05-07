@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="CambioFechaPageDef"
+                Package="TipoCambio">
+  <parameters/>
+  <executables>
+    <methodIterator Binds="TipoCambioFechaInicial.result" DataControl="BancoGT" RangeSize="25"
+                    BeanClass="view.BancoGT.TipoCambioFechaInicial.TipoCambioFechaInicialResult"
+                    id="TipoCambioFechaInicialIterator"/>
+    <accessorIterator MasterBinding="TipoCambioFechaInicialIterator" Binds="Vars" RangeSize="25" DataControl="BancoGT"
+                      BeanClass="view.BancoGT.TipoCambioFechaInicial.TipoCambioFechaInicialResult.Vars"
+                      id="VarsIterator"/>
+    <accessorIterator MasterBinding="VarsIterator" Binds="Var" RangeSize="25" DataControl="BancoGT"
+                      BeanClass="view.BancoGT.TipoCambioFechaInicial.TipoCambioFechaInicialResult.Vars.Var"
+                      id="VarIterator"/>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="TipoCambioFechaInicial_fechainit" IsQueriable="false"
+                DefaultValue="20/04/2020"/>
+    </variableIterator>
+  </executables>
+  <bindings>
+    <methodAction id="TipoCambioFechaInicial" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="TipoCambioFechaInicial" IsViewObjectMethod="false" DataControl="BancoGT"
+                  InstanceName="data.BancoGT"
+                  ReturnName="data.BancoGT.methodResults.TipoCambioFechaInicial_BancoGT_TipoCambioFechaInicial_result">
+      <NamedData NDName="fechainit" NDType="java.lang.String" NDValue="${bindings.TipoCambioFechaInicial_fechainit}"/>
+    </methodAction>
+    <tree IterBinding="VarIterator" id="Var">
+      <nodeDefinition DefName="view.BancoGT.TipoCambioFechaInicial.TipoCambioFechaInicialResult.Vars.Var" Name="Var0">
+        <AttrNames>
+          <Item Value="fecha"/>
+          <Item Value="venta"/>
+          <Item Value="compra"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="variables" id="fechainit">
+      <AttrNames>
+        <Item Value="TipoCambioFechaInicial_fechainit"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

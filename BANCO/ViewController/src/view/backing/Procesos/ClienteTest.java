@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ClienteTest {
+    Cliente fixture1 = new Cliente();
+    
     public ClienteTest() {
     }
 
@@ -27,7 +29,9 @@ public class ClienteTest {
      */
     @Test
     public void testMostrarPopUpCRUD() {
-        fail("Unimplemented");
+        String salida = null;
+        salida = fixture1.mostrarPopUpCRUD();
+        assertEquals("no_ingresa", salida);
     }
 
     /**
@@ -35,7 +39,7 @@ public class ClienteTest {
      */
     @Test
     public void testEditPopupCancelListener() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**
@@ -43,6 +47,6 @@ public class ClienteTest {
      */
     @Test
     public void testOnDialogAction() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 }

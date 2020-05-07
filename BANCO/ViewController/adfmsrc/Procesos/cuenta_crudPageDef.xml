@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="cuenta_crudPageDef"
+                Package="Procesos">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ClienteView1" RangeSize="25" DataControl="AppModuleDataControl" id="ClienteView1Iterator"/>
+    <iterator Binds="CuentaView2" RangeSize="25" DataControl="AppModuleDataControl" id="CuentaView2Iterator"/>
+    <searchRegion Binds="CuentaView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CuentaView2Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ClienteView1Iterator" id="ClienteCodcli">
+      <AttrNames>
+        <Item Value="ClienteCodcli"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteView1Iterator" id="ClienteNombre">
+      <AttrNames>
+        <Item Value="ClienteNombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteView1Iterator" id="ClienteDireccion">
+      <AttrNames>
+        <Item Value="ClienteDireccion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteView1Iterator" id="ClienteContrasena">
+      <AttrNames>
+        <Item Value="ClienteContrasena"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteView1Iterator" id="ClienteCorreo">
+      <AttrNames>
+        <Item Value="ClienteCorreo"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CuentaView2Iterator" id="CreateWithParams" InstanceName="AppModuleDataControl.CuentaView2"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="CuentaNumcue" NDType="java.lang.String"/>
+      <NamedData NDName="CuentaCodcli" NDType="java.lang.String"/>
+    </action>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action IterBinding="CuentaView2Iterator" id="Delete" InstanceName="AppModuleDataControl.CuentaView2"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="CuentaView2Iterator" id="CuentaSaldo">
+      <AttrNames>
+        <Item Value="CuentaSaldo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CuentaView2Iterator" id="CuentaTipo">
+      <AttrNames>
+        <Item Value="CuentaTipo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CuentaView2Iterator" StaticList="false" Uses="LOV_CuentaCodcli" id="CuentaCodcli"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="CuentaView2Iterator" id="CuentaView2">
+      <nodeDefinition DefName="model.CuentaView" Name="CuentaView20">
+        <AttrNames>
+          <Item Value="CuentaNumcue"/>
+          <Item Value="CuentaSaldo"/>
+          <Item Value="CuentaTipo"/>
+          <Item Value="CuentaCodcli"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="CuentaView2Iterator" id="CuentaNumcue">
+      <AttrNames>
+        <Item Value="CuentaNumcue"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
