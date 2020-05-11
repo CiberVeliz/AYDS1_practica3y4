@@ -3,6 +3,17 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
   <servlet>
+
+<!-- comen -->
+<!-- comen -->
+<!-- comen -->
+<!-- comen -->
+<!-- comen -->
+<!-- comen -->
+<!-- comen -->
+<!-- comen -->
+<!-- comen -->
+<!-- comen -->
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
